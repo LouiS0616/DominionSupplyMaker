@@ -1,15 +1,11 @@
 import collections
 import statistics
 import time
-from typing import TYPE_CHECKING
 
 from tqdm import tqdm
 
 from ..src.model.card_set import Supply
 from ..src.model.load import load_cards
-
-if TYPE_CHECKING:
-    from ..src.model.card import Card
 
 
 N = 100_000
