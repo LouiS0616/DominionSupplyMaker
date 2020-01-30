@@ -1,2 +1,2 @@
-from .constraint import comply_with_constraint, parse_constraint
-from .constraint import  SupplyConstraint
+from .constraint import comply_with_constraint, SupplyConstraint
+from .parse import parse_constraint
