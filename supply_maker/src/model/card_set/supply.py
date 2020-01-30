@@ -43,6 +43,11 @@ class Supply(CardSet):
 
     #
     def __str__(self):
+        if not self._has_already_set_up:
+            raise type(
+                'StateError', (ValueError, ), {}
+            )('Call both of "setup" and "is_valid" methods before.')
+
         return '\n'.join(
             '{} {} {}'.format(
                 card.cost, card.name,
