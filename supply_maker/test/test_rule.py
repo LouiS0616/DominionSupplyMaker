@@ -37,8 +37,9 @@ def _test_young_witch():
         assert bane.cost in (Cost(2), Cost(3))
 
     print('OK')
-    time.sleep(1)
 
 
 _test_young_witch()
+print(flush=True)
+time.sleep(1)
 

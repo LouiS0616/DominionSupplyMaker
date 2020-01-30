@@ -14,6 +14,8 @@ counter = collections.Counter()
 card_set = load_cards()
 for _ in tqdm(range(N), desc='Testing load balance'):
     supply = Supply.frm(card_set)
+    assert len(supply) == 10
+
     # noinspection PyProtectedMember
     counter.update(supply._data)
 
@@ -27,4 +29,5 @@ print(f'stddev: {statistics.pstdev(values):8.2f}')
 print(f'max:    {mx_v:5d} {mx_k.name}')
 print(f'min:    {mn_v:5d} {mn_k.name}')
 
+print(flush=True)
 time.sleep(1)
