@@ -1,1 +1,1 @@
-from .load import load_cards
+from .load_cards import load_cards
