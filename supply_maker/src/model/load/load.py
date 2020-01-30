@@ -1,6 +1,6 @@
 import csv
-from pathlib import Path
 
+from .... import top
 from ..card import Card
 from ..card_set import CardSet
 
@@ -23,7 +23,9 @@ def _parse_card(stem: str, raw: [str]) -> Card:
     )
 
 
-def load_cards(path: Path) -> CardSet:
+def load_cards() -> CardSet:
+    path = top.where / 'res/kingdom_cards'
+
     ret = CardSet()
     for p in path.glob('*.csv'):
         with p.open(encoding='utf-8', newline='') as fin:
