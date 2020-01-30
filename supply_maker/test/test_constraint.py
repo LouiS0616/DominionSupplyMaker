@@ -11,6 +11,8 @@ card_set = load_cards()
 
 def test(N=100):
     test_single(N)
+    _flush_and_wait()
+
     test_and(N)
     _flush_and_wait()
 
