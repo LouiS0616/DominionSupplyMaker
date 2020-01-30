@@ -1,4 +1,3 @@
-import time
 from tqdm import tqdm
 
 from . import _flush_and_wait
@@ -16,7 +15,7 @@ def test():
     _flush_and_wait()
 
 
-# noinspection PyProtectedMember
+# noinspection PyProtectedMember,PyPep8Naming
 def _test_young_witch():
     def do_once():
         # set includes only 'young witch'
