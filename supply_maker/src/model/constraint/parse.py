@@ -39,6 +39,6 @@ def parse_constraint(src: str) -> List[int]:
         raise ValueError
 
     if src == '*':
-        return _range_closed(0, 10)
+        return _range_closed(0, _END)
 
     return _parse_constraint(src.split(','))
