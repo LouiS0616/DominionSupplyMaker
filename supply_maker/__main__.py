@@ -1,6 +1,7 @@
 import argparse
 
 from . import _where
+from .make_supply import make_supply
 from .src.model.load import load_cards
 from .src.model.card_set import Supply
 
@@ -23,19 +24,9 @@ def _main():
     args = parser.parse_args()
     # print(args.constraint)
 
+    supply = make_supply()
+    print(supply)
+    print(f'{len(supply)}枚選ばれました')
+
 
 _main()
-
-card_set = load_cards()
-while True:
-    supply = Supply.frm(card_set)
-    supply.setup()
-
-    if supply.is_valid():
-        break
-
-
-print(supply)
-print(f'{len(supply)}枚選ばれました')
-
-
