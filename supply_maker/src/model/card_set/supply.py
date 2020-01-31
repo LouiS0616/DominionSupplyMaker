@@ -1,4 +1,4 @@
-from typing import Dict, TextIO
+from typing import Dict
 from typing import TYPE_CHECKING
 
 from .... import get_file_logger
