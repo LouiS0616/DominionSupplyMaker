@@ -1,6 +1,6 @@
 import csv
 
-from .... import top
+from .... import _where
 from ..card import Card
 from ..card_set import CardSet
 
@@ -24,7 +24,7 @@ def _parse_card(stem: str, raw: [str]) -> Card:
 
 
 def load_cards() -> CardSet:
-    path = top.where / 'res/kingdom_cards'
+    path = _where / 'res/kingdom_cards'
 
     ret = CardSet()
     for p in path.glob('*.csv'):

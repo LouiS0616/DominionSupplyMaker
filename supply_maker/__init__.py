@@ -1,5 +1,7 @@
 import logging as logging_
-from . import top
+import pathlib
+
+_where = pathlib.Path(__file__).parent.resolve()
 
 
 # noinspection SpellCheckingInspection
@@ -13,7 +15,7 @@ def get_file_logger(
     logger.setLevel(level)
 
     handler = logging_.FileHandler(
-        top.where / f'out/log/{name}.log', encoding='utf-8', mode='w'
+        _where / f'out/log/{name}.log', encoding='utf-8', mode='w'
     )
     handler.setFormatter(logging_.Formatter(form))
     logger.addHandler(handler)
