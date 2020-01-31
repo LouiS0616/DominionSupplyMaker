@@ -13,6 +13,18 @@ class SupplyConstraint(_SupplyConstraint):
     def __init__(self, pred):
         self._pred = pred
 
+    def __and__(self, other: 'SupplyConstraint') -> 'SupplyConstraint':
+        def _inner(supply: 'Supply') -> bool:
+            return self(supply) and other(supply)
+
+        return SupplyConstraint(_inner)
+
+    def __add__(self, other):
+        print('add')
+
+    def __or__(self, other):
+        raise NotImplementedError
+
     def __call__(self, supply: 'Supply') -> bool:
         return self._pred(supply)
 

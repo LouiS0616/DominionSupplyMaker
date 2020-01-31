@@ -4,6 +4,8 @@ from .... import get_file_logger
 from . import CardSet
 from .. import rule
 from ..card import Card
+from ..load.load_constraints import load_constraint
+
 
 # noinspection SpellCheckingInspection
 _logger = get_file_logger(
@@ -12,6 +14,8 @@ _logger = get_file_logger(
 
 
 class Supply(CardSet):
+    _constraint = load_constraint()
+
     def __init__(self, *args, parent: CardSet, _frm: CardSet = None, **kwargs):
         self._has_already_set_up = False
         self._parent = parent
@@ -41,11 +45,14 @@ class Supply(CardSet):
             )
 
     def is_valid(self) -> bool:
+        cls = type(self)
+
         if not self._has_already_set_up:
             self.setup()
 
         # todo: implement
-        if True:
+        if cls._constraint(self):
+            _logger.info('is_valid is called')
             return True
 
         _logger.debug('This candidate is ignored: {}'.format(
