@@ -1,6 +1,6 @@
-import time
 from tqdm import tqdm
 
+from . import _flush_and_wait
 from ..src.model.load import load_cards
 from ..src.model.card import Cost
 from ..src.model.card.evaluate import has_attr
@@ -10,7 +10,12 @@ from ..src.model.card_set import Supply
 _card_set = load_cards()
 
 
-# noinspection PyProtectedMember
+def test():
+    _test_young_witch()
+    _flush_and_wait()
+
+
+# noinspection PyProtectedMember,PyPep8Naming
 def _test_young_witch():
     def do_once():
         # set includes only 'young witch'
@@ -39,7 +44,4 @@ def _test_young_witch():
     print('OK')
 
 
-_test_young_witch()
-print(flush=True)
-time.sleep(1)
 
