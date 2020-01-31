@@ -53,7 +53,7 @@ class Supply(CardSet):
         card_names = [card.name for card in self._data]
 
         if constraint(self):
-            _logger.info(f'Accepted: {" ".join(card_names)}')
+            _logger.debug(f'Accepted: {" ".join(card_names)}')
             return True
 
         _logger.debug(f'This candidate is ignored: {" ".join(card_names)}')
