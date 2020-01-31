@@ -1,8 +1,14 @@
 from typing import Dict
 
+from .... import get_file_logger
 from . import CardSet
 from .. import rule
 from ..card import Card
+
+# noinspection SpellCheckingInspection
+_logger = get_file_logger(
+    __name__, form='%(levelname)s | %(message)s'
+)
 
 
 class Supply(CardSet):
@@ -39,7 +45,13 @@ class Supply(CardSet):
             self.setup()
 
         # todo: implement
-        return True
+        if True:
+            return True
+
+        _logger.debug('This candidate is ignored: {}'.format(
+            ' '.join(card.name for card in self._data)
+        ))
+        return False
 
     #
     def __str__(self):
