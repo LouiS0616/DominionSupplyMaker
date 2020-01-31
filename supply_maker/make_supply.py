@@ -22,7 +22,7 @@ def make_supply(constraint: 'SupplyConstraint') -> 'Supply':
         i += 1
     else:
         raise ValueError('\n'.join([
-            'Though system has tried to make supply 10000 times, cannot complete.',
+            'Though system has tried to make supply 10,000 times, cannot complete that.',
             'Check constraint, that should be too tight.'
         ]))
 
