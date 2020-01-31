@@ -1,17 +1,22 @@
+from typing import TYPE_CHECKING
+
 from .src.model.load import load_cards
 from .src.model.card_set import Supply
+
+if TYPE_CHECKING:
+    from .src.model.constraint import SupplyConstraint
 
 
 _card_set = load_cards()
 
 
-def make_supply() -> 'Supply':
+def make_supply(constraint: 'SupplyConstraint') -> 'Supply':
     i = 0
     while i < 10_000:
         supply = Supply.frm(_card_set)
         supply.setup()
 
-        if supply.is_valid():
+        if supply.is_valid(constraint):
             break
 
         i += 1

@@ -1,10 +1,13 @@
-from typing import Dict
+from typing import Dict, TextIO
+from typing import TYPE_CHECKING
 
 from .... import get_file_logger
 from . import CardSet
 from .. import rule
 from ..card import Card
-from ..load.load_constraints import load_constraint
+
+if TYPE_CHECKING:
+    from ..constraint import SupplyConstraint
 
 
 # noinspection SpellCheckingInspection
@@ -14,8 +17,6 @@ _logger = get_file_logger(
 
 
 class Supply(CardSet):
-    _constraint = load_constraint()
-
     def __init__(self, *args, parent: CardSet, _frm: CardSet = None, **kwargs):
         self._has_already_set_up = False
         self._parent = parent
@@ -44,15 +45,14 @@ class Supply(CardSet):
                 self, self._parent - self, self._card_to_role, []
             )
 
-    def is_valid(self) -> bool:
-        cls = type(self)
-
+    def is_valid(self, constraint: 'SupplyConstraint') -> bool:
         if not self._has_already_set_up:
             self.setup()
 
         #
         card_names = [card.name for card in self._data]
-        if cls._constraint(self):
+
+        if constraint(self):
             _logger.info(f'Accepted: {" ".join(card_names)}')
             return True
 

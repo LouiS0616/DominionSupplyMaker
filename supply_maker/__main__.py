@@ -2,8 +2,7 @@ import argparse
 
 from . import _where
 from .make_supply import make_supply
-from .src.model.load import load_cards
-from .src.model.card_set import Supply
+from .src.model.load.load_constraints import load_constraint
 
 
 def _init_parser() -> argparse.ArgumentParser:
@@ -24,7 +23,9 @@ def _main():
     args = parser.parse_args()
     # print(args.constraint)
 
-    supply = make_supply()
+    supply = make_supply(
+        load_constraint(args.constraint)
+    )
     print(supply)
     print(f'{len(supply)}枚選ばれました')
 
