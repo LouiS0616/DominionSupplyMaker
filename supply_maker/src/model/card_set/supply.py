@@ -50,14 +50,13 @@ class Supply(CardSet):
         if not self._has_already_set_up:
             self.setup()
 
-        # todo: implement
+        #
+        card_names = [card.name for card in self._data]
         if cls._constraint(self):
-            _logger.info('is_valid is called')
+            _logger.info(f'Accepted: {" ".join(card_names)}')
             return True
 
-        _logger.debug('This candidate is ignored: {}'.format(
-            ' '.join(card.name for card in self._data)
-        ))
+        _logger.debug(f'This candidate is ignored: {" ".join(card_names)}')
         return False
 
     #
