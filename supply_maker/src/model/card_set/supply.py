@@ -56,7 +56,7 @@ class Supply(CardSet):
             _logger.debug(f'Accepted: {" ".join(card_names)}')
             return True
 
-        _logger.debug(f'This candidate is ignored: {" ".join(card_names)}')
+        _logger.debug(f'Rejected: {" ".join(card_names)}')
         return False
 
     #
