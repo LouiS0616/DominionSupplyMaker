@@ -1,5 +1,6 @@
 from tqdm import tqdm
 
+from .. import _where
 from . import _flush_and_wait
 from ..src.model.load import load_cards
 from ..src.model.card import Cost
@@ -7,7 +8,7 @@ from ..src.model.card.evaluate import has_attr
 from ..src.model.card_set import Supply
 
 
-_card_set = load_cards()
+_card_set = load_cards(_where / 'res/kingdom_cards')
 
 
 def test():

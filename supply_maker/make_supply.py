@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+from . import _where
 from .src.model.load import load_cards
 from .src.model.card_set import Supply
 
@@ -7,7 +8,7 @@ if TYPE_CHECKING:
     from .src.model.constraint import SupplyConstraint
 
 
-_card_set = load_cards()
+_card_set = load_cards(_where / 'res/kingdom_cards')
 
 
 def make_supply(constraint: 'SupplyConstraint') -> 'Supply':
