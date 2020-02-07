@@ -1,6 +1,7 @@
 import csv
+from os import PathLike
+from pathlib import Path
 
-from .... import _where
 from ..card import Card
 from ..card_set import CardSet
 
@@ -23,8 +24,8 @@ def _parse_card(stem: str, raw: [str]) -> Card:
     )
 
 
-def load_cards() -> CardSet:
-    path = _where / 'res/kingdom_cards'
+def load_cards(path: PathLike) -> CardSet:
+    path = Path(path)
 
     ret = CardSet()
     for p in path.glob('*.csv'):
@@ -35,5 +36,8 @@ def load_cards() -> CardSet:
             ret.add(*(
                 _parse_card(p.stem, line) for line in reader
             ))
+
+    if not ret:
+        raise ValueError(f'Failed to load card set, check path: {path.resolve()}')
 
     return ret

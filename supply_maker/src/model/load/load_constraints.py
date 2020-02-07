@@ -1,20 +1,12 @@
-from typing import Dict, List
+from typing import Dict, List, TextIO
 import yaml
 
-from .... import _where
 from ..constraint import comply_with_constraint, parse_constraint
 from ..constraint import SupplyConstraint
 
 
-def load_constraint() -> SupplyConstraint:
-    return _constraint
-
-
-def _init():
-    path = _where / 'res/constraints.yml'
-    with open(path, encoding='utf-8') as fin:
-        data = yaml.load(fin, yaml.SafeLoader)
-
+def load_constraint(fp: TextIO):
+    data = yaml.load(fp, yaml.SafeLoader)
     constraint = SupplyConstraint(lambda _: True)
 
     #
@@ -26,5 +18,3 @@ def _init():
 
     return constraint
 
-
-_constraint = _init()

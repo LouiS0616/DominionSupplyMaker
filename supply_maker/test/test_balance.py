@@ -3,6 +3,7 @@ import statistics
 
 from tqdm import tqdm
 
+from .. import _where
 from . import _flush_and_wait
 from ..src.model.card_set import Supply
 from ..src.model.load import load_cards
@@ -10,7 +11,7 @@ from ..src.model.load import load_cards
 
 # noinspection PyPep8Naming
 def test(N=100_000):
-    card_set = load_cards()
+    card_set = load_cards(_where / 'res/kingdom_cards')
     counter = collections.Counter()
 
     for _ in tqdm(range(N), desc='Testing load balance'):

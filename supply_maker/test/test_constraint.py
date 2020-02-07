@@ -1,15 +1,16 @@
 import sys
-from typing import List
+from typing import Callable, List
 
 from tqdm import tqdm
 
+from .. import _where
 from . import _flush_and_wait
 from ..src.model.load import load_cards
 from ..src.model.card_set import Supply
 from ..src.model.constraint import comply_with_constraint, parse_constraint
 
 
-card_set = load_cards()
+card_set = load_cards(_where / 'res/kingdom_cards')
 
 
 def test(N=100):
@@ -26,15 +27,22 @@ def test(N=100):
 def test_parse():
     print('Testing parse constraint', file=sys.stderr)
 
-    def _inner(src: str, dst: List[int]):
-        assert parse_constraint(src) == dst
-        print(f'OK -> {src:10s} => {dst}')
+    def _inner(src: str, pred: Callable[[List[int]], bool]):
+        assert pred(parse_constraint(src))
+        print(f'OK -> {src:10s}')
 
-    _inner('*', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    _inner('5', [5])
-    _inner('0,3-5,7', [0, 3, 4, 5, 7])
-    _inner('0-3,5,7-*', [0, 1, 2, 3, 5, 7, 8, 9, 10])
-    _inner('*-3', [0, 1, 2, 3])
+    _inner('*', lambda lst: all(x + 1 == y for x, y in zip(lst, lst[1:])))
+
+    _inner('5',       lambda lst: [5] == lst)
+    _inner('0,3-5,7', lambda lst: [0, 3, 4, 5, 7] == lst)
+    _inner('*-3',     lambda lst: [0, 1, 2, 3] == lst)
+
+    _inner(
+        '0-3,5,7-*',
+        lambda lst:
+            {0, 1, 2, 3, 5, 7, 8, 9, 10} <= set(lst)
+            and set(lst).isdisjoint({4, 6})
+    )
 
 
 def test_single(N):
