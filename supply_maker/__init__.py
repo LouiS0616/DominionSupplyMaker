@@ -14,8 +14,11 @@ def get_file_logger(
     logger = logging_.getLogger(name)
     logger.setLevel(level)
 
+    log_dir = pathlib.Path('./out/log')
+    log_dir.mkdir(parents=True, exist_ok=True)
+
     handler = logging_.FileHandler(
-        _where / f'out/log/{name}.log', encoding='utf-8', mode='w'
+        log_dir / f'{name}.log', encoding='utf-8', mode='w'
     )
     handler.setFormatter(logging_.Formatter(form))
     logger.addHandler(handler)
