@@ -1,5 +1,6 @@
 import operator
 import random
+from typing import List
 
 from sortedcontainers import SortedSet
 from ..card import Card
@@ -27,7 +28,11 @@ class CardSet:
 
     #
     def __str__(self):
-        return '\n'.join(map(str, self._data))
+        return '\n'.join(self.names)
+
+    @property
+    def names(self) -> List[str]:
+        return [str(card.name) for card in self._data]
 
     #
     def contains(self, name: str) -> bool:
