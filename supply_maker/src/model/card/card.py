@@ -2,7 +2,7 @@ import dataclasses
 from dataclasses import dataclass
 from typing import Dict
 
-from .cost import Cost
+from supply_maker.src.model.card.attr.cost import Cost
 
 
 @dataclass(frozen=True)
