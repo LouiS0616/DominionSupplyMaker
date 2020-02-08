@@ -1,8 +1,8 @@
 from typing import Dict, List, TextIO
 import yaml
 
-from ..constraint import comply_with_constraint, parse_constraint
-from ..constraint import SupplyConstraint
+from supply_maker.src.model.constraint import comply_with_constraint, parse_constraint
+from supply_maker.src.model.constraint import SupplyConstraint
 
 
 def load_constraint(fp: TextIO):

@@ -3,7 +3,7 @@ import re
 
 from . import _where
 from .make_supply import make_supply
-from .src.model.load.load_constraints import load_constraint
+from supply_maker.src.load import load_constraint
 
 
 def _init_parser() -> argparse.ArgumentParser:

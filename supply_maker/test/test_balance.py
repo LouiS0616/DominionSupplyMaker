@@ -6,7 +6,7 @@ from tqdm import tqdm
 from .. import _where, get_file_logger
 from . import _flush_and_wait
 from ..src.model.card_set import Supply
-from ..src.model.load import load_cards
+from supply_maker.src.load import load_cards
 
 
 _logger = get_file_logger(
