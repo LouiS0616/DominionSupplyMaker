@@ -26,3 +26,6 @@ def get_file_logger(
 
     return logger
 
+
+def where():
+    return _where
