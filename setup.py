@@ -34,7 +34,7 @@ def setup_package():
         ],
         package_data={
             'supply_maker': [
-                'res/kingdom_cards/*.csv', 'res/constraint.yml',
+                'res/kingdom_cards/*.csv', 'res/constraints.yml',
             ]
         }
     )

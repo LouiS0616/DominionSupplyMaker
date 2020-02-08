@@ -1,5 +1,5 @@
 import argparse
-import io
+import re
 
 from . import _where
 from .make_supply import make_supply
@@ -40,7 +40,9 @@ def _main():
     print()
 
     if args.score_sheet:
-        scores = input('RESULT? (score1 score2 ...) => ').split()
+        scores = re.split(
+            r'\D+', input('RESULT? (score1 score2 ...) => ')
+        )
         print(
             ','.join([*supply.names, *scores]), file=args.score_sheet
         )
