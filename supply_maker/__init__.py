@@ -9,12 +9,13 @@ def get_file_logger(
         name, *, level=logging_.DEBUG,
         form='%(asctime)s|%(name)-30s|%(levelname)-5s|%(message)s'):
 
+    name = name.split('.')[-1]
     assert '/' not in name
 
     logger = logging_.getLogger(name)
     logger.setLevel(level)
 
-    log_dir = pathlib.Path('./out/log')
+    log_dir = pathlib.Path('./dsm_out/log')
     log_dir.mkdir(parents=True, exist_ok=True)
 
     handler = logging_.FileHandler(

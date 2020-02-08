@@ -3,10 +3,15 @@ import statistics
 
 from tqdm import tqdm
 
-from .. import _where
+from .. import _where, get_file_logger
 from . import _flush_and_wait
 from ..src.model.card_set import Supply
 from ..src.model.load import load_cards
+
+
+_logger = get_file_logger(
+    __name__, form='%(message)s'
+)
 
 
 # noinspection PyPep8Naming
@@ -21,6 +26,7 @@ def test(N=100_000):
         # noinspection PyProtectedMember
         counter.update(supply._data)
 
+    #
     values = counter.values()
     print(f'mean:   {statistics.mean  (values):8.2f}')
     print(f'median: {statistics.median(values):8.2f}')
@@ -30,4 +36,9 @@ def test(N=100_000):
     print(f'max:    {mx_v:5d} {mx_k.name}')
     print(f'min:    {mn_v:5d} {mn_k.name}')
 
+    #
+    for k, v in counter.most_common():
+        _logger.debug(f'{k}: {v}')
+
+    #
     _flush_and_wait()
