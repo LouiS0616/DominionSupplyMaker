@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING
 
 from . import _where
-from .src.model.load import load_cards
+from supply_maker.src.load import load_cards
 from .src.model.card_set import Supply
 
 if TYPE_CHECKING:

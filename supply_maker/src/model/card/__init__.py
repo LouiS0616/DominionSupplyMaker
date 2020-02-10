@@ -1,2 +1,2 @@
 from .card import Card
-from .cost import Cost
+from supply_maker.src.model.card.attr.cost import Cost

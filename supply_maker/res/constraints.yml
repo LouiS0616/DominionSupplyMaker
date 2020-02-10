@@ -7,8 +7,8 @@
 #
 
 expansion:
-  基本セット:    "*"
-  陰謀:         "*"
-  海辺:         "*"
-  収穫祭:      "*"
-  錬金術:      "0,3-5"
+  BaseSet:      "*"       # 基本セット
+  Intrigue:     "*"       # 陰謀
+  Seaside:      "*"       # 海辺
+  Cornucopia:   "*"       # 収穫祭
+  Alchemy:      "0,3-5"   # 錬金術

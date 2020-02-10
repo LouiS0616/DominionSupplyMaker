@@ -1,9 +1,9 @@
 import argparse
-import io
+import re
 
 from . import _where
 from .make_supply import make_supply
-from .src.model.load.load_constraints import load_constraint
+from supply_maker.src.load import load_constraint
 
 
 def _init_parser() -> argparse.ArgumentParser:
@@ -30,7 +30,6 @@ def _init_parser() -> argparse.ArgumentParser:
 def _main():
     parser = _init_parser()
     args = parser.parse_args()
-    # print(args.constraint)
 
     supply = make_supply(
         load_constraint(args.constraint)
@@ -40,7 +39,9 @@ def _main():
     print()
 
     if args.score_sheet:
-        scores = input('RESULT? (score1 score2 ...) => ').split()
+        scores = re.split(
+            r'\D+', input('RESULT? (score1 score2 ...) => ')
+        )
         print(
             ','.join([*supply.names, *scores]), file=args.score_sheet
         )

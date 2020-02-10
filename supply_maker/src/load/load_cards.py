@@ -2,8 +2,8 @@ import csv
 from os import PathLike
 from pathlib import Path
 
-from ..card import Card
-from ..card_set import CardSet
+from supply_maker.src.model.card import Card
+from supply_maker.src.model.card_set import CardSet
 
 
 def _ex_name(stem: str) -> str:
