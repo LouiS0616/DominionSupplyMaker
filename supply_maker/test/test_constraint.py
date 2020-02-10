@@ -6,6 +6,7 @@ from tqdm import tqdm
 from .. import _where
 from . import _flush_and_wait
 from supply_maker.src.load import load_cards
+from ..src.model.card.attr.extension_name import ExtensionName
 from ..src.model.card_set import Supply
 from ..src.model.constraint import comply_with_constraint, parse_constraint
 
@@ -29,7 +30,7 @@ def test_parse():
 
     def _inner(src: str, pred: Callable[[List[int]], bool]):
         assert pred(parse_constraint(src))
-        print(f'OK -> {src:10s}')
+        print(f'OK -> {src:10s}', file=sys.stderr)
 
     _inner('*', lambda lst: all(x + 1 == y for x, y in zip(lst, lst[1:])))
 
@@ -63,10 +64,10 @@ def test_single(N):
 
             assert constraint(supply) == (num_of_compatible_cards in ac_counts)
 
-        print('OK')
+        print('OK', file=sys.stderr)
 
     _inner(
-        ac_counts=[0, 3, 4, 5], ex='錬金術',
+        ac_counts=[0, 3, 4, 5], ex=ExtensionName('Alchemy'),
         desc='Testing constraint; 0,3-5 from Alchemy'
     )
 

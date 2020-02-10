@@ -1,3 +1,4 @@
+import sys
 from tqdm import tqdm
 
 from .. import _where
@@ -42,7 +43,7 @@ def _test_young_witch():
         ]
         assert bane.cost in (Cost(2), Cost(3))
 
-    print('OK')
+    print('OK', file=sys.stderr)
 
 
 

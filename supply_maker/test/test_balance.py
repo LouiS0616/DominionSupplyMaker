@@ -1,5 +1,6 @@
 import collections
 import statistics
+import sys
 
 from tqdm import tqdm
 
@@ -28,13 +29,13 @@ def test(N=100_000):
 
     #
     values = counter.values()
-    print(f'mean:   {statistics.mean  (values):8.2f}')
-    print(f'median: {statistics.median(values):8.2f}')
-    print(f'stddev: {statistics.pstdev(values):8.2f}')
+    print(f'mean:   {statistics.mean  (values):8.2f}', file=sys.stderr)
+    print(f'median: {statistics.median(values):8.2f}', file=sys.stderr)
+    print(f'stddev: {statistics.pstdev(values):8.2f}', file=sys.stderr)
 
     (mx_k, mx_v), *_, (mn_k, mn_v) = counter.most_common()
-    print(f'max:    {mx_v:5d} {mx_k.name}')
-    print(f'min:    {mn_v:5d} {mn_k.name}')
+    print(f'max:    {mx_v:5d} {mx_k.name}', file=sys.stderr)
+    print(f'min:    {mn_v:5d} {mn_k.name}', file=sys.stderr)
 
     #
     for k, v in counter.most_common():
