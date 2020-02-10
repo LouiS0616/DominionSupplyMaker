@@ -3,6 +3,7 @@ import yaml
 
 from supply_maker.src.model.constraint import comply_with_constraint, parse_constraint
 from supply_maker.src.model.constraint import SupplyConstraint
+from ..model.card.attr.extension_name import ExtensionName
 
 
 def load_constraint(fp: TextIO):
@@ -10,8 +11,8 @@ def load_constraint(fp: TextIO):
     constraint = SupplyConstraint(lambda _: True)
 
     #
-    ex: Dict[str, List[int]] = {
-        ex_name: parse_constraint(v) for ex_name, v in data['expansion'].items()
+    ex: Dict[ExtensionName, List[int]] = {
+        ExtensionName(ex_name): parse_constraint(v) for ex_name, v in data['expansion'].items()
     }
     for e_name, acceptable_count in ex.items():
         constraint &= comply_with_constraint(acceptable_count, ex=e_name)

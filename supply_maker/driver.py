@@ -1,5 +1,5 @@
+from .src.model.card.attr.extension_name import ExtensionName
 from .src.translation import Lang, set_lang
-from .src.translation.name import ExtensionName
 
 
 set_lang(Lang.JP)

@@ -19,3 +19,11 @@ class RawName(ABC):
 
     def t(self) -> str:
         return self._t(get_lang())
+
+    #
+    def __eq__(self, other: 'RawName'):
+        assert type(self) == type(other)
+        return self._raw_name == other._raw_name
+
+    def __hash__(self):
+        return hash(self._raw_name)
