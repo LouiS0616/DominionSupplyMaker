@@ -1,2 +1,2 @@
-from .lang import Lang
-from .raw_name import RawName
+from .lang import Lang, get_lang, set_lang
+from .translate import TranslateTable

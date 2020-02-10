@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import string
 
-from .lang import Lang
+from supply_maker.src.translation import Lang, get_lang
 
 _ch_set = {
     *string.ascii_letters, ' ', '/', "'",
@@ -14,8 +14,8 @@ class RawName(ABC):
         self._raw_name = raw_name
 
     @abstractmethod
-    def _t(self, lang: 'Lang'):
+    def _t(self, lang: 'Lang') -> str:
         pass
 
-    def t(self):
-        self._t(Lang.lang())
+    def t(self) -> str:
+        return self._t(get_lang())

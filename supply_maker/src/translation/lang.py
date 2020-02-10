@@ -5,13 +5,16 @@ class Lang(Enum):
     EN = ENG = 'English'
     JP = JPG = 'Japanese'
 
-    #
-    _lang: 'Lang' = EN  # default
 
-    @classmethod
-    def lang(cls) -> 'Lang':
-        return cls._lang
+#
+_lang: 'Lang' = Lang.EN  # default
 
-    @classmethod
-    def set_lang(cls, lang: 'Lang'):
-        cls._lang = lang
+
+def get_lang() -> 'Lang':
+    return _lang
+
+
+def set_lang(lang: 'Lang'):
+    global _lang
+    _lang = lang
+
