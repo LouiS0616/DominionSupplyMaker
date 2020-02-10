@@ -3,13 +3,14 @@ from dataclasses import dataclass
 from typing import Dict
 
 from supply_maker.src.model.card.attr.cost import Cost
+from .attr.card_name import CardName
 from .attr.extension_name import ExtensionName
 
 
 @dataclass(frozen=True)
 class _CardImpl:
     ex:   ExtensionName
-    name: str
+    name: CardName
     cost: Cost
 
     is_action:   bool
@@ -49,7 +50,7 @@ class Card(metaclass=_CardMeta):
             return Card(cls._cache[name])
 
         impl = _CardImpl(
-            ExtensionName(ex), name, Cost(cost_coin, need_potion),
+            ExtensionName(ex), CardName(name), Cost(cost_coin, need_potion),
             is_action, is_attack, is_reaction, is_duration,
             is_treasure, is_victory
         )
@@ -66,7 +67,7 @@ class Card(metaclass=_CardMeta):
     #
     def __str__(self):
         return '{ex}: {name} - {cost} - {card_type}'.format(
-            ex=self.ex,
+            ex=self.ex.t(),
             name=self.name,
             cost=self.cost,
             card_type=' / '.join(filter(None, [

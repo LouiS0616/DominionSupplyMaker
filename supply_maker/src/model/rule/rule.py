@@ -2,6 +2,7 @@ from typing import TYPE_CHECKING
 from typing import Callable, Dict, List
 
 from ..card import Card, Cost
+from ..card.attr.card_name import CardName
 from ..card.evaluate import has_attr
 from ..card_set import CardSet
 
@@ -21,7 +22,7 @@ def setup_by_young_witch(
 
     """!BANG FUNCTION!"""
     # todo: 英語に差し替える
-    assert supply.contains('魔女娘')
+    assert supply.contains(CardName('Young Witch'))
     assert (supply & candidates).empty()
 
     bane = candidates.filter(
@@ -33,7 +34,7 @@ def setup_by_young_witch(
 
 
 _set_upper = {
-    '魔女娘': setup_by_young_witch,
+    CardName('Young Witch'): setup_by_young_witch,
 }
 
 

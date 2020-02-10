@@ -35,7 +35,7 @@ class CardSet:
         return [str(card.name) for card in self._data]
 
     #
-    def contains(self, name: str) -> bool:
+    def contains(self, name) -> bool:
         ev = has_attr(name=name)
         return any(ev(card) for card in self._data)
 

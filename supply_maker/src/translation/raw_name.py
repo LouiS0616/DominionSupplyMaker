@@ -10,7 +10,7 @@ _ch_set = {
 
 class RawName(ABC):
     def __init__(self, raw_name):
-        assert set(raw_name) <= _ch_set
+        assert set(raw_name) <= _ch_set, raw_name
         self._raw_name = raw_name
 
     @abstractmethod
@@ -19,6 +19,10 @@ class RawName(ABC):
 
     def t(self) -> str:
         return self._t(get_lang())
+
+    #
+    def __str__(self):
+        raise ValueError('call t method to str')
 
     #
     def __eq__(self, other: 'RawName'):

@@ -28,6 +28,11 @@ def _init_parser() -> argparse.ArgumentParser:
 
 
 def _main():
+    # todo: just for debugging
+    from .src.translation.lang import Lang, set_lang
+    set_lang(Lang.JP)
+    ###
+
     parser = _init_parser()
     args = parser.parse_args()
 

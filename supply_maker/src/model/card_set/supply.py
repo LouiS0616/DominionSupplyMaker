@@ -50,7 +50,7 @@ class Supply(CardSet):
             self.setup()
 
         #
-        card_names = [card.name for card in self._data]
+        card_names = [card.name.t() for card in self._data]
 
         if constraint(self):
             _logger.debug(f'Accepted: {" ".join(card_names)}')
@@ -68,7 +68,7 @@ class Supply(CardSet):
 
         return '\n'.join(
             '{} {} {}'.format(
-                card.cost, card.name,
+                card.cost, card.name.t(),
                 '({})'.format(self._card_to_role[card]) if card in self._card_to_role else ''
             )
             for card in self._data
