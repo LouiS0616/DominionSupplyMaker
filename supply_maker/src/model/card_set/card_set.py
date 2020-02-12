@@ -32,7 +32,7 @@ class CardSet:
 
     @property
     def names(self) -> List[str]:
-        return [str(card.name) for card in self._data]
+        return [card.name.t() for card in self._data]
 
     #
     def contains(self, name) -> bool:

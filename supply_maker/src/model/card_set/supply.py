@@ -8,6 +8,7 @@ from ..card import Card
 
 if TYPE_CHECKING:
     from ..constraint import SupplyConstraint
+    from supply_maker.src.model.rule.role import Role
 
 
 # noinspection SpellCheckingInspection
@@ -20,7 +21,7 @@ class Supply(CardSet):
     def __init__(self, *args, parent: CardSet, _frm: CardSet = None, **kwargs):
         self._has_already_set_up = False
         self._parent = parent
-        self._card_to_role: Dict[Card, str] = {}
+        self._card_to_role: Dict[Card, 'Role'] = {}
 
         if _frm is None:
             super().__init__(*args, **kwargs)
@@ -69,7 +70,7 @@ class Supply(CardSet):
         return '\n'.join(
             '{} {} {}'.format(
                 card.cost, card.name.t(),
-                '({})'.format(self._card_to_role[card]) if card in self._card_to_role else ''
+                '({})'.format(self._card_to_role[card].t()) if card in self._card_to_role else ''
             )
             for card in self._data
         )

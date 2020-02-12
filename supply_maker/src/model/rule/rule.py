@@ -5,9 +5,10 @@ from ..card import Card, Cost
 from ..card.attr.card_name import CardName
 from ..card.evaluate import has_attr
 from ..card_set import CardSet
+from .role import Role
 
 SupplySetUpper = Callable[
-    ['Supply', CardSet, Dict[Card, str], List[str]],
+    ['Supply', CardSet, Dict[Card, Role], List[str]],
     None
 ]
 
@@ -18,7 +19,7 @@ if TYPE_CHECKING:
 # 魔女娘
 def setup_by_young_witch(
         supply: 'Supply', candidates: CardSet,
-        card_to_role: Dict[Card, str], _: List[str]) -> None:
+        card_to_role: Dict[Card, Role], _: List[str]) -> None:
 
     """!BANG FUNCTION!"""
     # todo: 英語に差し替える
@@ -30,7 +31,7 @@ def setup_by_young_witch(
     ).any()
 
     supply.add(bane)
-    card_to_role[bane] = '災い'
+    card_to_role[bane] = Role('Bane')
 
 
 _set_upper = {
