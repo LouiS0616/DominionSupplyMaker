@@ -3,12 +3,12 @@ from typing import TYPE_CHECKING
 
 from .... import get_file_logger
 from . import CardSet
-from .. import rule
+from .. import preparation
 from ..card import Card
 
 if TYPE_CHECKING:
     from ..constraint import SupplyConstraint
-    from supply_maker.src.model.rule.role import Role
+    from supply_maker.src.model.preparation.role import Role
 
 
 # noinspection SpellCheckingInspection
@@ -40,7 +40,7 @@ class Supply(CardSet):
     def setup(self) -> None:
         self._has_already_set_up = True
 
-        set_uppers = rule.load(self)
+        set_uppers = preparation.load(self)
         for set_upper in set_uppers:
             set_upper(
                 self, self._parent - self, self._card_to_role, []

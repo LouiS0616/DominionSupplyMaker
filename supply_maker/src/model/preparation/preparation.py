@@ -16,13 +16,12 @@ if TYPE_CHECKING:
     from ..card_set import Supply
 
 
-# 魔女娘
+#
 def setup_by_young_witch(
         supply: 'Supply', candidates: CardSet,
         card_to_role: Dict[Card, Role], _: List[str]) -> None:
 
     """!BANG FUNCTION!"""
-    # todo: 英語に差し替える
     assert supply.contains(CardName('Young Witch'))
     assert (supply & candidates).empty()
 

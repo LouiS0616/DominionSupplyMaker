@@ -8,6 +8,7 @@ from ..src.model.card import Cost
 from ..src.model.card.attr.card_name import CardName
 from ..src.model.card.evaluate import has_attr
 from ..src.model.card_set import Supply
+from ..src.model.preparation.role import Role
 
 
 _card_set = load_cards(_where / 'res/kingdom_cards')
@@ -32,7 +33,7 @@ def _test_young_witch():
         return s
 
     N = 100
-    for _ in tqdm(range(N), desc='Testing rule about "young witch"'):
+    for _ in tqdm(range(N), desc='Testing preparation about "young witch"'):
         supply = do_once()
 
         assert supply.contains(CardName('Young Witch'))
@@ -40,7 +41,7 @@ def _test_young_witch():
 
         bane, = [
             card for card in supply._data
-            if supply._card_to_role.get(card) == '災い'
+            if supply._card_to_role.get(card, Role('')) == Role('Bane')
         ]
         assert bane.cost in (Cost(2), Cost(3))
 
