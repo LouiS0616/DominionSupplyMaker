@@ -16,10 +16,10 @@ class _CardImpl:
     is_action:   bool
     is_attack:   bool
     is_reaction: bool
-    is_duration: bool   # 持続
+    is_duration: bool
 
-    is_treasure: bool   # 財宝
-    is_victory:  bool   # 勝利点
+    is_treasure: bool
+    is_victory:  bool
 
 
 #
@@ -38,6 +38,10 @@ class Card(metaclass=_CardMeta):
     _cache: Dict[str, _CardImpl] = {}
 
     def __init__(self, impl: _CardImpl):
+        """Private-like initialization method"""
+        if not isinstance(impl, _CardImpl):
+            raise ValueError('Card instance should be made by create method.')
+
         self._impl = impl
 
     @classmethod
@@ -68,7 +72,7 @@ class Card(metaclass=_CardMeta):
     def __str__(self):
         return '{ex}: {name} - {cost} - {card_type}'.format(
             ex=self.ex.t(),
-            name=self.name,
+            name=self.name.t(),
             cost=self.cost,
             card_type=' / '.join(filter(None, [
                 'action'   if self.is_action   else '',
