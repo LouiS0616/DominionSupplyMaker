@@ -7,30 +7,23 @@ _where = where()
 
 
 #
-def _load_extension_trans(fin) -> TranslateTable:
-    reader = csv.DictReader(fin)
-    return {
-        row['English']: {
-            Lang(k): v or row['English'] for k, v in row.items()
-        } for row in reader
-    }
-
-
-def load_extension_trans() -> TranslateTable:
-    with open(_where / 'res/translate/extensions.csv', encoding='utf-8', newline='') as fin:
-        ret = _load_extension_trans(fin)
+def _load_trans(p) -> TranslateTable:
+    with open(p, encoding='utf-8', newline='') as fin:
+        reader = csv.DictReader(fin)
+        ret = {
+            row['English']: {
+                Lang(k): v or row['English'] for k, v in row.items()
+            } for row in reader
+        }
 
     return ret
 
 
 #
-def _load_card_trans(fin) -> TranslateTable:
-    reader = csv.DictReader(fin)
-    return {
-        row['English']: {
-            Lang(k): v or row['English']  for k, v in row.items()
-        } for row in reader
-    }
+def load_extension_trans() -> TranslateTable:
+    return _load_trans(
+        _where / 'res/translate/extensions.csv'
+    )
 
 
 def load_card_trans() -> TranslateTable:
@@ -38,8 +31,12 @@ def load_card_trans() -> TranslateTable:
 
     ret = {}
     for path in w.glob('*.csv'):
-        with open(path, encoding='utf-8', newline='') as fin:
-            ret.update(_load_card_trans(fin))
+        ret.update(_load_trans(path))
 
     return ret
 
+
+def load_term_trans() -> TranslateTable:
+    return _load_trans(
+        _where / 'res/translate/terms.csv'
+    )

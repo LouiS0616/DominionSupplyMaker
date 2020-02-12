@@ -8,7 +8,7 @@ _ch_set = {
 }
 
 
-class RawName(ABC):
+class Translatable(ABC):
     def __init__(self, raw_name):
         assert set(raw_name) <= _ch_set, raw_name
         self._raw_name = raw_name
@@ -25,7 +25,7 @@ class RawName(ABC):
         raise ValueError('call t method to str')
 
     #
-    def __eq__(self, other: 'RawName'):
+    def __eq__(self, other: 'Translatable'):
         assert type(self) == type(other)
         return self._raw_name == other._raw_name
 

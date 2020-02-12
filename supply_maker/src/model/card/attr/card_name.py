@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING
 
-from ....translation.raw_name import RawName
+from ....translation.translatable import Translatable
 if TYPE_CHECKING:
     from ....translation import Lang
 
 
-class CardName(RawName):
+class CardName(Translatable):
     _trans_table = None     # loading table should be delayed.
 
     def _t(self, lang: 'Lang') -> str:
