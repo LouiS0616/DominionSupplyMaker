@@ -38,6 +38,7 @@ _set_upper = {
 }
 
 
+#
 def load(cards: CardSet) -> List[SupplySetUpper]:
     return [
         func

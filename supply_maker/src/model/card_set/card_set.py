@@ -1,24 +1,21 @@
 import operator
 import random
-from typing import List
+from typing import List, TYPE_CHECKING
 
 from sortedcontainers import SortedSet
-from ..card import Card
-from ..card.evaluate import CardEvaluator, has_attr
+from supply_maker.src.model.card.evaluate import CardEvaluator, has_attr
+if TYPE_CHECKING:
+    from supply_maker.src.model.card import Card
 
 
 class CardSet:
-    def __init__(self, *, _frm: 'CardSet' = None, elms=None):
-        if _frm is None:
-            self._data = SortedSet(elms, key=operator.attrgetter('cost'))
-        else:
-            assert elms is None
-            self._data = _frm._data.copy()
+    def __init__(self, *, elms=None):
+        self._data = SortedSet(elms, key=operator.attrgetter('cost'))
 
-    def add(self, *elms: Card):
+    def add(self, *elms: 'Card'):
         self._data |= set(elms)
 
-    def any(self) -> Card:
+    def any(self) -> 'Card':
         return self.choose(1)._data[0]
 
     def choose(self, k) -> 'CardSet':
@@ -44,9 +41,13 @@ class CardSet:
             elms=filter(evaluator, self._data)
         )
 
-    def empty(self) -> bool:
-        return not self
+    def __len__(self) -> int:
+        return len(self._data)
 
+    def empty(self) -> bool:
+        return len(self) == 0
+
+    #
     def __and__(self, other: 'CardSet') -> 'CardSet':
         return CardSet(
             elms=self._data & other._data
@@ -56,7 +57,3 @@ class CardSet:
         return CardSet(
             elms=self._data - other._data
         )
-
-    #
-    def __len__(self):
-        return len(self._data)

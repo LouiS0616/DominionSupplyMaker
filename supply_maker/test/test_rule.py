@@ -10,7 +10,6 @@ from ..src.model.card.evaluate import has_attr
 from ..src.model.card_set import Supply
 from ..src.model.preparation.role import Role
 
-
 _card_set = load_cards(_where / 'res/kingdom_cards')
 
 
@@ -46,6 +45,3 @@ def _test_young_witch():
         assert bane.cost in (Cost(2), Cost(3))
 
     print('OK', file=sys.stderr)
-
-
-

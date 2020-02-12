@@ -29,7 +29,7 @@ class Supply(CardSet):
             assert not args
             assert not kwargs
 
-            super().__init__(_frm=_frm)
+            super().__init__(elms=_frm._data)
 
     @classmethod
     def frm(cls, parent: CardSet) -> 'Supply':

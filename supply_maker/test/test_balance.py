@@ -15,16 +15,15 @@ _logger = get_file_logger(
 )
 
 
-# noinspection PyPep8Naming
+# noinspection PyPep8Naming,PyProtectedMember
 def test(N=100_000):
     card_set = load_cards(_where / 'res/kingdom_cards')
     counter = collections.Counter()
 
     for _ in tqdm(range(N), desc='Testing load balance'):
         supply = Supply.frm(card_set)
-        assert len(supply) == 10
+        assert len(supply._data) == 10
 
-        # noinspection PyProtectedMember
         counter.update(supply._data)
 
     #
