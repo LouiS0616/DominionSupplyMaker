@@ -31,6 +31,9 @@ class Supply(CardSet):
 
             super().__init__(elms=_frm._data)
 
+    def add(self, elm: 'Card'):
+        self._data |= {elm}
+
     @classmethod
     def frm(cls, parent: CardSet) -> 'Supply':
         return Supply(

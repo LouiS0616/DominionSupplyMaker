@@ -21,7 +21,7 @@ def test():
 # noinspection PyProtectedMember,PyPep8Naming
 def _test_young_witch():
     def do_once():
-        # set includes only 'young witch'
+        # set includes only 'Young Witch'
         subset = _card_set.filter(has_attr(name=CardName('Young Witch')))
         assert len(subset) == 1
 
