@@ -2,7 +2,7 @@ import logging as logging_
 from typing import Dict
 from typing import TYPE_CHECKING
 
-from supply_maker.src.model.preparation import preparation
+from supply_maker.src.model import preparation
 from . import CardSet
 from .supply_printer import DefaultSupplyPrinter
 
@@ -19,7 +19,7 @@ _default_logger.setLevel(logging_.DEBUG)
 
 
 class Supply(CardSet):
-    _set_uppers = preparation.load()
+    _set_uppers = preparation.load_set_uppers()
 
     def __init__(self, *,
                  _frm: 'CardSet', parent: 'CardSet',
@@ -48,9 +48,11 @@ class Supply(CardSet):
         self._has_already_set_up = True
 
         for card_name in filter(self.contains, cls._set_uppers):
+            candidate = self._parent - self
+
             cls._set_uppers[card_name](
                 add_card=self._add_card,
-                candidate=self._parent - self,
+                candidate=candidate,
                 card_to_role=self._card_to_role, notes=self._notes
             )
 
