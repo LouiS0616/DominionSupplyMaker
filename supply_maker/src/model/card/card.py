@@ -3,22 +3,23 @@ from dataclasses import dataclass
 from typing import Dict
 
 from supply_maker.src.model.card.attr.cost import Cost
+from .attr.card_name import CardName
 from .attr.extension_name import ExtensionName
 
 
 @dataclass(frozen=True)
 class _CardImpl:
     ex:   ExtensionName
-    name: str
+    name: CardName
     cost: Cost
 
     is_action:   bool
     is_attack:   bool
     is_reaction: bool
-    is_duration: bool   # 持続
+    is_duration: bool
 
-    is_treasure: bool   # 財宝
-    is_victory:  bool   # 勝利点
+    is_treasure: bool
+    is_victory:  bool
 
 
 #
@@ -37,6 +38,10 @@ class Card(metaclass=_CardMeta):
     _cache: Dict[str, _CardImpl] = {}
 
     def __init__(self, impl: _CardImpl):
+        """Private-like initialization method"""
+        if not isinstance(impl, _CardImpl):
+            raise ValueError('Card instance should be made by create method.')
+
         self._impl = impl
 
     @classmethod
@@ -49,7 +54,7 @@ class Card(metaclass=_CardMeta):
             return Card(cls._cache[name])
 
         impl = _CardImpl(
-            ExtensionName(ex), name, Cost(cost_coin, need_potion),
+            ExtensionName(ex), CardName(name), Cost(cost_coin, need_potion),
             is_action, is_attack, is_reaction, is_duration,
             is_treasure, is_victory
         )
@@ -66,8 +71,8 @@ class Card(metaclass=_CardMeta):
     #
     def __str__(self):
         return '{ex}: {name} - {cost} - {card_type}'.format(
-            ex=self.ex,
-            name=self.name,
+            ex=self.ex.t(),
+            name=self.name.t(),
             cost=self.cost,
             card_type=' / '.join(filter(None, [
                 'action'   if self.is_action   else '',

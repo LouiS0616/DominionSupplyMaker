@@ -28,13 +28,18 @@ def _init_parser() -> argparse.ArgumentParser:
 
 
 def _main():
+    # todo: just for debugging
+    from .src.translation import Lang, set_default_lang
+    set_default_lang(Lang.JA)
+    ###
+
     parser = _init_parser()
     args = parser.parse_args()
 
     supply = make_supply(
         load_constraint(args.constraint)
     )
-    print(supply)
+    supply.print_supply()
     print(f'{len(supply)}枚選ばれました')
     print()
 

@@ -10,8 +10,8 @@ _SupplyConstraint = Callable[['Supply'], bool]
 
 
 class SupplyConstraint(_SupplyConstraint):
-    def __init__(self, pred):
-        self._pred = pred
+    def __init__(self, predicate):
+        self._predicate = predicate
 
     def __and__(self, other: 'SupplyConstraint') -> 'SupplyConstraint':
         def _inner(supply: 'Supply') -> bool:
@@ -19,14 +19,11 @@ class SupplyConstraint(_SupplyConstraint):
 
         return SupplyConstraint(_inner)
 
-    def __add__(self, other):
-        print('add')
-
     def __or__(self, other):
         raise NotImplementedError
 
     def __call__(self, supply: 'Supply') -> bool:
-        return self._pred(supply)
+        return self._predicate(supply)
 
 
 #
@@ -41,4 +38,3 @@ def comply_with_constraint(
         )) in ac_counts
 
     return SupplyConstraint(_inner)
-

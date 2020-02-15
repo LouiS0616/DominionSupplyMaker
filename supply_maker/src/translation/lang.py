@@ -1,20 +1,8 @@
 from enum import Enum
 
 
+# Ref: https://iso639-3.sil.org/code_tables/639/data/all
+
 class Lang(Enum):
     EN = ENG = 'English'
-    JP = JPG = 'Japanese'
-
-
-#
-_lang: 'Lang' = Lang.EN  # default
-
-
-def get_lang() -> 'Lang':
-    return _lang
-
-
-def set_lang(lang: 'Lang'):
-    global _lang
-    _lang = lang
-
+    JA = JPN = 'Japanese'

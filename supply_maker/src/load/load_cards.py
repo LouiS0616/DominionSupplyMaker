@@ -27,17 +27,17 @@ def _parse_card(stem: str, raw: [str]) -> Card:
 def load_cards(path: PathLike) -> CardSet:
     path = Path(path)
 
-    ret = CardSet()
+    s = set()
     for p in path.glob('*.csv'):
         with p.open(encoding='utf-8', newline='') as fin:
             reader = csv.reader(fin)
             next(reader)    # skip header
 
-            ret.add(*(
+            s |= {
                 _parse_card(p.stem, line) for line in reader
-            ))
+            }
 
-    if not ret:
+    if not s:
         raise ValueError(f'Failed to load card set, check path: {path.resolve()}')
 
-    return ret
+    return CardSet(elms=s)

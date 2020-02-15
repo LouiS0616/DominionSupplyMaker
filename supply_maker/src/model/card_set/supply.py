@@ -1,75 +1,82 @@
+import logging as logging_
 from typing import Dict
 from typing import TYPE_CHECKING
 
-from .... import get_file_logger
+from supply_maker.src.model import preparation
 from . import CardSet
-from .. import rule
-from ..card import Card
+from .supply_printer import DefaultSupplyPrinter
+
 
 if TYPE_CHECKING:
+    from supply_maker.src.model.card import Card
+    from supply_maker.src.model.preparation.role import Role
+    from .supply_printer import SupplyPrinter
     from ..constraint import SupplyConstraint
 
 
-# noinspection SpellCheckingInspection
-_logger = get_file_logger(
-    __name__, form='%(levelname)s | %(message)s'
-)
+_default_logger = logging_.getLogger(__name__)
+_default_logger.setLevel(logging_.DEBUG)
 
 
 class Supply(CardSet):
-    def __init__(self, *args, parent: CardSet, _frm: CardSet = None, **kwargs):
+    _set_uppers = preparation.load_set_uppers()
+
+    def __init__(self, *,
+                 _frm: 'CardSet', parent: 'CardSet',
+                 logger: 'logging_.Logger' = None):
+
         self._has_already_set_up = False
         self._parent = parent
-        self._card_to_role: Dict[Card, str] = {}
+        self._card_to_role: Dict['Card', 'Role'] = {}
+        self._notes = []
 
-        if _frm is None:
-            super().__init__(*args, **kwargs)
-        else:
-            assert not args
-            assert not kwargs
+        self._logger = logger or _default_logger
+        super().__init__(elms=_frm.data)
 
-            super().__init__(_frm=_frm)
-
-    @classmethod
-    def frm(cls, parent: CardSet) -> 'Supply':
+    @staticmethod
+    def frm(parent: 'CardSet', *, logger: 'logging_.Logger' = None) -> 'Supply':
         return Supply(
-            _frm=parent.choose(10), parent=parent
+            _frm=parent.choose(10), parent=parent, logger=logger
         )
 
+    #
+    def _add_card(self, elm: 'Card'):
+        self._data |= {elm}
+
     def setup(self) -> None:
+        cls = type(self)
         self._has_already_set_up = True
 
-        set_uppers = rule.load(self)
-        for set_upper in set_uppers:
-            set_upper(
-                self, self._parent - self, self._card_to_role, []
+        for card_name in filter(self.contains, cls._set_uppers):
+            candidate = self._parent - self
+
+            cls._set_uppers[card_name](
+                add_card=self._add_card,
+                candidate=candidate,
+                card_to_role=self._card_to_role, notes=self._notes
             )
 
+    #
     def is_valid(self, constraint: 'SupplyConstraint') -> bool:
         if not self._has_already_set_up:
             self.setup()
 
         #
-        card_names = [card.name for card in self._data]
-
+        card_names = [card.name.t() for card in self.data]
         if constraint(self):
-            _logger.debug(f'Accepted: {" ".join(card_names)}')
+            self._logger.debug(f'Accepted: {" ".join(card_names)}')
             return True
-
-        _logger.debug(f'Rejected: {" ".join(card_names)}')
-        return False
+        else:
+            self._logger.debug(f'Rejected: {" ".join(card_names)}')
+            return False
 
     #
-    def __str__(self):
+    def print_supply(self, printer: 'SupplyPrinter' = DefaultSupplyPrinter):
         if not self._has_already_set_up:
             raise type(
                 'StateError', (ValueError, ), {}
             )('Call both of "setup" and "is_valid" methods before.')
 
-        return '\n'.join(
-            '{} {} {}'.format(
-                card.cost, card.name,
-                '({})'.format(self._card_to_role[card]) if card in self._card_to_role else ''
-            )
-            for card in self._data
+        printer.print_supply(
+            cards=[*self.data], card_to_role=self._card_to_role.copy(), notes=self._notes
         )
