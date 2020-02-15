@@ -20,13 +20,14 @@ def test():
 
 # noinspection PyProtectedMember,PyPep8Naming
 def _test_young_witch():
+    # noinspection PyProtectedMember
     def do_once():
         # set includes only 'Young Witch'
         subset = _card_set.filter(has_attr(name=CardName('Young Witch')))
         assert len(subset) == 1
 
         s = Supply(_frm=(_card_set - subset).choose(9), parent=_card_set)
-        s.add(subset.any())
+        s._data.add(subset.any())
 
         s.setup()
         return s

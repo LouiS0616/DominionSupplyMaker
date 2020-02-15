@@ -5,6 +5,8 @@ from .... import get_file_logger
 from . import CardSet
 from .. import preparation
 from ..card import Card
+from .supply_printer import SupplyPrinter, DefaultSupplyPrinter
+
 
 if TYPE_CHECKING:
     from ..constraint import SupplyConstraint
@@ -31,17 +33,17 @@ class Supply(CardSet):
             _frm=parent.choose(10), parent=parent
         )
 
-    def add(self, elm: 'Card'):
+    #
+    def _add_card(self, elm: 'Card'):
         self._data |= {elm}
 
-    #
     def setup(self) -> None:
         self._has_already_set_up = True
 
         set_uppers = preparation.load(self)
         for set_upper in set_uppers:
             set_upper(
-                self, self._parent - self, self._card_to_role, []
+                self._add_card, self._parent - self, self._card_to_role, []
             )
 
     def is_valid(self, constraint: 'SupplyConstraint') -> bool:
@@ -59,16 +61,12 @@ class Supply(CardSet):
         return False
 
     #
-    def __str__(self):
+    def print_supply(self, printer: 'SupplyPrinter' = DefaultSupplyPrinter):
         if not self._has_already_set_up:
             raise type(
                 'StateError', (ValueError, ), {}
             )('Call both of "setup" and "is_valid" methods before.')
 
-        return '\n'.join(
-            '{} {} {}'.format(
-                card.cost, card.name.t(),
-                '({})'.format(self._card_to_role[card].t()) if card in self._card_to_role else ''
-            )
-            for card in self._data
+        printer.print_supply(
+            [*self.data], self._card_to_role.copy(), {}
         )

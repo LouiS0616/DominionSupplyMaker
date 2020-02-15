@@ -39,7 +39,7 @@ def _main():
     supply = make_supply(
         load_constraint(args.constraint)
     )
-    print(supply)
+    supply.print_supply()
     print(f'{len(supply)}枚選ばれました')
     print()
 

@@ -8,7 +8,7 @@ from ..card_set import CardSet
 from .role import Role
 
 SupplySetUpper = Callable[
-    ['Supply', CardSet, Dict[Card, Role], List[str]],
+    [Callable[[Card], None], CardSet, Dict[Card, Role], List[str]],
     None
 ]
 
@@ -18,18 +18,18 @@ if TYPE_CHECKING:
 
 #
 def setup_by_young_witch(
-        supply: 'Supply', candidates: CardSet,
+        card_adder, candidates: CardSet,
         card_to_role: Dict[Card, Role], _: List[str]) -> None:
 
     """!BANG FUNCTION!"""
-    assert supply.contains(CardName('Young Witch'))
-    assert (supply & candidates).empty()
+    #assert supply.contains(CardName('Young Witch'))
+    #assert (supply & candidates).empty()
 
     bane = candidates.filter(
         has_attr(cost=Cost(2)) | has_attr(cost=Cost(3))
     ).any()
 
-    supply.add(bane)
+    card_adder(bane)
     card_to_role[bane] = Role('Bane')
 
 
