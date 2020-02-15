@@ -11,9 +11,10 @@ class SupplyPrinter(ABC):
     @staticmethod
     @abstractmethod
     def print_supply(
+            *,
             cards: List['Card'],
             card_to_role: Dict['Card', 'Role'],
-            card_to_note: Dict['Card', str]):
+            notes: List[str]):
 
         ...
 
@@ -21,9 +22,10 @@ class SupplyPrinter(ABC):
 class DefaultSupplyPrinter(SupplyPrinter):
     @staticmethod
     def print_supply(
+            *,
             cards: List['Card'],
             card_to_role: Dict['Card', 'Role'],
-            _: Dict['Card', str]):
+            notes: List[str]):
 
         s = '\n'.join(
             '{} {} {}'.format(

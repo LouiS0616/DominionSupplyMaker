@@ -7,41 +7,45 @@ from ..card.evaluate import has_attr
 from ..card_set import CardSet
 from .role import Role
 
+
 SupplySetUpper = Callable[
-    [Callable[[Card], None], CardSet, Dict[Card, Role], List[str]],
-    None
+    [
+        Callable[[Card], None],     # for adding extra card
+        CardSet,                    # candidate
+        Dict[Card, Role],           # card to role
+        List[str]                   # notes
+    ], None
 ]
 
-if TYPE_CHECKING:
-    from ..card_set import Supply
+
+def set_upper(func):
+    _inner: SupplySetUpper
+
+    def _inner(*, add_card, candidate, card_to_role, notes):
+        return func(add_card, candidate, card_to_role, notes)
+
+    return _inner
 
 
 #
+@set_upper
 def setup_by_young_witch(
-        card_adder, candidates: CardSet,
+        add_cards, candidates: CardSet,
         card_to_role: Dict[Card, Role], _: List[str]) -> None:
-
-    """!BANG FUNCTION!"""
-    #assert supply.contains(CardName('Young Witch'))
-    #assert (supply & candidates).empty()
 
     bane = candidates.filter(
         has_attr(cost=Cost(2)) | has_attr(cost=Cost(3))
     ).any()
 
-    card_adder(bane)
+    add_cards(bane)
     card_to_role[bane] = Role('Bane')
 
 
-_set_upper = {
+_set_uppers = {
     CardName('Young Witch'): setup_by_young_witch,
 }
 
 
 #
-def load(cards: CardSet) -> List[SupplySetUpper]:
-    return [
-        func
-        for name, func in _set_upper.items()
-        if cards.contains(name)
-    ]
+def load() -> Dict[CardName, SupplySetUpper]:
+    return _set_uppers.copy()

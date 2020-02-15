@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from . import _where
+from . import _where, get_file_logger
 from supply_maker.src.load import load_cards
 from .src.model.card_set import Supply
 
@@ -9,12 +9,16 @@ if TYPE_CHECKING:
 
 
 _card_set = load_cards(_where / 'res/kingdom_cards')
+# noinspection SpellCheckingInspection
+_supply_logger = get_file_logger(
+    'supply', form='%(levelname)s | %(message)s'
+)
 
 
 def make_supply(constraint: 'SupplyConstraint') -> 'Supply':
     i = 0
     while i < 10_000:
-        supply = Supply.frm(_card_set)
+        supply = Supply.frm(_card_set, logger=_supply_logger)
         supply.setup()
 
         if supply.is_valid(constraint):
