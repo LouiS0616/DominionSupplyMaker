@@ -26,10 +26,12 @@ def _test_young_witch():
         subset = _card_set.filter(has_attr(name=CardName('Young Witch')))
         assert len(subset) == 1
 
-        s = Supply(_frm=(_card_set - subset).choose(9), parent=_card_set)
-        s._data.add(subset.any())
+        young_witch = subset.any()
 
+        s = Supply(_frm=(_card_set - subset).choose(9), parent=_card_set)
+        s._add_card(young_witch)
         s.setup()
+
         return s
 
     N = 100
