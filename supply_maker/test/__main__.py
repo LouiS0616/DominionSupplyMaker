@@ -4,7 +4,7 @@ from . import test_balance
 from . import test_constraint
 from . import test_rule
 
-from ..src.translation.lang import Lang, set_lang
+from ..src.translation import Lang, set_default_lang
 
 
 def _init_parser() -> argparse.ArgumentParser:
@@ -22,7 +22,7 @@ def _test_main():
     parser = _init_parser()
 
     args = parser.parse_args()
-    set_lang(Lang(args.lang))
+    set_default_lang(Lang(args.lang))
 
     #
     test_balance.test()

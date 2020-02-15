@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 import string
 
-from supply_maker.src.translation import Lang, get_lang
+from supply_maker.src.translation.lang import Lang
+from supply_maker.src.translation.translate import get_default_lang
 
 _ch_set = {
     *string.ascii_letters, ' ', '/', "'",
@@ -17,8 +18,8 @@ class Translatable(ABC):
     def _t(self, lang: 'Lang') -> str:
         pass
 
-    def t(self) -> str:
-        return self._t(get_lang())
+    def t(self, lang=None) -> str:
+        return self._t(lang or get_default_lang())
 
     #
     def __str__(self):
