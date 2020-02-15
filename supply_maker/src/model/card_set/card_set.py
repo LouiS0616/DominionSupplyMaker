@@ -1,5 +1,4 @@
 import operator
-from typing import List
 
 from sortedcontainers import SortedSet
 
@@ -12,12 +11,6 @@ class CardSet(_ImplAsSet, _ImplAsStream, _ImplAsCollection):
     def __init__(self, *, elms=None):
         self._data = SortedSet(elms, key=operator.attrgetter('cost'))
 
-    #
-    @property
-    def names(self) -> List[str]:
-        return [card.name.t() for card in self._data]
-
-    #
     @property
     def data(self) -> SortedSet:
         return self._data.copy()

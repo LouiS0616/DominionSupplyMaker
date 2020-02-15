@@ -18,21 +18,12 @@ _logger = get_file_logger(
 
 
 class Supply(CardSet):
-    def __init__(self, *args, parent: CardSet, _frm: CardSet = None, **kwargs):
+    def __init__(self, *, _frm: CardSet, parent: CardSet):
         self._has_already_set_up = False
         self._parent = parent
         self._card_to_role: Dict[Card, 'Role'] = {}
 
-        if _frm is None:
-            super().__init__(*args, **kwargs)
-        else:
-            assert not args
-            assert not kwargs
-
-            super().__init__(elms=_frm._data)
-
-    def add(self, elm: 'Card'):
-        self._data |= {elm}
+        super().__init__(elms=_frm.data)
 
     @classmethod
     def frm(cls, parent: CardSet) -> 'Supply':
@@ -40,6 +31,10 @@ class Supply(CardSet):
             _frm=parent.choose(10), parent=parent
         )
 
+    def add(self, elm: 'Card'):
+        self._data |= {elm}
+
+    #
     def setup(self) -> None:
         self._has_already_set_up = True
 
