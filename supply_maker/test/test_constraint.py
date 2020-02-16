@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 from .. import _where
 from . import _flush_and_wait
-from supply_maker.src.load import load_cards
+from supply_maker.src.model.load_cards import load_cards
 from ..src.model.card.attr.extension_name import ExtensionName
 from ..src.model.card_set import Supply
 from ..src.model.constraint import comply_with_constraint, parse_constraint

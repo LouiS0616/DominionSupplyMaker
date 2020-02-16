@@ -3,7 +3,7 @@ from tqdm import tqdm
 
 from .. import _where
 from . import _flush_and_wait
-from supply_maker.src.load import load_cards
+from supply_maker.src.model.load_cards import load_cards
 from ..src.model.card import Cost
 from ..src.model.card.attr.card_name import CardName
 from ..src.model.card.evaluate import has_attr
