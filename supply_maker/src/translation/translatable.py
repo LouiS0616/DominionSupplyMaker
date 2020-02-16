@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 import string
 
+from supply_maker.src.translation import get_default_lang
 from supply_maker.src.translation.lang import Lang
-from supply_maker.src.translation.translate import get_default_lang
 
 _ch_set = {
     *string.ascii_letters, ' ', '/', "'",
