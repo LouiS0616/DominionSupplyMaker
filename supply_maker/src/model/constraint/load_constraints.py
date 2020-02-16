@@ -10,6 +10,8 @@ from supply_maker.src.model.card.attr.extension_name import ExtensionName
 #
 def _load_constraint(fp):
     data = yaml.load(fp, yaml.SafeLoader)
+    assert data.keys() <= {'expansion', }
+
     constraint = SupplyConstraint(lambda _: True)
 
     #
