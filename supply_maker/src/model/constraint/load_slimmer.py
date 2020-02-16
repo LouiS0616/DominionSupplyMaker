@@ -8,7 +8,7 @@ from supply_maker.src.model.card.evaluate import CardEvaluator, has_attr
 from .candidate_slimmer import CandidateSlimmer
 from .parse import parse_constraint
 if TYPE_CHECKING:
-    from supply_maker.src.model.card_set import CardSet
+    from supply_maker.src.model.card_set import Candidates
 
 
 #
@@ -29,7 +29,7 @@ def _load_slimmer(fp: TextIO) -> CandidateSlimmer:
 
     #
     class _CandidateSlimmer(CandidateSlimmer):
-        def slim(self, candidate: 'CardSet') -> 'CardSet':
+        def slim(self, candidate: 'Candidates') -> 'Candidates':
             return candidate.filter(
                 lambda card: not predicate_false(card)
             )

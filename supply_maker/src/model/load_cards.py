@@ -1,11 +1,9 @@
 import csv
 from os import PathLike
 from pathlib import Path
-from typing import List
 
 from supply_maker.src.model.card import Card
-from supply_maker.src.model.card.attr import ExpansionName
-from supply_maker.src.model.card_set import CardSet
+from supply_maker.src.model.card_set import Candidates
 
 
 def _ex_name(stem: str) -> str:
@@ -26,7 +24,7 @@ def _parse_card(stem: str, raw: [str]) -> Card:
     )
 
 
-def load_cards(path: PathLike) -> CardSet:
+def load_cards(path: PathLike) -> Candidates:
 
     path = Path(path)
 
@@ -44,4 +42,4 @@ def load_cards(path: PathLike) -> CardSet:
     if not s:
         raise ValueError(f'Failed to load card set, check path: {path.resolve()}')
 
-    return CardSet(elms=s)
+    return Candidates(elms=s)
