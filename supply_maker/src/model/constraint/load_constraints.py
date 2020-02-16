@@ -3,7 +3,7 @@ import yaml
 
 from supply_maker.src.model.constraint import comply_with_constraint, parse_constraint
 from supply_maker.src.model.constraint import SupplyConstraint
-from ..model.card.attr.extension_name import ExtensionName
+from supply_maker.src.model.card.attr.extension_name import ExtensionName
 
 
 def load_constraint(fp: TextIO):
