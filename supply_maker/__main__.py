@@ -3,7 +3,6 @@ import re
 
 from . import _where
 from .make_supply import make_supply
-from supply_maker.src.model.constraint import load_constraint
 
 
 def _init_parser() -> argparse.ArgumentParser:
@@ -36,9 +35,7 @@ def _main():
     parser = _init_parser()
     args = parser.parse_args()
 
-    supply = make_supply(
-        load_constraint(args.constraint)
-    )
+    supply = make_supply(args.constraint)
     supply.print_supply()
     print(f'{len(supply)}枚選ばれました')
     print()
