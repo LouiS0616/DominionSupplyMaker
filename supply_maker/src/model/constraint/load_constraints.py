@@ -1,4 +1,5 @@
-from typing import Dict, List, TextIO
+from os import PathLike
+from typing import Dict, List
 import yaml
 
 from supply_maker.src.model.constraint import comply_with_constraint, parse_constraint
@@ -7,7 +8,7 @@ from supply_maker.src.model.card.attr.extension_name import ExtensionName
 
 
 #
-def load_constraint(fp: TextIO):
+def _load_constraint(fp):
     data = yaml.load(fp, yaml.SafeLoader)
     constraint = SupplyConstraint(lambda _: True)
 
@@ -21,7 +22,13 @@ def load_constraint(fp: TextIO):
     return constraint
 
 
-def load_extensions_never_used(fp: TextIO) -> List['ExtensionName']:
+def load_constraint(p: PathLike):
+    with open(p, encoding='utf-8') as fin:
+        return _load_constraint(fin)
+
+
+#
+def _load_extensions_never_used(fp) -> List['ExtensionName']:
     data = yaml.load(fp, yaml.SafeLoader)
 
     return [
@@ -29,3 +36,8 @@ def load_extensions_never_used(fp: TextIO) -> List['ExtensionName']:
         for ex_name, v in data['expansion'].items()
         if parse_constraint(v) == [0]
     ]
+
+
+def load_extensions_never_used(p: PathLike) -> List['ExtensionName']:
+    with open(p, encoding='utf-8') as fin:
+        return _load_extensions_never_used(fin)

@@ -1,4 +1,4 @@
-from typing import TextIO
+from os import PathLike
 
 from supply_maker.src.model.card_set import Supply
 from supply_maker.src.model.constraint.load_constraints import load_constraint, load_extensions_never_used
@@ -12,15 +12,13 @@ _supply_logger = get_file_logger(
 )
 
 
-def make_supply(constraint_fp: TextIO) -> 'Supply':
+def make_supply(constraint_p: PathLike) -> 'Supply':
     card_set = load_cards(
         _where / 'res/kingdom_cards',
-        extensions_never_used=load_extensions_never_used(constraint_fp)
+        extensions_never_used=load_extensions_never_used(constraint_p)
     )
-    constraint_fp.seek(0)
 
-    #
-    constraint = load_constraint(constraint_fp)
+    constraint = load_constraint(constraint_p)
 
     i = 0
     while i < 10_000:

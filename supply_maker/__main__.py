@@ -1,4 +1,5 @@
 import argparse
+import pathlib
 import re
 
 from . import _where
@@ -12,8 +13,8 @@ def _init_parser() -> argparse.ArgumentParser:
         '-c', '--constraint', nargs='?',
         help='you can specify a yaml file which control supply balance.',
 
-        type=argparse.FileType('r', encoding='utf-8'),
-        default=(_where / 'res/constraints.yml').open(encoding='utf-8')
+        type=lambda s: pathlib.Path(s),
+        default=(_where / 'res/default_constraints.yml')
     )
     parser.add_argument(
         '-ss', '--score_sheet', nargs='?',
