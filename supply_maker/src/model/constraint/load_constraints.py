@@ -27,19 +27,3 @@ def _load_constraint(fp):
 def load_constraint(p: PathLike):
     with open(p, encoding='utf-8') as fin:
         return _load_constraint(fin)
-
-
-#
-def _load_expansions_never_used(fp) -> List['ExpansionName']:
-    data = yaml.load(fp, yaml.SafeLoader)
-
-    return [
-        ExpansionName(ex_name)
-        for ex_name, v in data['expansion'].items()
-        if parse_constraint(v) == [0]
-    ]
-
-
-def load_expansions_never_used(p: PathLike) -> List['ExpansionName']:
-    with open(p, encoding='utf-8') as fin:
-        return _load_expansions_never_used(fin)
