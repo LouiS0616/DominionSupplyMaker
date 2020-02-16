@@ -6,7 +6,7 @@ from tqdm import tqdm
 from .. import _where
 from . import _flush_and_wait
 from supply_maker.src.model.load_cards import load_cards
-from ..src.model.card.attr.extension_name import ExtensionName
+from ..src.model.card.attr.expansion_name import ExpansionName
 from ..src.model.card_set import Supply
 from ..src.model.constraint import comply_with_constraint, parse_constraint
 
@@ -67,7 +67,7 @@ def test_single(N):
         print('OK', file=sys.stderr)
 
     _inner(
-        ac_counts=[0, 3, 4, 5], ex=ExtensionName('Alchemy'),
+        ac_counts=[0, 3, 4, 5], ex=ExpansionName('Alchemy'),
         desc='Testing constraint; 0,3-5 from Alchemy'
     )
 

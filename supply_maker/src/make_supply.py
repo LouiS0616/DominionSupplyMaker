@@ -1,7 +1,7 @@
 from os import PathLike
 
 from supply_maker.src.model.card_set import Supply
-from supply_maker.src.model.constraint.load_constraints import load_constraint, load_extensions_never_used
+from supply_maker.src.model.constraint.load_constraints import load_constraint, load_expansions_never_used
 from supply_maker.src.model.load_cards import load_cards
 from supply_maker import _where
 
@@ -9,7 +9,7 @@ from supply_maker import _where
 def make_supply(constraint_p: PathLike, *, logger=None) -> 'Supply':
     card_set = load_cards(
         _where / 'res/kingdom_cards',
-        extensions_never_used=load_extensions_never_used(constraint_p)
+        extensions_never_used=load_expansions_never_used(constraint_p)
     )
 
     constraint = load_constraint(constraint_p)

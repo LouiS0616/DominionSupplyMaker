@@ -1,4 +1,4 @@
-from .src.model.card.attr.extension_name import ExtensionName
+from .src.model.card.attr.expansion_name import ExpansionName
 from .src.translation import Lang, set_lang
 
 
