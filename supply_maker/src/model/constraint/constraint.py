@@ -19,9 +19,6 @@ class SupplyConstraint(_SupplyConstraint):
 
         return SupplyConstraint(_inner)
 
-    def __or__(self, other):
-        raise NotImplementedError
-
     def __call__(self, supply: 'Supply') -> bool:
         return self._predicate(supply)
 
@@ -33,8 +30,8 @@ def comply_with_constraint(
     assert len(kwargs) == 1
 
     def _inner(supply: 'Supply') -> bool:
-        return len(supply.filter(
-            has_attr(**kwargs)
-        )) in ac_counts
+        return len(
+            supply.filter(has_attr(**kwargs))
+        ) in ac_counts
 
     return SupplyConstraint(_inner)

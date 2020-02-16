@@ -17,11 +17,13 @@ _logger = get_file_logger(
 
 # noinspection PyPep8Naming,PyProtectedMember
 def test(N=100_000):
-    card_set = load_cards(_where / 'res/kingdom_cards')
+    candidates = load_cards(_where / 'res/kingdom_cards')
+    candidates._has_already_slimmed = True
+
     counter = collections.Counter()
 
     for _ in tqdm(range(N), desc='Testing load balance'):
-        supply = Supply.frm(card_set)
+        supply = Supply.frm(candidates)
         assert len(supply._data) == 10
 
         counter.update(supply._data)

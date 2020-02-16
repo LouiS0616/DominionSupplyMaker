@@ -1,15 +1,17 @@
 import logging as logging_
 from typing import Dict
 from typing import TYPE_CHECKING
+import warnings
 
 from supply_maker.src.model import preparation
-from . import CardSet
+from ._card_set import CardSet
 from .supply_printer import DefaultSupplyPrinter
 
 
 if TYPE_CHECKING:
     from supply_maker.src.model.card import Card
     from supply_maker.src.model.preparation.role import Role
+    from . import Candidates
     from .supply_printer import SupplyPrinter
     from ..constraint import SupplyConstraint
 
@@ -22,7 +24,7 @@ class Supply(CardSet):
     _set_uppers = preparation.load_set_uppers()
 
     def __init__(self, *,
-                 _frm: 'CardSet', parent: 'CardSet',
+                 _frm: 'Candidates', parent: 'Candidates',
                  logger: 'logging_.Logger' = None):
 
         self._has_already_set_up = False
@@ -34,7 +36,10 @@ class Supply(CardSet):
         super().__init__(elms=_frm.data)
 
     @staticmethod
-    def frm(parent: 'CardSet', *, logger: 'logging_.Logger' = None) -> 'Supply':
+    def frm(parent: 'Candidates', *, logger: 'logging_.Logger' = None) -> 'Supply':
+        if not parent.has_already_slimmed:
+            warnings.warn('candidate is not slimmed')
+
         return Supply(
             _frm=parent.choose(10), parent=parent, logger=logger
         )

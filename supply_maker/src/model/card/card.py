@@ -4,12 +4,12 @@ from typing import Dict
 
 from supply_maker.src.model.card.attr.cost import Cost
 from .attr.card_name import CardName
-from .attr.extension_name import ExtensionName
+from .attr.expansion_name import ExpansionName
 
 
 @dataclass(frozen=True)
 class _CardImpl:
-    ex:   ExtensionName
+    ex:   ExpansionName
     name: CardName
     cost: Cost
 
@@ -54,7 +54,7 @@ class Card(metaclass=_CardMeta):
             return Card(cls._cache[name])
 
         impl = _CardImpl(
-            ExtensionName(ex), CardName(name), Cost(cost_coin, need_potion),
+            ExpansionName(ex), CardName(name), Cost(cost_coin, need_potion),
             is_action, is_attack, is_reaction, is_duration,
             is_treasure, is_victory
         )

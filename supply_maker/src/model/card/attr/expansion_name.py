@@ -8,9 +8,9 @@ if TYPE_CHECKING:
     from supply_maker.src.translation.translate_table import TranslateTable
 
 
-class ExtensionName(Translatable):
+class ExpansionName(Translatable):
     _trans_table: 'TranslateTable' = \
-            load_translate_table(_where / 'res/translate/extensions.csv')
+            load_translate_table(_where / 'res/translate/expansions.csv')
 
     def _t(self, lang: 'Lang') -> str:
         cls = type(self)

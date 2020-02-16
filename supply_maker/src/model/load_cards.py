@@ -1,11 +1,9 @@
 import csv
 from os import PathLike
 from pathlib import Path
-from typing import List
 
 from supply_maker.src.model.card import Card
-from supply_maker.src.model.card.attr import ExtensionName
-from supply_maker.src.model.card_set import CardSet
+from supply_maker.src.model.card_set import Candidates
 
 
 def _ex_name(stem: str) -> str:
@@ -26,21 +24,13 @@ def _parse_card(stem: str, raw: [str]) -> Card:
     )
 
 
-def load_cards(
-        path: PathLike, *,
-        extensions_never_used: List['ExtensionName'] = None) -> CardSet:
+def load_cards(path: PathLike) -> Candidates:
 
     path = Path(path)
-
-    if extensions_never_used is None:
-        extensions_never_used = []
 
     #
     s = set()
     for p in path.glob('*.csv'):
-        if ExtensionName(p.stem) in extensions_never_used:
-            continue
-
         with p.open(encoding='utf-8', newline='') as fin:
             reader = csv.reader(fin)
             next(reader)    # skip header
@@ -52,4 +42,4 @@ def load_cards(
     if not s:
         raise ValueError(f'Failed to load card set, check path: {path.resolve()}')
 
-    return CardSet(elms=s)
+    return Candidates(elms=s)

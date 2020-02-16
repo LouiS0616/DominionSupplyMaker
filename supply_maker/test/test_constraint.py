@@ -6,12 +6,13 @@ from tqdm import tqdm
 from .. import _where
 from . import _flush_and_wait
 from supply_maker.src.model.load_cards import load_cards
-from ..src.model.card.attr.extension_name import ExtensionName
+from ..src.model.card.attr.expansion_name import ExpansionName
 from ..src.model.card_set import Supply
 from ..src.model.constraint import comply_with_constraint, parse_constraint
 
 
-card_set = load_cards(_where / 'res/kingdom_cards')
+candidates = load_cards(_where / 'res/kingdom_cards')
+candidates._has_already_slimmed = True
 
 
 def test(N=100):
@@ -28,8 +29,8 @@ def test(N=100):
 def test_parse():
     print('Testing parse constraint', file=sys.stderr)
 
-    def _inner(src: str, pred: Callable[[List[int]], bool]):
-        assert pred(parse_constraint(src))
+    def _inner(src: str, predicate: Callable[[List[int]], bool]):
+        assert predicate(parse_constraint(src))
         print(f'OK -> {src:10s}', file=sys.stderr)
 
     _inner('*', lambda lst: all(x + 1 == y for x, y in zip(lst, lst[1:])))
@@ -50,7 +51,7 @@ def test_single(N):
     # noinspection PyProtectedMember
     def _inner(*, ac_counts, desc, **kwargs):
         for _ in tqdm(range(N), desc=desc):
-            supply = Supply.frm(card_set)
+            supply = Supply.frm(candidates)
             supply.setup()
 
             (attr, value), = kwargs.items()
@@ -67,7 +68,7 @@ def test_single(N):
         print('OK', file=sys.stderr)
 
     _inner(
-        ac_counts=[0, 3, 4, 5], ex=ExtensionName('Alchemy'),
+        ac_counts=[0, 3, 4, 5], ex=ExpansionName('Alchemy'),
         desc='Testing constraint; 0,3-5 from Alchemy'
     )
 

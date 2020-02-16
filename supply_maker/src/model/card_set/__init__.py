@@ -1,2 +1,2 @@
-from .card_set import CardSet
+from .candidates import Candidates
 from .supply import Supply
