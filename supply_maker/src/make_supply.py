@@ -8,16 +8,16 @@ from supply_maker import _where
 
 
 def make_supply(constraint_p: PathLike, *, logger=None) -> 'Supply':
-    card_set = load_cards(
+    candidates = load_cards(
         _where / 'res/kingdom_cards',
     )
 
-    card_set = load_slimmer(constraint_p).slim(card_set)
+    candidates.slim(load_slimmer(constraint_p))
     constraint = load_constraint(constraint_p)
 
     i = 0
     while i < 10_000:
-        supply = Supply.frm(card_set, logger=logger)
+        supply = Supply.frm(candidates, logger=logger)
         supply.setup()
 
         if supply.is_valid(constraint):

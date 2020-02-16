@@ -1,6 +1,7 @@
 import logging as logging_
 from typing import Dict
 from typing import TYPE_CHECKING
+import warnings
 
 from supply_maker.src.model import preparation
 from ._card_set import CardSet
@@ -36,6 +37,9 @@ class Supply(CardSet):
 
     @staticmethod
     def frm(parent: 'Candidates', *, logger: 'logging_.Logger' = None) -> 'Supply':
+        if not parent.has_already_slimmed:
+            warnings.warn('candidate is not slimmed')
+
         return Supply(
             _frm=parent.choose(10), parent=parent, logger=logger
         )
