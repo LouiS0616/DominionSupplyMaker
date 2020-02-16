@@ -3,16 +3,10 @@ from os import PathLike
 from supply_maker.src.model.card_set import Supply
 from supply_maker.src.model.constraint.load_constraints import load_constraint, load_extensions_never_used
 from supply_maker.src.model.load_cards import load_cards
-from . import _where, get_file_logger
+from supply_maker import _where
 
 
-# noinspection SpellCheckingInspection
-_supply_logger = get_file_logger(
-    'supply', form='%(levelname)s | %(message)s'
-)
-
-
-def make_supply(constraint_p: PathLike) -> 'Supply':
+def make_supply(constraint_p: PathLike, *, logger=None) -> 'Supply':
     card_set = load_cards(
         _where / 'res/kingdom_cards',
         extensions_never_used=load_extensions_never_used(constraint_p)
@@ -22,7 +16,7 @@ def make_supply(constraint_p: PathLike) -> 'Supply':
 
     i = 0
     while i < 10_000:
-        supply = Supply.frm(card_set, logger=_supply_logger)
+        supply = Supply.frm(card_set, logger=logger)
         supply.setup()
 
         if supply.is_valid(constraint):

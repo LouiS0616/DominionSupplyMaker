@@ -2,8 +2,8 @@ import argparse
 import pathlib
 import re
 
-from . import _where
-from .make_supply import make_supply
+from . import _where, get_file_logger
+from supply_maker.src.make_supply import make_supply
 
 
 def _init_parser() -> argparse.ArgumentParser:
@@ -27,6 +27,12 @@ def _init_parser() -> argparse.ArgumentParser:
     return parser
 
 
+# noinspection SpellCheckingInspection
+_supply_logger = get_file_logger(
+    'supply', form='%(levelname)s | %(message)s'
+)
+
+
 def _main():
     # todo: just for debugging
     from .src.translation import Lang, set_default_lang
@@ -36,7 +42,7 @@ def _main():
     parser = _init_parser()
     args = parser.parse_args()
 
-    supply = make_supply(args.constraint)
+    supply = make_supply(args.constraint, logger=_supply_logger)
     supply.print_supply()
     print(f'{len(supply)}枚選ばれました')
     print()
