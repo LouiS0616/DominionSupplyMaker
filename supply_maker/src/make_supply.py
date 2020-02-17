@@ -1,8 +1,7 @@
 from os import PathLike
 
 from supply_maker.src.model.card_set import Supply
-from supply_maker.src.model.constraint.load_constraints import load_constraint
-from supply_maker.src.model.constraint.load_slimmer import load_slimmer
+from supply_maker.src.model.constraint.load import load_constraint_and_slimmer
 from supply_maker.src.model.load_cards import load_cards
 from supply_maker import _where
 
@@ -12,8 +11,8 @@ def make_supply(constraint_p: PathLike, *, logger=None) -> 'Supply':
         _where / 'res/kingdom_cards',
     )
 
-    candidates.slim(load_slimmer(constraint_p))
-    constraint = load_constraint(constraint_p)
+    constraint, slimmer = load_constraint_and_slimmer(constraint_p)
+    candidates.slim(slimmer)
 
     i = 0
     while i < 10_000:
