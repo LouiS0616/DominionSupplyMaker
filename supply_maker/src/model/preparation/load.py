@@ -1,7 +1,7 @@
 from typing import Dict, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from supply_maker.src.model.card import Card
+    from supply_maker.src.model.card.card import Card
     from ._set_upper import SupplySetUpper
 
 

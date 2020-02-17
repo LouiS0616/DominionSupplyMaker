@@ -7,7 +7,7 @@ from .role import Role
 from ._set_upper import register_set_upper
 
 if TYPE_CHECKING:
-    from supply_maker.src.model.card_set import Candidates
+    from supply_maker.src.model.card_set.candidates import Candidates
 
 
 #

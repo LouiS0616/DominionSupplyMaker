@@ -5,8 +5,8 @@ from typing import Callable, TYPE_CHECKING
 from sortedcontainers import SortedSet
 from supply_maker.src.model.card.evaluate.card_evaluater import has_attr
 if TYPE_CHECKING:
-    from supply_maker.src.model.card import Card
     from supply_maker.src.model.card.attr.card_name import CardName
+    from supply_maker.src.model.card.card import Card
     from supply_maker.src.model.card.evaluate.card_evaluater import CardEvaluator
 
 CardSet: Callable[[set], 'CardSet']

@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from supply_maker.src.model.card.evaluate.card_evaluater import has_attr
 
 if TYPE_CHECKING:
-    from supply_maker.src.model.card_set import Supply
+    from supply_maker.src.model.card_set.supply import Supply
 
 _SupplyConstraint = Callable[['Supply'], bool]
 

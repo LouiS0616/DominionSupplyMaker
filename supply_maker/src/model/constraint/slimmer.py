@@ -1,8 +1,8 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from supply_maker.src.model.card.evaluate import CardEvaluator
-    from supply_maker.src.model.card_set import Candidates
+    from supply_maker.src.model.card.evaluate.card_evaluater import CardEvaluator
+    from supply_maker.src.model.card_set.candidates import Candidates
 
 
 #
