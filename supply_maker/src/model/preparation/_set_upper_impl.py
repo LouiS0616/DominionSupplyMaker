@@ -7,7 +7,10 @@ from ._set_upper import register_set_upper
 
 if TYPE_CHECKING:
     from supply_maker.src.model.card_set import Candidates
-    from ._set_upper import SupplySetUpper
+
+
+#
+_set_uppers = {}
 
 
 #
@@ -22,9 +25,3 @@ def _setup_by_young_witch(
 
     add_cards(bane)
     card_to_role[bane] = Role('Bane')
-
-
-#
-def load_set_uppers() -> Dict['Card', 'SupplySetUpper']:
-    from ._set_upper import _set_uppers
-    return _set_uppers.copy()

@@ -15,6 +15,8 @@ SupplySetUpper = Callable[
 
 #
 def register_set_upper(name: str):
+    from ._set_upper_impl import _set_uppers
+
     def _decorator(func):
         _inner: SupplySetUpper
 
@@ -25,6 +27,3 @@ def register_set_upper(name: str):
         return _inner
 
     return _decorator
-
-
-_set_uppers = {}
