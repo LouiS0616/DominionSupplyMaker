@@ -42,7 +42,7 @@ def _main():
     parser = _init_parser()
     args = parser.parse_args()
 
-    supply = make_supply(args.constraint, logger=_supply_logger)
+    supply, _ = make_supply(args.constraint, logger=_supply_logger)
     supply.print_supply()
     print(f'{len(supply)}枚選ばれました')
     print()

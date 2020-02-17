@@ -1,7 +1,6 @@
 import csv
-from os import PathLike
-from pathlib import Path
 
+from supply_maker import _where
 from supply_maker.src.model.card import Card
 from supply_maker.src.model.card_set import Candidates
 
@@ -24,9 +23,8 @@ def _parse_card(stem: str, raw: [str]) -> Card:
     )
 
 
-def load_cards(path: PathLike) -> Candidates:
-
-    path = Path(path)
+def load_cards() -> Candidates:
+    path = _where / 'res/kingdom_cards'
 
     #
     s = set()
