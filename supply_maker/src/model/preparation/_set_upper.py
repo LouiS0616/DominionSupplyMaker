@@ -1,5 +1,5 @@
 from typing import Callable, Dict, List
-from supply_maker.src.model.card.attr import CardName
+from supply_maker.src.model.card.attr.card_name import CardName
 
 
 #

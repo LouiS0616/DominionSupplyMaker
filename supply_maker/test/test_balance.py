@@ -4,9 +4,9 @@ import sys
 
 from tqdm import tqdm
 
-from .. import _where, get_file_logger
+from .. import get_file_logger
 from . import _flush_and_wait
-from ..src.model.card_set import Supply
+from ..src.model.card_set.supply import Supply
 from supply_maker.src.model.load_cards import load_cards
 
 
@@ -17,7 +17,7 @@ _logger = get_file_logger(
 
 # noinspection PyPep8Naming,PyProtectedMember
 def test(N=100_000):
-    candidates = load_cards(_where / 'res/kingdom_cards')
+    candidates = load_cards()
     candidates._has_already_slimmed = True
 
     counter = collections.Counter()

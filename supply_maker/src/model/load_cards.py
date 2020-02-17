@@ -1,8 +1,8 @@
 import csv
 
 from supply_maker import _where
-from supply_maker.src.model.card import Card
-from supply_maker.src.model.card_set import Candidates
+from supply_maker.src.model.card.card import Card
+from supply_maker.src.model.card_set.candidates import Candidates
 
 
 def _ex_name(stem: str) -> str:

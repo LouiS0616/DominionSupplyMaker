@@ -3,7 +3,7 @@ from typing import Dict
 from typing import TYPE_CHECKING
 import warnings
 
-from supply_maker.src.model import preparation
+from supply_maker.src.model.preparation.load import load_set_uppers
 from ._card_set import CardSet
 from .supply_printer import DefaultSupplyPrinter
 
@@ -11,9 +11,9 @@ from .supply_printer import DefaultSupplyPrinter
 if TYPE_CHECKING:
     from supply_maker.src.model.card import Card
     from supply_maker.src.model.preparation.role import Role
-    from . import Candidates
+    from .candidates import Candidates
     from .supply_printer import SupplyPrinter
-    from ..constraint import SupplyConstraint
+    from ..constraint.constraint import SupplyConstraint
 
 
 _default_logger = logging_.getLogger(__name__)
@@ -21,7 +21,7 @@ _default_logger.setLevel(logging_.DEBUG)
 
 
 class Supply(CardSet):
-    _set_uppers = preparation.load_set_uppers()
+    _set_uppers = load_set_uppers()
 
     def __init__(self, *,
                  _frm: 'Candidates', parent: 'Candidates',

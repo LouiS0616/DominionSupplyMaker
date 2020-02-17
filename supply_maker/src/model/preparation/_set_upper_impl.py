@@ -1,6 +1,7 @@
 from typing import Dict, List, TYPE_CHECKING
 
-from supply_maker.src.model.card import Card, Cost
+from supply_maker.src.model.card.card import Card
+from supply_maker.src.model.card.attr.cost import Cost
 from supply_maker.src.model.constraint.constraint import has_attr
 from .role import Role
 from ._set_upper import register_set_upper

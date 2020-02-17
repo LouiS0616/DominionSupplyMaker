@@ -1,7 +1,7 @@
 from os import PathLike
 from typing import Tuple
 
-from supply_maker.src.model.card_set import Supply
+from supply_maker.src.model.card_set.supply import Supply
 from supply_maker.src.model.constraint.load import load_constraint_and_slimmer
 from supply_maker.src.model.load_cards import load_cards
 

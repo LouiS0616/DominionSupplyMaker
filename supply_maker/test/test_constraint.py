@@ -3,15 +3,15 @@ from typing import Callable, List
 
 from tqdm import tqdm
 
-from .. import _where
 from . import _flush_and_wait
 from supply_maker.src.model.load_cards import load_cards
 from ..src.model.card.attr.expansion_name import ExpansionName
-from ..src.model.card_set import Supply
-from ..src.model.constraint import comply_with_constraint, parse_constraint
+from ..src.model.card_set.supply import Supply
+from ..src.model.constraint.constraint import comply_with_constraint
+from ..src.model.constraint.parse_ac_count import parse_constraint
 
 
-candidates = load_cards(_where / 'res/kingdom_cards')
+candidates = load_cards()
 candidates._has_already_slimmed = True
 
 
