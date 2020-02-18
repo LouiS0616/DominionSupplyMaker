@@ -1,4 +1,5 @@
 import csv
+import re
 
 from supply_maker import _where
 from supply_maker.src.model.card.card import Card
@@ -6,7 +7,10 @@ from supply_maker.src.model.card_set.candidates import Candidates
 
 
 def _ex_name(stem: str) -> str:
-    return stem
+    m = re.fullmatch(r'ex\d{2}_(?P<name>.+)', stem)
+    assert m, stem
+
+    return m.group('name')
 
 
 def _parse_card(stem: str, raw: [str]) -> Card:
