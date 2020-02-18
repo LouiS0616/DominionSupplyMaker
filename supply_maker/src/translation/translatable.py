@@ -5,7 +5,7 @@ from supply_maker.src.translation import get_default_lang
 from supply_maker.src.translation.lang import Lang
 
 _ch_set = {
-    *string.ascii_letters, ' ', '/', "'",
+    *string.ascii_letters, *" /'-"
 }
 
 
