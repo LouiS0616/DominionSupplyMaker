@@ -11,7 +11,7 @@ def _ex_name(stem: str) -> str:
 
 def _parse_card(stem: str, raw: [str]) -> Card:
     # cls, ex and other arguments
-    assert 2 + len(raw) == Card.create.__code__.co_argcount
+    assert 2 + len(raw) == Card.create.__code__.co_argcount, raw
 
     def _is_t(e):
         return e == '1'
