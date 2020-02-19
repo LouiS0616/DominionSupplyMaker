@@ -1,31 +1,24 @@
 import csv
-import re
 
 from supply_maker import _where
 from supply_maker.src.model.card.card import Card
 from supply_maker.src.model.card_set.candidates import Candidates
 
 
-def _ex_name(stem: str) -> str:
-    m = re.fullmatch(r'ex\d{2}_(?P<name>.+)', stem)
-    assert m, stem
-
-    return m.group('name')
-
-
 def _parse_card(stem: str, raw: [str]) -> Card:
-    # cls, ex and other arguments
-    assert 2 + len(raw) == Card.create.__code__.co_argcount, raw
+    # cls and other arguments
+    assert 1 + len(raw) == Card.create.__code__.co_argcount, raw
 
     def _is_t(e):
         return e == '1'
 
     return Card.create(
-        ex=_ex_name(stem), name=raw[0], cost_coin=int(raw[1]), need_potion=_is_t(raw[2]),
-        is_action=_is_t(raw[3]), is_attack=_is_t(raw[4]), is_reaction=_is_t(raw[5]),
-        is_duration=_is_t(raw[6]), is_command=_is_t(raw[7]),
-        is_treasure=_is_t(raw[8]), is_victory=_is_t(raw[9]),
-        additional_types=raw[10].split(',')
+        ex=raw[0], edition=raw[1],
+        name=raw[2], cost_coin=int(raw[3]), need_potion=_is_t(raw[4]),
+        is_action=_is_t(raw[5]), is_attack=_is_t(raw[6]), is_reaction=_is_t(raw[7]),
+        is_duration=_is_t(raw[8]), is_command=_is_t(raw[9]),
+        is_treasure=_is_t(raw[10]), is_victory=_is_t(raw[11]),
+        additional_types=raw[12].split(',')
     )
 
 
