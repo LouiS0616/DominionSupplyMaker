@@ -20,7 +20,9 @@ class CardEvaluator(_CardEvaluator):
 
         return CardEvaluator(_inner)
 
+    @property
+    def neg(self) -> 'CardEvaluator':
+        return CardEvaluator(lambda card: not self(card))
+
     def __call__(self, card: Card) -> bool:
         return self._predicate(card)
-
-
