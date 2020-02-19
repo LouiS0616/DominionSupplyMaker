@@ -83,7 +83,7 @@ class Card(metaclass=_CardMeta):
     def __str__(self):
         return '{ex}{edition}: {name} - {cost} - {card_types}'.format(
             ex=self.ex.t(),
-            edition='' if self.edition.is_newest else f'({self.edition})',
+            edition='' if self.edition.is_newest() else f'({self.edition})',
             name=self.name.t(),
             cost=self.cost,
             card_types=' / '.join(
