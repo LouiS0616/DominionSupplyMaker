@@ -4,6 +4,7 @@ from typing import Dict
 
 from supply_maker.src.model.card.attr.cost import Cost
 from .attr.card_name import CardName
+from .attr.card_type import CardType
 from .attr.expansion_name import ExpansionName
 
 
@@ -71,17 +72,19 @@ class Card(metaclass=_CardMeta):
 
     #
     def __str__(self):
-        return '{ex}: {name} - {cost} - {card_type}'.format(
+        return '{ex}: {name} - {cost} - {card_types}'.format(
             ex=self.ex.t(),
             name=self.name.t(),
             cost=self.cost,
-            card_type=' / '.join(filter(None, [
-                'action'   if self.is_action   else '',
-                'attack'   if self.is_attack   else '',
-                'reaction' if self.is_reaction else '',
-                'duration' if self.is_duration else '',
-                'command'  if self.is_command  else '',
-                'treasure' if self.is_treasure else '',
-                'victory'  if self.is_victory  else '',
-            ]))
+            card_types=' / '.join(
+                CardType(typ).t() for typ in [
+                    'action'   if self.is_action   else '',
+                    'attack'   if self.is_attack   else '',
+                    'reaction' if self.is_reaction else '',
+                    'duration' if self.is_duration else '',
+                    'command'  if self.is_command  else '',
+                    'treasure' if self.is_treasure else '',
+                    'victory'  if self.is_victory  else '',
+                ] if typ
+            )
         )
