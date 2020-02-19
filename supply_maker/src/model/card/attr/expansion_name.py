@@ -12,6 +12,13 @@ class ExpansionName(Translatable):
     _trans_table: 'TranslateTable' = \
             load_translate_table(_where / 'res/translate/expansions.csv')
 
+    def __init__(self, raw_name: str):
+        assert raw_name in {
+            'Dominion', 'Intrigue', 'Seaside', 'Alchemy', 'Prosperity', 'Cornucopia', 'Hinterlands',
+        }, f'Unknown expansion; {raw_name}.'
+
+        super().__init__(raw_name)
+
     def _t(self, lang: 'Lang') -> str:
         cls = type(self)
         return cls._trans_table[self._raw_name][lang]

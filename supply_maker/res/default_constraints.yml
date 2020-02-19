@@ -7,7 +7,7 @@
 #
 
 expansion:
-  BaseSet:      "*"       # 基本セット
+  Dominion:     "*"       # 基本セット
   Intrigue:     "*"       # 陰謀
   Seaside:      "*"       # 海辺
   Alchemy:      "0,3-5"   # 錬金術
