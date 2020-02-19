@@ -36,8 +36,6 @@ def has_attr(**kwargs) -> CardEvaluator:
         return CardEvaluator(lambda _: True)
 
     (attr, value), *kvs = kwargs.items()
-    if attr not in Card.attrs:
-        raise AttributeError(f"'Card' object has no attribute '{attr}'")
 
     #
     def _inner(card: 'Card') -> bool:

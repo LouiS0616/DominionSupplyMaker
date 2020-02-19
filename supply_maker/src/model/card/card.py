@@ -71,6 +71,10 @@ class Card(metaclass=_CardMeta):
         if item in cls.attrs:
             return getattr(self._impl, item)
 
+        if item.startswith('is_'):
+            item = item[3:].lower()
+            return item in map(str.lower, self._impl.additional_types)
+
         raise AttributeError(f"'Card' object has no attribute '{item}'")
 
     #
