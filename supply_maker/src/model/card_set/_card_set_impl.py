@@ -14,12 +14,17 @@ CardSet: Callable[[set], 'CardSet']
 
 #
 class _ImplAsSet(ABC):
-    def __and__(self, other: '_ImplAsSet') -> 'CardSet':
+    def __and__(self, other: 'CardSet') -> 'CardSet':
         return CardSet(
             elms=self.data & other.data
         )
 
-    def __sub__(self, other: '_ImplAsSet') -> 'CardSet':
+    def __or__(self, other: 'CardSet') -> 'CardSet':
+        return CardSet(
+            elms=self.data | other.data
+        )
+
+    def __sub__(self, other: 'CardSet') -> 'CardSet':
         return CardSet(
             elms=self.data - other.data
         )
