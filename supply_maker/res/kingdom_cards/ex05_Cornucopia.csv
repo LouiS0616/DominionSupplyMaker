@@ -1,14 +1,14 @@
-name,cost,potion,action,attack,reaction,duration,treasure,victory
-Hamlet,2,0,1,0,0,0,0,0
-Fortune Teller,3,0,1,1,0,0,0,0
-Menagerie,3,0,1,0,0,0,0,0
-Farming Village,4,0,1,0,0,0,0,0
-Horse Traders,4,0,1,0,1,0,0,0
-Remake,4,0,1,0,0,0,0,0
-Tournament,4,0,1,0,0,0,0,0
-Young Witch,4,0,1,1,0,0,0,0
-Harvest,5,0,1,0,0,0,0,0
-Horn of Plenty,5,0,0,0,0,0,1,0
-Hunting Party,5,0,1,0,0,0,0,0
-Jester,5,0,1,1,0,0,0,0
-Fairgrounds,6,0,0,0,0,0,0,1
+name,cost,potion,action,attack,reaction,duration,command,treasure,victory
+Hamlet,2,0,1,0,0,0,0,0,0
+Fortune Teller,3,0,1,1,0,0,0,0,0
+Menagerie,3,0,1,0,0,0,0,0,0
+Farming Village,4,0,1,0,0,0,0,0,0
+Horse Traders,4,0,1,0,1,0,0,0,0
+Remake,4,0,1,0,0,0,0,0,0
+Tournament,4,0,1,0,0,0,0,0,0
+Young Witch,4,0,1,1,0,0,0,0,0
+Harvest,5,0,1,0,0,0,0,0,0
+Horn of Plenty,5,0,0,0,0,0,0,1,0
+Hunting Party,5,0,1,0,0,0,0,0,0
+Jester,5,0,1,1,0,0,0,0,0
+Fairgrounds,6,0,0,0,0,0,0,0,1

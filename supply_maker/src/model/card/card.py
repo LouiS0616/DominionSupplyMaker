@@ -17,6 +17,7 @@ class _CardImpl:
     is_attack:   bool
     is_reaction: bool
     is_duration: bool
+    is_command:  bool
 
     is_treasure: bool
     is_victory:  bool
@@ -47,7 +48,7 @@ class Card(metaclass=_CardMeta):
     @classmethod
     def create(cls,
                ex: str, name: str, cost_coin: int, need_potion: bool,
-               is_action: bool, is_attack: bool, is_reaction: bool, is_duration: bool,
+               is_action: bool, is_attack: bool, is_reaction: bool, is_duration: bool, is_command: bool,
                is_treasure: bool, is_victory: bool) -> 'Card':
 
         if name in cls._cache:
@@ -55,7 +56,7 @@ class Card(metaclass=_CardMeta):
 
         impl = _CardImpl(
             ExpansionName(ex), CardName(name), Cost(cost_coin, need_potion),
-            is_action, is_attack, is_reaction, is_duration,
+            is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory
         )
         return Card(impl)
@@ -79,6 +80,7 @@ class Card(metaclass=_CardMeta):
                 'attack'   if self.is_attack   else '',
                 'reaction' if self.is_reaction else '',
                 'duration' if self.is_duration else '',
+                'command'  if self.is_command  else '',
                 'treasure' if self.is_treasure else '',
                 'victory'  if self.is_victory  else '',
             ]))

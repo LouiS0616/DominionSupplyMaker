@@ -22,8 +22,9 @@ def _parse_card(stem: str, raw: [str]) -> Card:
 
     return Card.create(
         ex=_ex_name(stem), name=raw[0], cost_coin=int(raw[1]), need_potion=_is_t(raw[2]),
-        is_action=_is_t(raw[3]), is_attack=_is_t(raw[4]), is_reaction=_is_t(raw[5]), is_duration=_is_t(raw[6]),
-        is_treasure=_is_t(raw[7]), is_victory=_is_t(raw[8])
+        is_action=_is_t(raw[3]), is_attack=_is_t(raw[4]), is_reaction=_is_t(raw[5]),
+        is_duration=_is_t(raw[6]), is_command=_is_t(raw[7]),
+        is_treasure=_is_t(raw[8]), is_victory=_is_t(raw[9])
     )
 
 
