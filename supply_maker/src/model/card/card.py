@@ -1,6 +1,6 @@
 import dataclasses
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, List
 
 from supply_maker.src.model.card.attr.cost import Cost
 from .attr.card_name import CardName
@@ -22,6 +22,8 @@ class _CardImpl:
 
     is_treasure: bool
     is_victory:  bool
+
+    additional_types: List[str]
 
 
 #
@@ -50,7 +52,7 @@ class Card(metaclass=_CardMeta):
     def create(cls,
                ex: str, name: str, cost_coin: int, need_potion: bool,
                is_action: bool, is_attack: bool, is_reaction: bool, is_duration: bool, is_command: bool,
-               is_treasure: bool, is_victory: bool) -> 'Card':
+               is_treasure: bool, is_victory: bool, additional_types: List[str]) -> 'Card':
 
         if name in cls._cache:
             return Card(cls._cache[name])
@@ -58,7 +60,8 @@ class Card(metaclass=_CardMeta):
         impl = _CardImpl(
             ExpansionName(ex), CardName(name), Cost(cost_coin, need_potion),
             is_action, is_attack, is_reaction, is_duration, is_command,
-            is_treasure, is_victory
+            is_treasure, is_victory,
+            additional_types
         )
         return Card(impl)
 
@@ -85,6 +88,7 @@ class Card(metaclass=_CardMeta):
                     'command'  if self.is_command  else '',
                     'treasure' if self.is_treasure else '',
                     'victory'  if self.is_victory  else '',
+                    *self.additional_types
                 ] if typ
             )
         )

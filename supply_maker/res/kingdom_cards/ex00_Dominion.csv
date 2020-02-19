@@ -1,27 +1,27 @@
-name,cost,potion,action,attack,reaction,duration,command,treasure,victory
-Cellar,2,0,1,0,0,0,0,0,0
-Chapel,2,0,1,0,0,0,0,0,0
-Moat,2,0,1,0,1,0,0,0,0
-Harbinger,3,0,1,0,0,0,0,0,0
-Merchant,3,0,1,0,0,0,0,0,0
-Vassal,3,0,1,0,0,0,0,0,0
-Village,3,0,1,0,0,0,0,0,0
-Workshop,3,0,1,0,0,0,0,0,0
-Bureaucrat,4,0,1,1,0,0,0,0,0
-Gardens,4,0,0,0,0,0,0,0,1
-Militia,4,0,1,1,0,0,0,0,0
-Moneylender,4,0,1,0,0,0,0,0,0
-Poacher,4,0,1,0,0,0,0,0,0
-Remodel,4,0,1,0,0,0,0,0,0
-Smithy,4,0,1,0,0,0,0,0,0
-Throne Room,4,0,1,0,0,0,0,0,0
-Bandit,5,0,1,1,0,0,0,0,0
-Council Room,5,0,1,0,0,0,0,0,0
-Festival,5,0,1,0,0,0,0,0,0
-Laboratory,5,0,1,0,0,0,0,0,0
-Library,5,0,1,0,0,0,0,0,0
-Market,5,0,1,0,0,0,0,0,0
-Mine,5,0,1,0,0,0,0,0,0
-Sentry,5,0,1,0,0,0,0,0,0
-Witch,5,0,1,1,0,0,0,0,0
-Artisan,6,0,1,0,0,0,0,0,0
+name,cost,potion,action,attack,reaction,duration,command,treasure,victory,types
+Cellar,2,0,1,0,0,0,0,0,0,
+Chapel,2,0,1,0,0,0,0,0,0,
+Moat,2,0,1,0,1,0,0,0,0,
+Harbinger,3,0,1,0,0,0,0,0,0,
+Merchant,3,0,1,0,0,0,0,0,0,
+Vassal,3,0,1,0,0,0,0,0,0,
+Village,3,0,1,0,0,0,0,0,0,
+Workshop,3,0,1,0,0,0,0,0,0,
+Bureaucrat,4,0,1,1,0,0,0,0,0,
+Gardens,4,0,0,0,0,0,0,0,1,
+Militia,4,0,1,1,0,0,0,0,0,
+Moneylender,4,0,1,0,0,0,0,0,0,
+Poacher,4,0,1,0,0,0,0,0,0,
+Remodel,4,0,1,0,0,0,0,0,0,
+Smithy,4,0,1,0,0,0,0,0,0,
+Throne Room,4,0,1,0,0,0,0,0,0,
+Bandit,5,0,1,1,0,0,0,0,0,
+Council Room,5,0,1,0,0,0,0,0,0,
+Festival,5,0,1,0,0,0,0,0,0,
+Laboratory,5,0,1,0,0,0,0,0,0,
+Library,5,0,1,0,0,0,0,0,0,
+Market,5,0,1,0,0,0,0,0,0,
+Mine,5,0,1,0,0,0,0,0,0,
+Sentry,5,0,1,0,0,0,0,0,0,
+Witch,5,0,1,1,0,0,0,0,0,
+Artisan,6,0,1,0,0,0,0,0,0,
