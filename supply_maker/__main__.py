@@ -48,6 +48,7 @@ def _main():
     print()
 
     if args.score_sheet:
+        # todo: implement
         scores = re.split(
             r'\D+', input('RESULT? (score1 score2 ...) => ')
         )

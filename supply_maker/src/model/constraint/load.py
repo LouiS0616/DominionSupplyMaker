@@ -3,7 +3,8 @@ from typing import Dict, List, Tuple
 import yaml
 
 from supply_maker.src.model.card.attr.expansion import Expansion
-from supply_maker.src.model.card.evaluate.card_evaluater import CardEvaluator, has_attr
+from supply_maker.src.model.card.evaluate.card_evaluater import CardEvaluator
+from supply_maker.src.model.card.evaluate.functions import has_attr
 from .constraint import comply_with_constraint, SupplyConstraint
 from .parse_ac_count import parse_constraint
 from .slimmer import CandidateSlimmer
