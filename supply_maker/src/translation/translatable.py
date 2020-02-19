@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import string
+import warnings
 
 from supply_maker.src.translation import get_default_lang
 from supply_maker.src.translation.lang import Lang
@@ -19,7 +20,11 @@ class Translatable(ABC):
         pass
 
     def t(self, lang=None) -> str:
-        return self._t(lang or get_default_lang())
+        try:
+            return self._t(lang or get_default_lang())
+        except KeyError:
+            warnings.warn(f'Cannot translate; "{self._raw_name}".')
+            return self._raw_name
 
     #
     def __str__(self):
