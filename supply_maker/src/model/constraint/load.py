@@ -2,7 +2,7 @@ from os import PathLike
 from typing import Dict, List, Tuple
 import yaml
 
-from supply_maker.src.model.card.attr.expansion_name import ExpansionName
+from supply_maker.src.model.card.attr.expansion import Expansion
 from supply_maker.src.model.card.evaluate.card_evaluater import CardEvaluator, has_attr
 from .constraint import comply_with_constraint, SupplyConstraint
 from .parse_ac_count import parse_constraint
@@ -21,8 +21,8 @@ def load_constraint_and_slimmer(p: PathLike) -> Tuple['SupplyConstraint', 'Candi
     card_unnecessary = CardEvaluator(lambda _: False)   # return True if the card is unnecessary
 
     #
-    ex: Dict['ExpansionName', List[int]] = {
-        ExpansionName(ex_name): parse_constraint(v) for ex_name, v in data['expansion'].items()
+    ex: Dict['Expansion', List[int]] = {
+        Expansion(ex_name): parse_constraint(v) for ex_name, v in data['expansion'].items()
     }
     for ex_name, v in ex.items():
         if v == [0]:

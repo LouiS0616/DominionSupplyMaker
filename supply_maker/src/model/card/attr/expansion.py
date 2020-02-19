@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from supply_maker.src.translation.translate_table import TranslateTable
 
 
-class ExpansionName(Translatable):
+class Expansion(Translatable):
     _trans_table: 'TranslateTable' = \
             load_translate_table(_where / 'res/translate/expansions.csv')
 

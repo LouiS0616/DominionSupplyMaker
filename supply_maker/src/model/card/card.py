@@ -5,13 +5,14 @@ from typing import Dict, List
 from supply_maker.src.model.card.attr.cost import Cost
 from .attr.card_name import CardName
 from .attr.card_type import CardType
-from .attr.expansion_name import ExpansionName
+from .attr.edition import Edition
+from .attr.expansion import Expansion
 
 
 @dataclass(frozen=True)
 class _CardImpl:
-    ex:      ExpansionName
-    edition: str
+    ex:      Expansion
+    edition: Edition
     name:    CardName
     cost:    Cost
 
@@ -59,7 +60,7 @@ class Card(metaclass=_CardMeta):
             return Card(cls._cache[name])
 
         impl = _CardImpl(
-            ExpansionName(ex), edition, CardName(name), Cost(cost_coin, need_potion),
+            Expansion(ex), Edition(edition), CardName(name), Cost(cost_coin, need_potion),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
             additional_types
@@ -80,8 +81,9 @@ class Card(metaclass=_CardMeta):
 
     #
     def __str__(self):
-        return '{ex}: {name} - {cost} - {card_types}'.format(
+        return '{ex}{edition}: {name} - {cost} - {card_types}'.format(
             ex=self.ex.t(),
+            edition='' if self.edition.is_newest else f'({self.edition})',
             name=self.name.t(),
             cost=self.cost,
             card_types=' / '.join(
