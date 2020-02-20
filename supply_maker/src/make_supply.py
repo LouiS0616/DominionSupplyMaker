@@ -23,6 +23,7 @@ def make_supply(constraint_p: PathLike, *, logger=None) -> Tuple['Supply', int]:
     constraint, slimmer = load_constraint_and_slimmer(constraint_p)
     candidates.slim(slimmer)
 
+    # todo: enable to choose effect items; events, landmarks and projects.
     trial_count = 0
     while trial_count < 10_000:
         supply = Supply.frm(candidates, logger=logger)
