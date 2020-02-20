@@ -1,0 +1,31 @@
+ex,edition,name,cost,potion,action,attack,reaction,duration,command,treasure,victory,types
+Adventures,***,Coin of the Realm,2,0,0,0,0,0,0,1,0,Reserve
+Adventures,***,Page,2,0,1,0,0,0,0,0,0,Traveller
+Adventures,***,Peasant,2,0,1,0,0,0,0,0,0,Traveller
+Adventures,***,Ratcatcher,2,0,1,0,0,0,0,0,0,Reserve
+Adventures,***,Raze,2,0,1,0,0,0,0,0,0,
+Adventures,***,Amulet,3,0,1,0,0,1,0,0,0,
+Adventures,***,Caravan Guard,3,0,1,0,1,1,0,0,0,
+Adventures,***,Dungeon,3,0,1,0,0,1,0,0,0,
+Adventures,***,Gear,3,0,1,0,0,1,0,0,0,
+Adventures,***,Guide,3,0,1,0,0,0,0,0,0,Reserve
+Adventures,***,Duplicate,4,0,1,0,0,0,0,0,0,Reserve
+Adventures,***,Magpie,4,0,1,0,0,0,0,0,0,
+Adventures,***,Messenger,4,0,1,0,0,0,0,0,0,
+Adventures,***,Miser,4,0,1,0,0,0,0,0,0,
+Adventures,***,Port,4,0,1,0,0,0,0,0,0,
+Adventures,***,Ranger,4,0,1,0,0,0,0,0,0,
+Adventures,***,Transmogrify,4,0,1,0,0,0,0,0,0,Reserve
+Adventures,***,Artificer,5,0,1,0,0,0,0,0,0,
+Adventures,***,Bridge Troll,5,0,1,1,0,1,0,0,0,
+Adventures,***,Distant Lands,5,0,1,0,0,0,0,0,1,Reserve
+Adventures,***,Giant,5,0,1,1,0,0,0,0,0,
+Adventures,***,Haunted Woods,5,0,1,1,0,1,0,0,0,
+Adventures,***,Lost City,5,0,1,0,0,0,0,0,0,
+Adventures,***,Relic,5,0,0,1,0,0,0,1,0,
+Adventures,***,Royal Carriage,5,0,1,0,0,0,0,0,0,Reserve
+Adventures,***,Storyteller,5,0,1,0,0,0,0,0,0,
+Adventures,***,Swamp Hag,5,0,1,1,0,1,0,0,0,
+Adventures,***,Treasure Trove,5,0,0,0,0,0,0,1,0,
+Adventures,***,Wine Merchant,5,0,1,0,0,0,0,0,0,Reserve
+Adventures,***,Hireling,6,0,1,0,0,1,0,0,0,

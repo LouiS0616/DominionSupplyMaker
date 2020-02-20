@@ -15,7 +15,7 @@ class Expansion(Translatable):
     def __init__(self, raw_name: str):
         assert raw_name in {
             'Dominion', 'Intrigue', 'Seaside', 'Alchemy', 'Prosperity', 'Cornucopia',
-            'Hinterlands', 'DarkAges', 'Guilds',
+            'Hinterlands', 'DarkAges', 'Guilds', 'Adventures',
         }, f'Unknown expansion; "{raw_name}".'
 
         super().__init__(raw_name)
