@@ -5,7 +5,7 @@ from supply_maker.src.model.card.card import Card
 from supply_maker.src.model.card_set.candidates import Candidates
 
 
-def _parse_card(stem: str, raw: [str]) -> Card:
+def _parse_card(raw: [str]) -> Card:
     # cls and other arguments
     assert 1 + len(raw) == Card.create.__code__.co_argcount, raw
 
@@ -32,9 +32,7 @@ def load_cards() -> Candidates:
             reader = csv.reader(fin)
             next(reader)    # skip header
 
-            s |= {
-                _parse_card(p.stem, line) for line in reader
-            }
+            s |= {*map(_parse_card, reader)}
 
     if not s:
         raise ValueError(f'Failed to load card set, check path: {path.resolve()}')
