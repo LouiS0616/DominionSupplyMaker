@@ -18,7 +18,6 @@ def build_sequential(name, impls, dct, *, builder):
 
     return type(
         name, tuple(impl.value for impl in impls), {
-            **dct, '_Seq_builder': lambda self, *args: builder(*args)
+            **dct, '_Seq_builder': property(lambda _: builder)
         }
     )
-

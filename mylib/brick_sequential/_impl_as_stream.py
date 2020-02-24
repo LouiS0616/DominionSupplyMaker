@@ -1,9 +1,11 @@
 from abc import ABC, abstractmethod
 import random
 
+from ._impl_base import _ImplBase
+
 
 #
-class _ImplAsStream(ABC):
+class _ImplAsStream(_ImplBase, ABC):
     def filter(self, evaluator) -> '_ImplAsStream':
         return self._Seq_builder(
             filter(evaluator, self.data)
@@ -17,13 +19,3 @@ class _ImplAsStream(ABC):
     def any(self):
         ret, = self.choose(1).data
         return ret
-
-    #
-    @property
-    @abstractmethod
-    def data(self): ...
-
-    # noinspection PyPep8Naming
-    @property
-    @abstractmethod
-    def _Seq_builder(self): ...

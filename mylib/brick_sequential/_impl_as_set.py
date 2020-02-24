@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
+from ._impl_base import _ImplBase
 
 
 #
-class _ImplAsSet(ABC):
+class _ImplAsSet(_ImplBase, ABC):
     def __and__(self, other: '_ImplAsSet') -> '_ImplAsSet':
         return self._Seq_builder(
             self.data & other.data
@@ -17,13 +18,3 @@ class _ImplAsSet(ABC):
         return self._Seq_builder(
             self.data - other.data
         )
-
-    #
-    @property
-    @abstractmethod
-    def data(self): ...
-
-    # noinspection PyPep8Naming
-    @property
-    @abstractmethod
-    def _Seq_builder(self): ...
