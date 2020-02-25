@@ -2,7 +2,7 @@ import csv
 
 from supply_maker import _where
 from supply_maker.src.model.effect.effect import Effect
-from supply_maker.src.model.effect_set.effect_candidate import EffectCandidate
+from supply_maker.src.model.effect_set.effect_set import EffectSet
 
 
 def _parse_effect(raw: [str]) -> Effect:
@@ -15,7 +15,7 @@ def _parse_effect(raw: [str]) -> Effect:
     )
 
 
-def load_effects() -> 'EffectCandidate':
+def load_effects() -> 'EffectSet':
     path = _where / 'res/effects'
 
     #
@@ -30,4 +30,4 @@ def load_effects() -> 'EffectCandidate':
     if not s:
         raise ValueError(f'Failed to load effect set, check path: {path.resolve()}')
 
-    return EffectCandidate(elms=s)
+    return EffectSet(elms=s)
