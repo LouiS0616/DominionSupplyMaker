@@ -19,3 +19,6 @@ class EffectType(Translatable):
     def _t(self, lang: 'Lang') -> str:
         cls = type(self)
         return cls._trans_table[self._raw_name][lang]
+
+    def __lt__(self, other: 'EffectType'):
+        return self._raw_name < other._raw_name
