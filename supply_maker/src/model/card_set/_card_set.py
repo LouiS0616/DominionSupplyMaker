@@ -19,7 +19,9 @@ _CardSetImpl = build_sequential(
 
 class CardSet(_CardSetImpl):
     def __init__(self, *, elms=None):
-        self._data = SortedSet(elms, key=operator.attrgetter('cost'))
+        self._data = SortedSet(
+            elms, key=operator.attrgetter('cost', 'name')
+        )
 
     def contains(self, card_name: 'CardName'):
         ev = has_attr(name=card_name)
