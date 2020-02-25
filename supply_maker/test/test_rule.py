@@ -1,16 +1,15 @@
 import sys
 from tqdm import tqdm
 
-from .. import _where
 from . import _flush_and_wait
 from supply_maker.src.model.load_cards import load_cards
-from ..src.model.card import Cost
+from ..src.model.card.attr.cost import Cost
 from ..src.model.card.attr.card_name import CardName
-from ..src.model.card.evaluate import has_attr
-from ..src.model.card_set import Supply
+from ..src.model.card.evaluate.functions import has_attr
+from ..src.model.card_set.supply import Supply
 from ..src.model.preparation.role import Role
 
-_card_set = load_cards(_where / 'res/kingdom_cards')
+_card_set = load_cards()
 
 
 def test():

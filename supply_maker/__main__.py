@@ -42,12 +42,16 @@ def _main():
     parser = _init_parser()
     args = parser.parse_args()
 
-    supply = make_supply(args.constraint, logger=_supply_logger)
+    supply, effects, _ = make_supply(args.constraint, logger=_supply_logger)
     supply.print_supply()
-    print(f'{len(supply)}枚選ばれました')
+    if effects:
+        print(*effects.data, sep='\n')
+
+    print(f'{len(supply)}+{len(effects)}枚選ばれました')
     print()
 
     if args.score_sheet:
+        # todo: implement
         scores = re.split(
             r'\D+', input('RESULT? (score1 score2 ...) => ')
         )

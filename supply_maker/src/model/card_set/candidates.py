@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 
 from ._card_set import CardSet
 if TYPE_CHECKING:
-    from supply_maker.src.model.constraint.candidate_slimmer import CandidateSlimmer
+    from supply_maker.src.model.constraint.slimmer import CandidateSlimmer
 
 
 class Candidates(CardSet):

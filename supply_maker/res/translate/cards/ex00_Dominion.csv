@@ -2,18 +2,23 @@ English,Japanese
 Cellar,地下貯蔵庫
 Chapel,礼拝堂
 Moat,堀
+Chancellor,宰相
 Harbinger,前駆者
 Merchant,商人
 Vassal,家臣
 Village,村
+Woodcutter,木こり
 Workshop,工房
 Bureaucrat,役人
+Feast,祝宴
 Gardens,庭園
 Militia,民兵
 Moneylender,金貸し
 Poacher,密猟者
 Remodel,改築
 Smithy,鍛冶屋
+Spy,密偵
+Thief,泥棒
 Throne Room,玉座の間
 Bandit,山賊
 Council Room,議事堂
@@ -24,4 +29,5 @@ Market,市場
 Mine,鉱山
 Sentry,衛兵
 Witch,魔女
+Adventurer,冒険者
 Artisan,職人

@@ -1,14 +1,18 @@
 #
 # Form
 #   constraints ::= range[,constraints]
-#   range       ::= count | count "-" count
-#   count       ::= "*" | number
+#   range       ::= ac_count | ac_count "-" ac_count
+#   ac_count    ::= "*" | number
 #   number      ::= 0,1,2,3,4,5,6,7,8,9,10
 #
 
 expansion:
-  BaseSet:      "*"       # 基本セット
+  Dominion:     "*"       # 基本セット
   Intrigue:     "*"       # 陰謀
   Seaside:      "*"       # 海辺
-  Cornucopia:   "*"       # 収穫祭
   Alchemy:      "0,3-5"   # 錬金術
+  Prosperity:   "*"       # 繁栄
+  Cornucopia:   "*"       # 収穫祭
+  Hinterlands:  "*"       # 異郷
+  DarkAges:     "*"       # 暗黒時代
+  Adventures:   "*"       # 冒険
