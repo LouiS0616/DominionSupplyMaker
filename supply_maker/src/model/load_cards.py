@@ -14,7 +14,9 @@ def _parse_randomizer(ex, name, attr) -> Card:
     }
     return Card.create(
         ex=ex, edition=attr.get('edition', '***'), name=name,
-        cost_coin=attr['cost'], need_potion=attr.get('need potion', False),
+        cost_coin=attr['cost'],
+        need_potion=attr.get('need potion', False),
+        debt=attr.get('debt', 0),
         **{
             'is_{}'.format(typ.lower()): True for typ in attr['types']
         },

@@ -53,7 +53,7 @@ class Card(metaclass=_CardMeta):
 
     @classmethod
     def create(cls,
-               ex: str, edition: str, name: str, cost_coin: int, need_potion: bool,
+               ex: str, edition: str, name: str, cost_coin: int, need_potion: bool, debt: int,
                pile_components: List[str],
                is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
                is_treasure=False, is_victory=False, **kwargs) -> 'Card':
@@ -71,7 +71,8 @@ class Card(metaclass=_CardMeta):
 
         #
         impl = _CardImpl(
-            Expansion(ex), Edition(edition), CardName(name), Cost(cost_coin, need_potion),
+            Expansion(ex), Edition(edition), CardName(name),
+            Cost(cost_coin, need_potion, debt),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
             additional_types, [*map(CardName, pile_components)]

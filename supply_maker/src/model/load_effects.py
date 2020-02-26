@@ -8,7 +8,7 @@ from supply_maker.src.model.effect_set.effect_set import EffectSet
 def _parse_effect(ex, typ, name, attr) -> Effect:
     return Effect.create(
         ex=ex, edition=attr.get('edition', '***'), typ=typ,
-        name=name, cost=attr['cost']
+        name=name, cost=attr.get('cost', None), debt=attr.get('debt', 0)
     )
 
 
@@ -25,6 +25,10 @@ def load_effects() -> 'EffectSet':
         s |= {
             _parse_effect(ex, 'Event', name, attrs)
             for name, attrs in data.get('events', {}).items()
+        }
+        s |= {
+            _parse_effect(ex, 'Landmark', name, attrs)
+            for name, attrs in data.get('landmarks', {}).items()
         }
 
     if not s:

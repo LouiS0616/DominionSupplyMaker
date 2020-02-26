@@ -1,0 +1,85 @@
+ex: Empires
+
+kingdom cards:
+  # debt 4
+  Engineer:                   {cost: 0, debt: 4, types: [Action]}
+  # debt 8
+  City Quarter:               {cost: 0, debt: 8, types: [Action]}
+  Overlord:                   {cost: 0, debt: 8, types: [Action, Command]}
+  Royal Blacksmith:           {cost: 0, debt: 8, types: [Action]}
+  # cost 2
+  Encampment/Plunder:         {cost: 2, types: [Action],
+    pile components: [Encampment, Plunder]}
+  Patrician/Emporium:         {cost: 2, types: [Action],
+    pile components: [Patrician, Emporium]}
+  Settlers/Bustling Village:  {cost: 2, types: [Action],
+    pile components: [Settlers, Bustling Village]}
+  # cost 3
+  Castles:                    {cost: 3, types: [Victory, Castle],
+    pile components: [
+      Humble Castle, Crumbling Castle, Small Castle, Haunted Castle,
+      Opulent Castle, Sprawling Castle, Grand Castle, King's Castle
+    ]}
+  Catapult/Rocks:             {cost: 3, types: [Action, Attack],
+    pile components: [Catapult, Rocks]}
+  Chariot Race:               {cost: 3, types: [Action]}
+  Enchantress:                {cost: 3, types: [Action, Attack, Duration]}
+  Farmers' Market:            {cost: 3, types: [Action, Gathering]}
+  Gladiator/Fortune:          {cost: 3, types: [Action],
+    pile components: [Gladiator, Fortune]}
+  # cost 4
+  Sacrifice:                  {cost: 4, types: [Action]}
+  Temple:                     {cost: 4, types: [Action, Gathering]}
+  Villa:                      {cost: 4, types: [Action]}
+  # cost 5
+  Archive:                    {cost: 5, types: [Action, Duration]}
+  Capital:                    {cost: 5, types: [Treasure]}
+  Charm:                      {cost: 5, types: [Treasure]}
+  Crown:                      {cost: 5, types: [Action, Treasure]}
+  Forum:                      {cost: 5, types: [Action]}
+  Groundskeeper:              {cost: 5, types: [Action]}
+  Legionary:                  {cost: 5, types: [Action, Attack]}
+  Wild Hunt:                  {cost: 5, types: [Action, Gathering]}
+
+events:
+  # cost 0
+  Triumph:        {cost: 0, debt: 5}
+  Annex:          {cost: 0, debt: 8}
+  Donate:         {cost: 0, debt: 8}
+  Advance:        {cost: 0}
+  # cost 2
+  Delve:          {cost: 2}
+  Tax:            {cost: 2}
+  # cost 3
+  Banquet:        {cost: 3}
+  # cost 4
+  Ritual:         {cost: 4}
+  Salt the Earth: {cost: 4}
+  Wedding:        {cost: 4, debt: 3}
+  # cost more
+  Windfall:       {cost: 5}
+  Conquest:       {cost: 6}
+  Dominate:       {cost: 14}
+
+landmarks:
+  Aqueduct:       {}
+  Arena:          {}
+  Bandit Fort:    {}
+  Basilica:       {}
+  Baths:          {}
+  Battlefield:    {}
+  Colonnade:      {}
+  Defiled Shrine: {}
+  Fountain:       {}
+  Keep:           {}
+  Labyrinth:      {}
+  Mountain Pass:  {}
+  Museum:         {}
+  Obelisk:        {}
+  Orchard:        {}
+  Palace:         {}
+  Tomb:           {}
+  Tower:          {}
+  Triumphal Arch: {}
+  Wall:           {}
+  Wolf Den:       {}

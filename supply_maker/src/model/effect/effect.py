@@ -41,14 +41,14 @@ class Effect(metaclass=_EffectMeta):
 
     @classmethod
     def create(cls,
-               ex: str, edition: str, typ: str, name: str, cost: int):
+               ex: str, edition: str, typ: str, name: str, cost: int, debt: int):
 
         if name in cls._cache:
             return Effect(cls._cache[name])
 
         impl = _EffectImpl(
             Expansion(ex), Edition(edition), EffectType(typ),
-            EffectName(name), Cost(cost)
+            EffectName(name), Cost(cost, debt=debt)
         )
         return Effect(impl)
 
