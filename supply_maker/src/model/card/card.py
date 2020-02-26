@@ -26,6 +26,7 @@ class _CardImpl:
     is_victory:  bool
 
     additional_types: List[str]
+    pile_components: List[str]
 
 
 #
@@ -53,6 +54,7 @@ class Card(metaclass=_CardMeta):
     @classmethod
     def create(cls,
                ex: str, edition: str, name: str, cost_coin: int, need_potion: bool,
+               pile_components: List[str],
                is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
                is_treasure=False, is_victory=False, **kwargs) -> 'Card':
 
@@ -72,7 +74,7 @@ class Card(metaclass=_CardMeta):
             Expansion(ex), Edition(edition), CardName(name), Cost(cost_coin, need_potion),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
-            additional_types
+            additional_types, [*map(CardName, pile_components)]
         )
         return Card(impl)
 
@@ -80,7 +82,11 @@ class Card(metaclass=_CardMeta):
     def __getattr__(self, item):
         cls = type(self)
         if item in cls.attrs:
-            return getattr(self._impl, item)
+            ret = getattr(self._impl, item)
+            if hasattr(ret, 'copy'):
+                return ret.copy()
+
+            return ret
 
         if item.startswith('is_'):
             item = item[3:].lower()     # is_xxx
@@ -90,7 +96,7 @@ class Card(metaclass=_CardMeta):
 
     #
     def __str__(self):
-        return '{ex}{edition}: {name} - {cost} - {card_types}'.format(
+        ret = '{ex}{edition}: {name} - {cost} - {card_types}'.format(
             ex=self.ex.t(),
             edition='' if self.edition.is_newest() else f'({self.edition})',
             name=self.name.t(),
@@ -108,3 +114,10 @@ class Card(metaclass=_CardMeta):
                 ] if typ
             )
         )
+
+        if 2 <= len(self.pile_components):
+            ret += '\n' + '\n'.join(
+                '\t- {}'.format(name.t()) for name in self.pile_components
+            )
+
+        return ret
