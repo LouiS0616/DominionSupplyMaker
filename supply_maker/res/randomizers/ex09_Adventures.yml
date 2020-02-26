@@ -1,0 +1,33 @@
+ex: Adventures
+
+kingdom cards:
+  Coin of the Realm:  {cost: 2, types: [Treasure, Reserve]}
+  Page:               {cost: 2, types: [Action, Traveller]}
+  Peasant:            {cost: 2, types: [Action, Traveller]}
+  Ratcatcher:         {cost: 2, types: [Action, Reserve]}
+  Raze:               {cost: 2, types: [Action]}
+  Amulet:             {cost: 3, types: [Action, Duration]}
+  Caravan Guard:      {cost: 3, types: [Action, Reaction, Duration]}
+  Dungeon:            {cost: 3, types: [Action, Duration]}
+  Gear:               {cost: 3, types: [Action, Duration]}
+  Guide:              {cost: 3, types: [Action, Reserve]}
+  Duplicate:          {cost: 4, types: [Action, Reserve]}
+  Magpie:             {cost: 4, types: [Action]}
+  Messenger:          {cost: 4, types: [Action]}
+  Miser:              {cost: 4, types: [Action]}
+  Port:               {cost: 4, types: [Action]}
+  Ranger:             {cost: 4, types: [Action]}
+  Transmogrify:       {cost: 4, types: [Action, Reserve]}
+  Artificer:          {cost: 5, types: [Action]}
+  Bridge Troll:       {cost: 5, types: [Action, Attack, Duration]}
+  Distant Lands:      {cost: 5, types: [Action, Victory, Reserve]}
+  Giant:              {cost: 5, types: [Action, Attack]}
+  Haunted Woods:      {cost: 5, types: [Action, Attack, Duration]}
+  Lost City:          {cost: 5, types: [Action]}
+  Relic:              {cost: 5, types: [Attack, Treasure]}
+  Royal Carriage:     {cost: 5, types: [Action, Reserve]}
+  Storyteller:        {cost: 5, types: [Action]}
+  Swamp Hag:          {cost: 5, types: [Action, Attack, Duration]}
+  Treasure Trove:     {cost: 5, types: [Treasure]}
+  Wine Merchant:      {cost: 5, types: [Action, Reserve]}
+  Hireling:           {cost: 6, types: [Action, Duration]}

@@ -53,12 +53,21 @@ class Card(metaclass=_CardMeta):
     @classmethod
     def create(cls,
                ex: str, edition: str, name: str, cost_coin: int, need_potion: bool,
-               is_action: bool, is_attack: bool, is_reaction: bool, is_duration: bool, is_command: bool,
-               is_treasure: bool, is_victory: bool, additional_types: List[str]) -> 'Card':
+               is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
+               is_treasure=False, is_victory=False, **kwargs) -> 'Card':
 
         if name in cls._cache:
             return Card(cls._cache[name])
 
+        #
+        assert all(k.startswith('is_') for k in kwargs)
+        assert all(isinstance(v, bool) for v in kwargs.values())
+        additional_types = [
+            typ[3:]     # is_xxx
+            for typ, tf in kwargs.items() if tf
+        ]
+
+        #
         impl = _CardImpl(
             Expansion(ex), Edition(edition), CardName(name), Cost(cost_coin, need_potion),
             is_action, is_attack, is_reaction, is_duration, is_command,
@@ -74,7 +83,7 @@ class Card(metaclass=_CardMeta):
             return getattr(self._impl, item)
 
         if item.startswith('is_'):
-            item = item[3:].lower()
+            item = item[3:].lower()     # is_xxx
             return item in map(str.lower, self._impl.additional_types)
 
         raise AttributeError(f"'Card' object has no attribute '{item}'")
