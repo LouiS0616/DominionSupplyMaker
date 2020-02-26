@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from supply_maker.src.util.combination import combination
 if TYPE_CHECKING:
     from supply_maker.src.model.card_set.candidates import Candidates as SupplyCandidates
-    from supply_maker.src.model.effect_set.effect_candidates import EffectCandidates
+    from .effect_set import EffectSet as EffectCandidates
 
 
 def _compute_effect_appearance(s, n, m, d) -> float:
