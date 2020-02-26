@@ -1,31 +1,31 @@
-import csv
+import yaml
 
 from supply_maker import _where
 from supply_maker.src.model.effect.effect import Effect
 from supply_maker.src.model.effect_set.effect_set import EffectSet
 
 
-def _parse_effect(raw: [str]) -> Effect:
-    # cls and other arguments
-    assert 1 + len(raw) == Effect.create.__code__.co_argcount, raw
-
+def _parse_effect(ex, typ, name, attr) -> Effect:
     return Effect.create(
-        ex=raw[0], edition=raw[1], typ=raw[2],
-        name=raw[3], cost=raw[4]
+        ex=ex, edition=attr.get('edition', '***'), typ=typ,
+        name=name, cost=attr['cost']
     )
 
 
 def load_effects() -> 'EffectSet':
-    path = _where / 'res/effects'
+    path = _where / 'res/randomizers'
 
     #
     s = set()
-    for p in path.glob('**/*.csv'):
+    for p in path.glob('*.yml'):
         with p.open(encoding='utf-8', newline='') as fin:
-            reader = csv.reader(fin)
-            next(reader)    # skip header
+            data = yaml.load(fin.read(), Loader=yaml.SafeLoader)
 
-            s |= {*map(_parse_effect, reader)}
+        ex = data['ex']
+        s |= {
+            _parse_effect(ex, 'Event', name, attrs)
+            for name, attrs in data.get('events', {}).items()
+        }
 
     if not s:
         raise ValueError(f'Failed to load effect set, check path: {path.resolve()}')
