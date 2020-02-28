@@ -1,14 +1,22 @@
 import yaml
 
 from supply_maker import _where
-from supply_maker.src.model.effect.effect import Effect
+from supply_maker.src.model.effect.event import Event
+from supply_maker.src.model.effect.landmark import Landmark
 from supply_maker.src.model.effect_set.effect_set import EffectSet
 
 
-def _parse_effect(ex, typ, name, attr) -> Effect:
-    return Effect.create(
-        ex=ex, edition=attr.get('edition', '***'), typ=typ,
-        name=name, cost=attr.get('cost', None), debt=attr.get('debt', 0)
+def _parse_event(ex, name, attr) -> 'Event':
+    return Event.create(
+        ex=ex, edition=attr.get('edition', '***'),
+        name=name, cost=attr['cost'], debt=attr.get('debt', 0)
+    )
+
+
+def _parse_landmark(ex, name, attr) -> 'Landmark':
+    return Landmark.create(
+        ex=ex, edition=attr.get('edition', '***'),
+        name=name
     )
 
 
@@ -23,11 +31,11 @@ def load_effects() -> 'EffectSet':
 
         ex = data['ex']
         s |= {
-            _parse_effect(ex, 'Event', name, attrs)
+            _parse_event(ex, name, attrs)
             for name, attrs in data.get('events', {}).items()
         }
         s |= {
-            _parse_effect(ex, 'Landmark', name, attrs)
+            _parse_landmark(ex, name, attrs)
             for name, attrs in data.get('landmarks', {}).items()
         }
 

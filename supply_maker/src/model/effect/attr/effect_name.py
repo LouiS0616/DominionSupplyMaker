@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 class EffectName(Translatable):
     _trans_table: 'TranslateTable' = {
         k: v
-        for p in (_where/ 'res/translate/effects').glob('**/*.csv')
+        for p in (_where / 'res/translate/effects').glob('**/*.csv')
         for k, v in load_translate_table(p).items()
     }
 

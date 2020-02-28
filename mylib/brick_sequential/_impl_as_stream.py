@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 import random
 
 from ._impl_base import _ImplBase

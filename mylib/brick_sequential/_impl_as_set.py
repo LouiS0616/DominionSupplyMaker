@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 from ._impl_base import _ImplBase
 
 
