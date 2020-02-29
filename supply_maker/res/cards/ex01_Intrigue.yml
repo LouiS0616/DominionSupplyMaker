@@ -1,6 +1,6 @@
 ex: Intrigue
 
-kingdom cards:
+randomizers:
   # cost 2
   Courtyard:      {cost: 2, types: [Action]}
   Lurker:         {cost: 2, types: [Action], edition: 2nd}

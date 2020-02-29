@@ -1,6 +1,6 @@
 ex: Seaside
 
-kingdom cards:
+randomizers:
   # cost 2
   Embargo:          {cost: 2, types: [Action]}
   Haven:            {cost: 2, types: [Action, Duration]}

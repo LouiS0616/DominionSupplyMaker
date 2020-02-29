@@ -1,6 +1,6 @@
 ex: Hinterlands
 
-kingdom cards:
+randomizers:
   # cost 2
   Crossroads:         {cost: 2, types: [Action]}
   Duchess:            {cost: 2, types: [Action]}

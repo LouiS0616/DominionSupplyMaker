@@ -4,7 +4,7 @@ basic supply:
   Platinum:         {cost:  9, types: [Treasure]}
   Colony:           {cost: 11, types: [Victory]}
 
-kingdom cards:
+randomizers:
   # cost 3
   Loan:             {cost: 3, types: [Treasure]}
   Trade Route:      {cost: 3, types: [Action]}

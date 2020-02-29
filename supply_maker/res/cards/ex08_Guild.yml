@@ -1,6 +1,6 @@
 ex: Guilds
 
-kingdom cards:
+randomizers:
   # cost 2
   Candlestick Maker:  {cost: 2, types: [Action]}
   Stonemason:         {cost: 2, cost mark: '+', types: [Action]}

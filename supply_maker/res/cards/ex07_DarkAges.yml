@@ -7,7 +7,7 @@ basic supply:
   Ruined Village:     {cost: 0, types: [Action, Ruins]}
   Survivors:          {cost: 0, types: [Action, Ruins]}
 
-kingdom cards:
+randomizers:
   # cost 1
   Poor House:         {cost: 1, types: [Action]}
   # cost 2
@@ -23,11 +23,14 @@ kingdom cards:
   Urchin:             {cost: 3, types: [Action, Attack], related cards: [Mercenary]}
   # cost 4
   Armory:             {cost: 4, types: [Action]}
-  Death Cart:         {cost: 4, types: [Action, Looter]}
+  Death Cart:         {cost: 4, types: [Action, Looter],
+    related cards: &Ruins [
+      Abandoned Mine, Ruined Library, Ruined Market, Ruined Village, Survivors
+    ]}
   Feodum:             {cost: 4, types: [Victory]}
   Fortress:           {cost: 4, types: [Action]}
   Ironmonger:         {cost: 4, types: [Action]}
-  Marauder:           {cost: 4, types: [Action, Attack, Looter], related cards: [Spoils]}
+  Marauder:           {cost: 4, types: [Action, Attack, Looter], related cards: !Flatten [Spoils, *Ruins]}
   Procession:         {cost: 4, types: [Action]}
   Rats:               {cost: 4, types: [Action]}
   Scavenger:          {cost: 4, types: [Action]}
@@ -38,7 +41,8 @@ kingdom cards:
   Catacombs:          {cost: 5, types: [Action]}
   Count:              {cost: 5, types: [Action]}
   Counterfeit:        {cost: 5, types: [Treasure]}
-  Cultist:            {cost: 5, types: [Action, Attack, Looter]}
+  Cultist:            {cost: 5, types: [Action, Attack, Looter],
+    related cards: *Ruins}
   Graverobber:        {cost: 5, types: [Action]}
   Junk Dealer:        {cost: 5, types: [Action]}
   Knights:            {cost: 5, types: [Action, Attack, Knight],

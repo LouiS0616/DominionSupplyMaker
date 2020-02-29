@@ -12,7 +12,7 @@ basic supply:
   #
   Curse:        {cost: 0, types: [Curse]}
 
-kingdom cards:
+randomizers:
   # cost 2
   Cellar:       {cost: 2, types: [Action]}
   Chapel:       {cost: 2, types: [Action]}

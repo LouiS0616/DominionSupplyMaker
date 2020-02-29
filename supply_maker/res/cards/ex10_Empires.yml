@@ -1,6 +1,6 @@
 ex: Empires
 
-kingdom cards:
+randomizers:
   # debt 4
   Engineer:                   {cost: 0, debt: 4, types: [Action]}
   # debt 8

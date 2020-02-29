@@ -1,6 +1,6 @@
 ex: Adventures
 
-kingdom cards:
+randomizers:
   # cost 2
   Coin of the Realm:  {cost: 2, types: [Treasure, Reserve]}
   Page:               {cost: 2, types: [Action, Traveller]}

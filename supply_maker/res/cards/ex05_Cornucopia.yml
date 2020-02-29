@@ -1,6 +1,6 @@
 ex: Cornucopia
 
-kingdom cards:
+randomizers:
   # cost 2
   Hamlet:           {cost: 2, types: [Action]}
   # cost 3
