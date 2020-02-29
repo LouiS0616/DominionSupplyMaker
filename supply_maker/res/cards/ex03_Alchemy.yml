@@ -1,5 +1,8 @@
 ex: Alchemy
 
+basic supply:
+  Potion:       {cost: 4, types: [Treasure]}
+
 kingdom cards:
   # cost no potion
   Herbalist:    {cost: 2, types: [Action]}

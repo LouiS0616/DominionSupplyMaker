@@ -27,7 +27,7 @@ class _CardImpl:
 
     additional_types: List[str]
 
-    in_supply: bool
+    randomizer: bool
 
     pile_cards: List['CardName']
     related_cards: List['CardName']
@@ -58,7 +58,7 @@ class Card(metaclass=_CardMeta):
     @classmethod
     def create(cls,
                ex: str, edition: str, name: str, cost_coin: int, need_potion: bool, debt: int,
-               in_supply: bool, pile_cards: List[str], related_cards: List[str],
+               randomizer: bool, pile_cards: List[str], related_cards: List[str],
                cost_mark='',
                is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
                is_treasure=False, is_victory=False, **kwargs) -> 'Card':
@@ -80,7 +80,7 @@ class Card(metaclass=_CardMeta):
             Cost(cost_coin, need_potion, debt, cost_mark),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
-            additional_types, in_supply, [*map(CardName, pile_cards)], [*map(CardName, related_cards)]
+            additional_types, randomizer, [*map(CardName, pile_cards)], [*map(CardName, related_cards)]
         )
         cls._cache[name] = Card(impl)
         return cls._cache[name]

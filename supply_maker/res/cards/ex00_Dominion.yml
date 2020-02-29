@@ -1,5 +1,17 @@
 ex: Dominion
 
+basic supply:
+  #
+  Copper:       {cost: 0, types: [Treasure]}
+  Silver:       {cost: 3, types: [Treasure]}
+  Gold:         {cost: 6, types: [Treasure]}
+  #
+  Estate:       {cost: 2, types: [Victory]}
+  Duchy:        {cost: 5, types: [Victory]}
+  Province:     {cost: 8, types: [Victory]}
+  #
+  Curse:        {cost: 0, types: [Curse]}
+
 kingdom cards:
   # cost 2
   Cellar:       {cost: 2, types: [Action]}
