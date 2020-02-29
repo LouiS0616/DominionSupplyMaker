@@ -85,9 +85,12 @@ class Card(metaclass=_CardMeta):
         cls._cache[name] = Card(impl)
         return cls._cache[name]
 
+    # noinspection PyProtectedMember
     @classmethod
     def load(cls, name: 'CardName'):
-        # noinspection PyProtectedMember
+        if name._raw_name not in cls._cache:
+            raise ValueError(f"cannot load card; {name._raw_name}")
+
         return cls._cache[name._raw_name]
 
     #

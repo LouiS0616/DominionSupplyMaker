@@ -1,5 +1,12 @@
 ex: DarkAges
 
+basic supply:
+  Abandoned Mine:     {cost: 0, types: [Action, Ruins]}
+  Ruined Library:     {cost: 0, types: [Action, Ruins]}
+  Ruined Market:      {cost: 0, types: [Action, Ruins]}
+  Ruined Village:     {cost: 0, types: [Action, Ruins]}
+  Survivors:          {cost: 0, types: [Action, Ruins]}
+
 kingdom cards:
   # cost 1
   Poor House:         {cost: 1, types: [Action]}
@@ -9,25 +16,25 @@ kingdom cards:
   Vagrant:            {cost: 2, types: [Action]}
   # cost 3
   Forager:            {cost: 3, types: [Action]}
-  Hermit:             {cost: 3, types: [Action]}
+  Hermit:             {cost: 3, types: [Action], related cards: [Madman]}
   Market Square:      {cost: 3, types: [Action, Reaction]}
   Sage:               {cost: 3, types: [Action]}
   Storeroom:          {cost: 3, types: [Action]}
-  Urchin:             {cost: 3, types: [Action, Attack]}
+  Urchin:             {cost: 3, types: [Action, Attack], related cards: [Mercenary]}
   # cost 4
   Armory:             {cost: 4, types: [Action]}
   Death Cart:         {cost: 4, types: [Action, Looter]}
   Feodum:             {cost: 4, types: [Victory]}
   Fortress:           {cost: 4, types: [Action]}
   Ironmonger:         {cost: 4, types: [Action]}
-  Marauder:           {cost: 4, types: [Action, Attack, Looter]}
+  Marauder:           {cost: 4, types: [Action, Attack, Looter], related cards: [Spoils]}
   Procession:         {cost: 4, types: [Action]}
   Rats:               {cost: 4, types: [Action]}
   Scavenger:          {cost: 4, types: [Action]}
   Wandering Minstrel: {cost: 4, types: [Action]}
   # cost 5
   Band of Misfits:    {cost: 5, types: [Action, Command]}
-  Bandit Camp:        {cost: 5, types: [Action]}
+  Bandit Camp:        {cost: 5, types: [Action], related cards: [Spoils]}
   Catacombs:          {cost: 5, types: [Action]}
   Count:              {cost: 5, types: [Action]}
   Counterfeit:        {cost: 5, types: [Treasure]}
@@ -41,9 +48,31 @@ kingdom cards:
       Sir Michael, Sir Vander
     ]}
   Mystic:             {cost: 5, types: [Action]}
-  Pillage:            {cost: 5, types: [Action, Attack]}
+  Pillage:            {cost: 5, types: [Action, Attack], related cards: [Spoils]}
   Rebuild:            {cost: 5, types: [Action]}
   Rogue:              {cost: 5, types: [Action, Attack]}
   # cost 6
   Altar:              {cost: 6, types: [Action]}
   Hunting Grounds:    {cost: 6, types: [Action]}
+
+other kingdom:
+  Dame Anna:          {cost: 5, types: [Action, Attack, Knight]}
+  Dame Josephine:     {cost: 5, types: [Action, Attack, Knight, Victory]}
+  Dame Molly:         {cost: 5, types: [Action, Attack, Knight]}
+  Dame Natalie:       {cost: 5, types: [Action, Attack, Knight]}
+  Dame Sylvia:        {cost: 5, types: [Action, Attack, Knight]}
+  Sir Bailey:         {cost: 5, types: [Action, Attack, Knight]}
+  Sir Destry:         {cost: 5, types: [Action, Attack, Knight]}
+  Sir Martin:         {cost: 4, types: [Action, Attack, Knight]}
+  Sir Michael:        {cost: 5, types: [Action, Attack, Knight]}
+  Sir Vander:         {cost: 5, types: [Action, Attack, Knight]}
+
+non-supply:
+  #
+  Hovel:              {cost: 1, types: [Reaction, Shelter]}
+  Necropolis:         {cost: 1, types: [Action, Shelter]}
+  Overgrown Estate:   {cost: 1, types: [Victory, Shelter]}
+  #
+  Madman:             {cost: 0, cost mark: '*', types: [Action]}
+  Mercenary:          {cost: 0, cost mark: '*', types: [Action, Attack]}
+  Spoils:             {cost: 0, cost mark: '*', types: [Treasure]}

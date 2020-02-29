@@ -50,5 +50,9 @@ def load_cards() -> Candidates:
             _parse_card(ex, name, attrs, randomizer=False)
             for name, attrs in data.get('non-supply', {}).items()
         }
+        _ = {
+            _parse_card(ex, name, attrs, randomizer=False)
+            for name, attrs in data.get('other kingdom', {}).items()
+        }
 
     return Candidates(elms=s)
