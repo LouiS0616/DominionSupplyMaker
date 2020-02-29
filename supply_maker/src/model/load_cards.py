@@ -7,11 +7,6 @@ from supply_maker.src.model.card_set.candidates import Candidates
 
 #
 def _parse_card(ex, name, attr, randomizer) -> Card:
-    # Basic types and Multi-expansion special types
-    universal_types = {
-        'Action', 'Treasure', 'Victory', 'Curse',
-        'Attack', 'Duration', 'Reaction', 'Command',
-    }
     return Card.create(
         ex=ex, edition=attr.get('edition', '***'), name=name,
         cost_coin=attr['cost'],
