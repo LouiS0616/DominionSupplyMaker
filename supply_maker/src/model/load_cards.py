@@ -56,17 +56,14 @@ def load_cards() -> Candidates:
             for name, attrs in data['randomizers'].items()
         }
 
+        # just load cards which is not randomizer
         _ = {
             _parse_card(ex, name, attrs, randomizer=False)
-            for name, attrs in data.get('basic supply', {}).items()
-        }
-        _ = {
-            _parse_card(ex, name, attrs, randomizer=False)
-            for name, attrs in data.get('non-supply', {}).items()
-        }
-        _ = {
-            _parse_card(ex, name, attrs, randomizer=False)
-            for name, attrs in data.get('other kingdom', {}).items()
+            for name, attrs in {
+                **data.get('basic supply', {}),
+                **data.get('randomizer components', {}),
+                **data.get('non-supply', {})
+            }.items()
         }
 
     return Candidates(elms=s)
