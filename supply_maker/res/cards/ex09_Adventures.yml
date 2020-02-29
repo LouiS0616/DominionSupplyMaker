@@ -3,8 +3,14 @@ ex: Adventures
 randomizers:
   # cost 2
   Coin of the Realm:  {cost: 2, types: [Treasure, Reserve]}
-  Page:               {cost: 2, types: [Action, Traveller]}
-  Peasant:            {cost: 2, types: [Action, Traveller]}
+  Page:               {cost: 2, types: [Action, Traveller],
+    related cards: [
+      Treasure Hunter, Warrior, Hero, Champion
+    ]}
+  Peasant:            {cost: 2, types: [Action, Traveller],
+    related cards: [
+      Soldier, Fugitive, Disciple, Teacher
+    ]}
   Ratcatcher:         {cost: 2, types: [Action, Reserve]}
   Raze:               {cost: 2, types: [Action]}
   # cost 3
@@ -36,6 +42,18 @@ randomizers:
   Wine Merchant:      {cost: 5, types: [Action, Reserve]}
   # cost 6
   Hireling:           {cost: 6, types: [Action, Duration]}
+
+non-supply:
+  #
+  Treasure Hunter:    {cost: 3, cost mark: '*', types: [Action, Traveller]}
+  Warrior:            {cost: 4, cost mark: '*', types: [Action, Attack, Traveller]}
+  Hero:               {cost: 5, cost mark: '*', types: [Action, Traveller]}
+  Champion:           {cost: 6, cost mark: '*', types: [Action, Duration]}
+  #
+  Soldier:            {cost: 3, cost mark: '*', types: [Action, Attack, Traveller]}
+  Fugitive:           {cost: 4, cost mark: '*', types: [Action, Traveller]}
+  Disciple:           {cost: 5, cost mark: '*', types: [Action, Traveller]}
+  Teacher:            {cost: 6, cost mark: '*', types: [Action, Reserve]}
 
 events:
   # cost 0
