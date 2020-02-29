@@ -21,7 +21,7 @@ def _parse_landmark(ex, name, attr) -> 'Landmark':
 
 
 def load_effects() -> 'EffectSet':
-    path = _where / 'res/randomizers'
+    path = _where / 'res/cards'
 
     #
     s = set()

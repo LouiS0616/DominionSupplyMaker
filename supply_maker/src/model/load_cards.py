@@ -6,7 +6,7 @@ from supply_maker.src.model.card_set.candidates import Candidates
 
 
 #
-def _parse_randomizer(ex, name, attr) -> Card:
+def _parse_card(ex, name, attr, in_supply) -> Card:
     # Basic types and Multi-expansion special types
     universal_types = {
         'Action', 'Treasure', 'Victory',    # 'Curse',
@@ -21,13 +21,14 @@ def _parse_randomizer(ex, name, attr) -> Card:
         **{
             'is_{}'.format(typ.lower()): True for typ in attr['types']
         },
+        in_supply=in_supply,
         pile_cards=attr.get('pile cards', [name]),
         related_cards=attr.get('related cards', [])
     )
 
 
 def load_cards() -> Candidates:
-    path = _where / 'res/randomizers'
+    path = _where / 'res/cards'
 
     #
     s = set()
@@ -37,8 +38,13 @@ def load_cards() -> Candidates:
 
         ex = data['ex']
         s |= {
-            _parse_randomizer(ex, name, attrs)
+            _parse_card(ex, name, attrs, in_supply=True)
             for name, attrs in data['kingdom cards'].items()
+        }
+
+        _ = {
+            _parse_card(ex, name, attrs, in_supply=False)
+            for name, attrs in data.get('non-supply', {}).items()
         }
 
     return Candidates(elms=s)

@@ -27,6 +27,8 @@ class _CardImpl:
 
     additional_types: List[str]
 
+    in_supply: bool
+
     pile_cards: List['CardName']
     related_cards: List['CardName']
 
@@ -44,7 +46,7 @@ class _CardMeta(type):
 
 
 class Card(metaclass=_CardMeta):
-    _cache: Dict[str, _CardImpl] = {}
+    _cache: Dict[str, 'Card'] = {}
 
     def __init__(self, impl: _CardImpl):
         """Private-like initialization method"""
@@ -56,13 +58,13 @@ class Card(metaclass=_CardMeta):
     @classmethod
     def create(cls,
                ex: str, edition: str, name: str, cost_coin: int, need_potion: bool, debt: int,
-               pile_cards: List[str], related_cards: List[str],
+               in_supply: bool, pile_cards: List[str], related_cards: List[str],
                cost_mark='',
                is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
                is_treasure=False, is_victory=False, **kwargs) -> 'Card':
 
         if name in cls._cache:
-            return Card(cls._cache[name])
+            return cls._cache[name]
 
         #
         assert all(k.startswith('is_') for k in kwargs)
@@ -78,9 +80,15 @@ class Card(metaclass=_CardMeta):
             Cost(cost_coin, need_potion, debt, cost_mark),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
-            additional_types, [*map(CardName, pile_cards)], [*map(CardName, related_cards)]
+            additional_types, in_supply, [*map(CardName, pile_cards)], [*map(CardName, related_cards)]
         )
-        return Card(impl)
+        cls._cache[name] = Card(impl)
+        return cls._cache[name]
+
+    @classmethod
+    def load(cls, name: 'CardName'):
+        # noinspection PyProtectedMember
+        return cls._cache[name._raw_name]
 
     #
     def __getattr__(self, item):
