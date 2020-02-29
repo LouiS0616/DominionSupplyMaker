@@ -11,10 +11,10 @@ from ..attr.expansion import Expansion
 
 @dataclass(frozen=True)
 class _CardImpl:
-    ex:      Expansion
-    edition: Edition
-    name:    CardName
-    cost:    Cost
+    ex:        Expansion
+    edition:   Edition
+    name:      CardName
+    cost:      Cost
 
     is_action:   bool
     is_attack:   bool
@@ -55,6 +55,7 @@ class Card(metaclass=_CardMeta):
     def create(cls,
                ex: str, edition: str, name: str, cost_coin: int, need_potion: bool, debt: int,
                pile_components: List[str],
+               cost_mark='',
                is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
                is_treasure=False, is_victory=False, **kwargs) -> 'Card':
 
@@ -72,7 +73,7 @@ class Card(metaclass=_CardMeta):
         #
         impl = _CardImpl(
             Expansion(ex), Edition(edition), CardName(name),
-            Cost(cost_coin, need_potion, debt),
+            Cost(cost_coin, need_potion, debt, cost_mark),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
             additional_types, [*map(CardName, pile_components)]

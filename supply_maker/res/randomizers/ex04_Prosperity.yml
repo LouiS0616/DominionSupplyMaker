@@ -23,7 +23,7 @@ kingdom cards:
   Venture:          {cost: 5, types: [Treasure]}
   # cost 6
   Goons:            {cost: 6, types: [Action, Attack]}
-  Grand Market:     {cost: 6, types: [Action]}
+  Grand Market:     {cost: 6, cost mark: '*', types: [Action]}
   Hoard:            {cost: 6, types: [Treasure]}
   # cost 7
   Bank:             {cost: 7, types: [Treasure]}
@@ -31,4 +31,4 @@ kingdom cards:
   Forge:            {cost: 7, types: [Action]}
   King's Court:     {cost: 7, types: [Action]}
   # cost 8
-  Peddler:          {cost: 8, types: [Action]}
+  Peddler:          {cost: 8, cost mark: '*', types: [Action]}

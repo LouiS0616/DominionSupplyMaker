@@ -12,9 +12,12 @@ class Cost:
     need_potion: bool = False
     debt: int = 0
 
+    mark: str = ''
+
     def __str__(self):
-        return '{coin}{potion}{debt}'.format(
+        return '{coin}{mark}{potion}{debt}'.format(
             coin=self.cost_coin,
+            mark=self.mark,
             potion='+P' if self.need_potion else '',
             debt=f'<{self.debt}>' if self.debt else ''
         )
