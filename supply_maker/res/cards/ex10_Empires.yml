@@ -41,6 +41,32 @@ randomizers:
   Legionary:                  {cost: 5, types: [Action, Attack]}
   Wild Hunt:                  {cost: 5, types: [Action, Gathering]}
 
+part of pile:
+  #
+  Encampment:                {cost: 2, types: [Action]}
+  Plunder:                    {cost: 5, types: [Treasure]}
+  #
+  Patrician:                  {cost: 2, types: [Action]}
+  Emporium:                   {cost: 5, types: [Action]}
+  #
+  Settlers:                   {cost: 2, types: [Action]}
+  Bustling Village:           {cost: 5, types: [Action]}
+  #
+  Catapult:                   {cost: 3, types: [Action, Attack]}
+  Rocks:                      {cost: 4, types: [Treasure]}
+  #
+  Gladiator:                  {cost: 3, types: [Action]}
+  Fortune:                    {cost: 8, debt: 8, types: [Treasure]}
+  #
+  Humble Castle:              {cost:  3, types: [Treasure, Victory, Castle]}
+  Crumbling Castle:           {cost:  4, types: [Victory, Castle]}
+  Small Castle:               {cost:  5, types: [Action, Victory, Castle]}
+  Haunted Castle:             {cost:  6, types: [Victory, Castle]}
+  Opulent Castle:             {cost:  7, types: [Action, Victory, Castle]}
+  Sprawling Castle:           {cost:  8, types: [Victory, Castle]}
+  Grand Castle:               {cost:  9, types: [Victory, Castle]}
+  King's Castle:              {cost: 10, types: [Victory, Castle]}
+
 events:
   # cost 0
   Triumph:        {cost: 0, debt: 5}
