@@ -9,7 +9,7 @@ from .supply_printer import DefaultSupplyPrinter
 
 
 if TYPE_CHECKING:
-    from supply_maker.src.model.card.card import Card
+    from supply_maker.src.model.card.gainable.card import Card
     from supply_maker.src.model.preparation.role import Role
     from .candidates import Candidates
     from .supply_printer import SupplyPrinter

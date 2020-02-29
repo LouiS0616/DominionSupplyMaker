@@ -3,7 +3,7 @@ from typing import Dict, List
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from supply_maker.src.model.card.card import Card
+    from supply_maker.src.model.card.gainable.card import Card
     from supply_maker.src.model.preparation.role import Role
 
 

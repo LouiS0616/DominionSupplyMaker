@@ -1,5 +1,5 @@
 from supply_maker.src.model.card.attr.edition import Edition
-from ..card import Card
+from supply_maker.src.model.card.gainable.card import Card
 from .card_evaluater import CardEvaluator
 
 

@@ -2,11 +2,11 @@ import dataclasses
 from dataclasses import dataclass
 from typing import Dict, List
 
-from supply_maker.src.model.card.attr.cost import Cost
-from .attr.card_name import CardName
-from .attr.card_type import CardType
-from .attr.edition import Edition
-from .attr.expansion import Expansion
+from ..attr.card_name import CardName
+from ..attr.card_type import CardType
+from ..attr.cost import Cost
+from ..attr.edition import Edition
+from ..attr.expansion import Expansion
 
 
 @dataclass(frozen=True)

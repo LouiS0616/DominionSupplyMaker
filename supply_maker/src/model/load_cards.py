@@ -1,7 +1,7 @@
 import yaml
 
 from supply_maker import _where
-from supply_maker.src.model.card.card import Card
+from supply_maker.src.model.card.gainable.card import Card
 from supply_maker.src.model.card_set.candidates import Candidates
 
 

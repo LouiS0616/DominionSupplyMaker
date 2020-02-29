@@ -1,10 +1,10 @@
 from typing import Dict
 
-from supply_maker.src.model.card.attr.cost import Cost
-from supply_maker.src.model.card.attr.edition import Edition
-from supply_maker.src.model.card.attr.expansion import Expansion
-from supply_maker.src.model.effect.attr.effect_name import EffectName
-from supply_maker.src.model.effect.attr.effect_type import EffectType
+from ..attr.card_name import CardName as EffectName
+from ..attr.cost import Cost
+from ..attr.edition import Edition
+from ..attr.effect_type import EffectType
+from ..attr.expansion import Expansion
 from ._effect_meta import _EffectImpl, _EffectMeta
 
 

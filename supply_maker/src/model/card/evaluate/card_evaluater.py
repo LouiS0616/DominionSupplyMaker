@@ -1,5 +1,5 @@
 from typing import Callable
-from ..card import Card
+from supply_maker.src.model.card.gainable.card import Card
 
 _CardEvaluator = Callable[['Card'], bool]
 
