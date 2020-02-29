@@ -35,7 +35,7 @@ kingdom cards:
   Graverobber:        {cost: 5, types: [Action]}
   Junk Dealer:        {cost: 5, types: [Action]}
   Knights:            {cost: 5, types: [Action, Attack, Knight],
-    pile components: [
+    pile cards: [
       Dame Anna, Dame Josephine, Dame Molly, Dame Natalie,
       Dame Sylvia, Sir Bailey, Sir Destry, Sir Martin,
       Sir Michael, Sir Vander

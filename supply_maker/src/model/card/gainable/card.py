@@ -26,7 +26,9 @@ class _CardImpl:
     is_victory:  bool
 
     additional_types: List[str]
-    pile_components: List[str]
+
+    pile_cards: List['CardName']
+    related_cards: List['CardName']
 
 
 #
@@ -54,7 +56,7 @@ class Card(metaclass=_CardMeta):
     @classmethod
     def create(cls,
                ex: str, edition: str, name: str, cost_coin: int, need_potion: bool, debt: int,
-               pile_components: List[str],
+               pile_cards: List[str], related_cards: List[str],
                cost_mark='',
                is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
                is_treasure=False, is_victory=False, **kwargs) -> 'Card':
@@ -76,7 +78,7 @@ class Card(metaclass=_CardMeta):
             Cost(cost_coin, need_potion, debt, cost_mark),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
-            additional_types, [*map(CardName, pile_components)]
+            additional_types, [*map(CardName, pile_cards)], [*map(CardName, related_cards)]
         )
         return Card(impl)
 
@@ -98,7 +100,7 @@ class Card(metaclass=_CardMeta):
 
     #
     def __str__(self):
-        ret = '{ex}{edition}: {name} - {cost} - {card_types}'.format(
+        return '{ex}{edition}: {name} - {cost} - {card_types}'.format(
             ex=self.ex.t(),
             edition='' if self.edition.is_newest() else f'({self.edition})',
             name=self.name.t(),
@@ -116,10 +118,3 @@ class Card(metaclass=_CardMeta):
                 ] if typ
             )
         )
-
-        if 2 <= len(self.pile_components):
-            ret += '\n' + '\n'.join(
-                '\t- {}'.format(name.t()) for name in self.pile_components
-            )
-
-        return ret

@@ -21,7 +21,8 @@ def _parse_randomizer(ex, name, attr) -> Card:
         **{
             'is_{}'.format(typ.lower()): True for typ in attr['types']
         },
-        pile_components=attr.get('pile components', [name])
+        pile_cards=attr.get('pile cards', [name]),
+        related_cards=attr.get('related cards', [])
     )
 
 

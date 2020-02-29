@@ -9,24 +9,24 @@ kingdom cards:
   Royal Blacksmith:           {cost: 0, debt: 8, types: [Action]}
   # cost 2
   Encampment/Plunder:         {cost: 2, types: [Action],
-    pile components: [Encampment, Plunder]}
+    pile cards: [Encampment, Plunder]}
   Patrician/Emporium:         {cost: 2, types: [Action],
-    pile components: [Patrician, Emporium]}
+    pile cards: [Patrician, Emporium]}
   Settlers/Bustling Village:  {cost: 2, types: [Action],
-    pile components: [Settlers, Bustling Village]}
+    pile cards: [Settlers, Bustling Village]}
   # cost 3
   Castles:                    {cost: 3, types: [Victory, Castle],
-    pile components: [
+    pile cards: [
       Humble Castle, Crumbling Castle, Small Castle, Haunted Castle,
       Opulent Castle, Sprawling Castle, Grand Castle, King's Castle
     ]}
   Catapult/Rocks:             {cost: 3, types: [Action, Attack],
-    pile components: [Catapult, Rocks]}
+    pile cards: [Catapult, Rocks]}
   Chariot Race:               {cost: 3, types: [Action]}
   Enchantress:                {cost: 3, types: [Action, Attack, Duration]}
   Farmers' Market:            {cost: 3, types: [Action, Gathering]}
   Gladiator/Fortune:          {cost: 3, types: [Action],
-    pile components: [Gladiator, Fortune]}
+    pile cards: [Gladiator, Fortune]}
   # cost 4
   Sacrifice:                  {cost: 4, types: [Action]}
   Temple:                     {cost: 4, types: [Action, Gathering]}
