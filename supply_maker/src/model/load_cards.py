@@ -61,7 +61,7 @@ def load_cards() -> Candidates:
             _parse_card(ex, name, attrs, randomizer=False)
             for name, attrs in {
                 **data.get('basic supply', {}),
-                **data.get('randomizer components', {}),
+                **data.get('part of pile', {}),
                 **data.get('non-supply', {})
             }.items()
         }

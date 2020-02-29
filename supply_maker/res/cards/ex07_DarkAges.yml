@@ -59,7 +59,7 @@ randomizers:
   Altar:              {cost: 6, types: [Action]}
   Hunting Grounds:    {cost: 6, types: [Action]}
 
-randomizer components:
+part of pile:
   Dame Anna:          {cost: 5, types: [Action, Attack, Knight]}
   Dame Josephine:     {cost: 5, types: [Action, Attack, Knight, Victory]}
   Dame Molly:         {cost: 5, types: [Action, Attack, Knight]}
