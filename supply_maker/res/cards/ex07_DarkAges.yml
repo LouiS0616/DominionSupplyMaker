@@ -23,14 +23,11 @@ randomizers:
   Urchin:             {cost: 3, types: [Action, Attack], related cards: [Mercenary]}
   # cost 4
   Armory:             {cost: 4, types: [Action]}
-  Death Cart:         {cost: 4, types: [Action, Looter],
-    related cards: &Ruins [
-      Abandoned Mine, Ruined Library, Ruined Market, Ruined Village, Survivors
-    ]}
+  Death Cart:         {cost: 4, types: [Action, Looter]}
   Feodum:             {cost: 4, types: [Victory]}
   Fortress:           {cost: 4, types: [Action]}
   Ironmonger:         {cost: 4, types: [Action]}
-  Marauder:           {cost: 4, types: [Action, Attack, Looter], related cards: !Flatten [Spoils, *Ruins]}
+  Marauder:           {cost: 4, types: [Action, Attack, Looter], related cards: [Spoils]}
   Procession:         {cost: 4, types: [Action]}
   Rats:               {cost: 4, types: [Action]}
   Scavenger:          {cost: 4, types: [Action]}
@@ -41,8 +38,7 @@ randomizers:
   Catacombs:          {cost: 5, types: [Action]}
   Count:              {cost: 5, types: [Action]}
   Counterfeit:        {cost: 5, types: [Treasure]}
-  Cultist:            {cost: 5, types: [Action, Attack, Looter],
-    related cards: *Ruins}
+  Cultist:            {cost: 5, types: [Action, Attack, Looter]}
   Graverobber:        {cost: 5, types: [Action]}
   Junk Dealer:        {cost: 5, types: [Action]}
   Knights:            {cost: 5, types: [Action, Attack, Knight],

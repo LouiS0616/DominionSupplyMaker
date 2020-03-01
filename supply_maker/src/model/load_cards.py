@@ -7,23 +7,6 @@ from supply_maker.src.model.card_set.candidates import Candidates
 
 
 #
-def _flatten(_, node):
-    def _inner(n):
-        if isinstance(n, ScalarNode):
-            yield n
-        elif isinstance(n, SequenceNode):
-            for e in n.value:
-                yield from _inner(e)
-        else:
-            assert False
-
-    return [v.value for v in _inner(node)]
-
-
-yaml.add_constructor('!Flatten', _flatten)
-
-
-#
 def _parse_card(ex, name, attr, randomizer) -> Card:
     return Card.create(
         ex=ex, edition=attr.get('edition', '***'), name=name,
@@ -48,7 +31,7 @@ def load_cards() -> Candidates:
     s = set()
     for p in path.glob('*.yml'):
         with p.open() as fin:
-            data = yaml.load(fin.read(), Loader=yaml.FullLoader)
+            data = yaml.load(fin.read(), Loader=yaml.SafeLoader)
 
         ex = data['ex']
         s |= {
