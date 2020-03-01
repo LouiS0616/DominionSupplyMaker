@@ -12,7 +12,7 @@ class EffectType(Translatable):
             load_translate_table(_where / 'res/translate/types.csv')
 
     def __init__(self, raw_name: str):
-        assert raw_name in {'Event', 'Landmark', 'Project', }
+        assert raw_name in {'Event', 'Landmark', 'Project', 'Boon', }
         super().__init__(raw_name)
 
     @property
