@@ -1,3 +1,4 @@
+from functools import lru_cache
 import yaml
 
 from supply_maker import _where
@@ -32,6 +33,7 @@ _effect_create = {
 
 
 #
+@lru_cache(maxsize=1)
 def load_effects() -> 'EffectSet':
     path = _where / 'res/cards'
 

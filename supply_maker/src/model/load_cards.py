@@ -1,5 +1,5 @@
+from functools import lru_cache
 import yaml
-from yaml.nodes import ScalarNode, SequenceNode
 
 from supply_maker import _where
 from supply_maker.src.model.card.gainable.card import Card
@@ -25,6 +25,7 @@ def _parse_card(ex, name, attr, randomizer) -> Card:
 
 
 #
+@lru_cache(maxsize=1)
 def load_cards() -> Candidates:
     path = _where / 'res/cards'
 
