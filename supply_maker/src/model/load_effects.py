@@ -1,8 +1,6 @@
 import yaml
 
 from supply_maker import _where
-from supply_maker.src.model.card.effect.event import Event
-from supply_maker.src.model.card.effect.landmark import Landmark
 from supply_maker.src.model.card.effect.effect import Effect
 from supply_maker.src.model.effect_set.effect_set import EffectSet
 

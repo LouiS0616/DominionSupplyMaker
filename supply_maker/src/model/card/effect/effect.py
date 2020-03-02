@@ -25,7 +25,9 @@ class Effect(metaclass=_EffectMeta):
             Expansion(ex), Edition(edition), EffectType(typ.capitalize()),
             EffectName(name), cost
         )
-        return Effect(impl)
+
+        cls._cache[name] = Effect(impl)
+        return cls._cache[name]
 
     @classmethod
     def create(cls,
@@ -58,5 +60,5 @@ class Effect(metaclass=_EffectMeta):
             edition='' if self.edition.is_newest() else f'({self.edition})',
             typ=self.typ.t(),
             name=self.name.t(),
-            cost='' if isinstance(self.cost, Costless) else f' ({self.cost})'
+            cost='' if isinstance(self.cost, Costless) else f' - {self.cost}'
         )
