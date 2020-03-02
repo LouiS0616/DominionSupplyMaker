@@ -1,52 +1,53 @@
 ex: Dominion
 
-basic supply:
-  #
-  Copper:       {cost: 0, types: [Treasure]}
-  Silver:       {cost: 3, types: [Treasure]}
-  Gold:         {cost: 6, types: [Treasure]}
-  #
-  Estate:       {cost: 2, types: [Victory]}
-  Duchy:        {cost: 5, types: [Victory]}
-  Province:     {cost: 8, types: [Victory]}
-  #
-  Curse:        {cost: 0, types: [Curse]}
+card:
+  basic supply:
+    #
+    Copper:       {cost: 0, types: [Treasure]}
+    Silver:       {cost: 3, types: [Treasure]}
+    Gold:         {cost: 6, types: [Treasure]}
+    #
+    Estate:       {cost: 2, types: [Victory]}
+    Duchy:        {cost: 5, types: [Victory]}
+    Province:     {cost: 8, types: [Victory]}
+    #
+    Curse:        {cost: 0, types: [Curse]}
 
-randomizers:
-  # cost 2
-  Cellar:       {cost: 2, types: [Action]}
-  Chapel:       {cost: 2, types: [Action]}
-  Moat:         {cost: 2, types: [Action, Reaction]}
-  # cost 3
-  Chancellor:   {cost: 3, types: [Action], edition: 1st}
-  Harbinger:    {cost: 3, types: [Action], edition: 2nd}
-  Merchant:     {cost: 3, types: [Action], edition: 2nd}
-  Vassal:       {cost: 3, types: [Action], edition: 2nd}
-  Village:      {cost: 3, types: [Action]}
-  Workshop:     {cost: 3, types: [Action]}
-  Woodcutter:   {cost: 3, types: [Action], edition: 1st}
-  # cost 4
-  Bureaucrat:   {cost: 4, types: [Action, Attack]}
-  Feast:        {cost: 4, types: [Action], edition: 1st}
-  Gardens:      {cost: 4, types: [Victory]}
-  Militia:      {cost: 4, types: [Action, Attack]}
-  Moneylender:  {cost: 4, types: [Action]}
-  Poacher:      {cost: 4, types: [Action], edition: 2nd}
-  Remodel:      {cost: 4, types: [Action]}
-  Smithy:       {cost: 4, types: [Action]}
-  Spy:          {cost: 4, types: [Action, Attack], edition: 1st}
-  Thief:        {cost: 4, types: [Action, Attack], edition: 1st}
-  Throne Room:  {cost: 4, types: [Action]}
-  # cost 5
-  Bandit:       {cost: 5, types: [Action, Attack], edition: 2nd}
-  Council Room: {cost: 5, types: [Action]}
-  Festival:     {cost: 5, types: [Action]}
-  Laboratory:   {cost: 5, types: [Action]}
-  Library:      {cost: 5, types: [Action]}
-  Market:       {cost: 5, types: [Action]}
-  Mine:         {cost: 5, types: [Action]}
-  Sentry:       {cost: 5, types: [Action], edition: 2nd}
-  Witch:        {cost: 5, types: [Action, Attack]}
-  # cost 6
-  Adventurer:   {cost: 6, types: [Action], edition: 1st}
-  Artisan:      {cost: 6, types: [Action], edition: 2nd}
+  randomizer:
+    # cost 2
+    Cellar:       {cost: 2, types: [Action]}
+    Chapel:       {cost: 2, types: [Action]}
+    Moat:         {cost: 2, types: [Action, Reaction]}
+    # cost 3
+    Chancellor:   {cost: 3, types: [Action], edition: 1st}
+    Harbinger:    {cost: 3, types: [Action], edition: 2nd}
+    Merchant:     {cost: 3, types: [Action], edition: 2nd}
+    Vassal:       {cost: 3, types: [Action], edition: 2nd}
+    Village:      {cost: 3, types: [Action]}
+    Workshop:     {cost: 3, types: [Action]}
+    Woodcutter:   {cost: 3, types: [Action], edition: 1st}
+    # cost 4
+    Bureaucrat:   {cost: 4, types: [Action, Attack]}
+    Feast:        {cost: 4, types: [Action], edition: 1st}
+    Gardens:      {cost: 4, types: [Victory]}
+    Militia:      {cost: 4, types: [Action, Attack]}
+    Moneylender:  {cost: 4, types: [Action]}
+    Poacher:      {cost: 4, types: [Action], edition: 2nd}
+    Remodel:      {cost: 4, types: [Action]}
+    Smithy:       {cost: 4, types: [Action]}
+    Spy:          {cost: 4, types: [Action, Attack], edition: 1st}
+    Thief:        {cost: 4, types: [Action, Attack], edition: 1st}
+    Throne Room:  {cost: 4, types: [Action]}
+    # cost 5
+    Bandit:       {cost: 5, types: [Action, Attack], edition: 2nd}
+    Council Room: {cost: 5, types: [Action]}
+    Festival:     {cost: 5, types: [Action]}
+    Laboratory:   {cost: 5, types: [Action]}
+    Library:      {cost: 5, types: [Action]}
+    Market:       {cost: 5, types: [Action]}
+    Mine:         {cost: 5, types: [Action]}
+    Sentry:       {cost: 5, types: [Action], edition: 2nd}
+    Witch:        {cost: 5, types: [Action, Attack]}
+    # cost 6
+    Adventurer:   {cost: 6, types: [Action], edition: 1st}
+    Artisan:      {cost: 6, types: [Action], edition: 2nd}

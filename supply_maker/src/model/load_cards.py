@@ -34,18 +34,19 @@ def load_cards() -> Candidates:
             data = yaml.load(fin.read(), Loader=yaml.SafeLoader)
 
         ex = data['ex']
+        cards = data['card']
         s |= {
             _parse_card(ex, name, attrs, randomizer=True)
-            for name, attrs in data['randomizers'].items()
+            for name, attrs in cards['randomizer'].items()
         }
 
         # just load cards which is not randomizer
         _ = {
             _parse_card(ex, name, attrs, randomizer=False)
             for name, attrs in {
-                **data.get('basic supply', {}),
-                **data.get('part of pile', {}),
-                **data.get('non-supply', {})
+                **cards.get('basic supply', {}),
+                **cards.get('part of pile', {}),
+                **cards.get('non-supply', {})
             }.items()
         }
 

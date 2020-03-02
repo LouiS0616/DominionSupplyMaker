@@ -1,109 +1,113 @@
 ex: Nocturne
 
-randomizers:
-  # cost 2
-  Druid:              {cost: 2, types: [Action, Fate]}
-  Faithful Hound:     {cost: 2, types: [Action, Reaction]}
-  Guardian:           {cost: 2, types: [Night, Duration]}
-  Monastery:          {cost: 2, types: [Night]}
-  Pixie:              {cost: 2, types: [Action, Fate],
-    related cards: [Goat]}
-  Tracker:            {cost: 2, types: [Action, Fate],
-    related cards: [Pouch]}
-  # cost 3
-  Changeling:         {cost: 3, types: [Night]}
-  Fool:               {cost: 3, types: [Action, Fate],
-    related cards: [Lucky Coin],
-    related states: [Lost in the Woods]}
-  Ghost Town:         {cost: 3, types: [Night, Duration]}
-  Leprechaun:         {cost: 3, types: [Action, Doom],
-    related cards: [Wish]}
-  Night Watchman:     {cost: 3, types: [Night]}
-  Secret Cave:        {cost: 3, types: [Action, Duration],
-    related cards: [Magic Lamp, Wish]}
-  # cost 4
-  Bard:               {cost: 4, types: [Action, Fate]}
-  Blessed Village:    {cost: 4, types: [Action, Fate]}
-  Cemetery:           {cost: 4, types: [Victory],
-    related cards: [Haunted Mirror, Ghost]}
-  Conclave:           {cost: 4, types: [Action]}
-  Devil's Workshop:   {cost: 4, types: [Night],
-    related cards: [Imp]}
-  Exorcist:           {cost: 4, types: [Night],
-    related cards: &Spirits [Will-o'-Wisp, Imp, Ghost]}
-  Necromancer:        {cost: 4, types: [Action],
-    related cards: &Zombies [Zombie Apprentice, Zombie Mason, Zombie Spy]}
-  Shepherd:           {cost: 4, types: [Action],
-    related cards: [Pasture]}
-  Skulk:              {cost: 4, types: [Action, Attack, Doom]}
-  # cost 5
-  Cobbler:            {cost: 5, types: [Night, Duration]}
-  Crypt:              {cost: 5, types: [Night, Duration]}
-  Cursed Village:     {cost: 5, types: [Action, Doom]}
-  Den of Sin:         {cost: 5, types: [Night, Duration]}
-  Idol:               {cost: 5, types: [Treasure, Attack, Fate]}
-  Pooka:              {cost: 5, types: [Action],
-    related cards: [Cursed Gold]}
-  Sacred Grove:       {cost: 5, types: [Action, Fate]}
-  Tormentor:          {cost: 5, types: [Action, Attack, Doom],
-    related cards: [Imp]}
-  Tragic Hero:        {cost: 5, types: [Action]}
-  Vampire:            {cost: 5, types: [Night, Attack, Doom],
-    related cards: [Bat]}
-  Werewolf:           {cost: 5, types: [Action, Night, Attack, Doom]}
-  # cost 6
-  Raider:             {cost: 6, types: [Night, Duration, Attack]}
+#
+card:
+  randomizer:
+    # cost 2
+    Druid:              {cost: 2, types: [Action, Fate]}
+    Faithful Hound:     {cost: 2, types: [Action, Reaction]}
+    Guardian:           {cost: 2, types: [Night, Duration]}
+    Monastery:          {cost: 2, types: [Night]}
+    Pixie:              {cost: 2, types: [Action, Fate],
+      related cards: [Goat]}
+    Tracker:            {cost: 2, types: [Action, Fate],
+      related cards: [Pouch]}
+    # cost 3
+    Changeling:         {cost: 3, types: [Night]}
+    Fool:               {cost: 3, types: [Action, Fate],
+      related cards: [Lucky Coin],
+      related states: [Lost in the Woods]}
+    Ghost Town:         {cost: 3, types: [Night, Duration]}
+    Leprechaun:         {cost: 3, types: [Action, Doom],
+      related cards: [Wish]}
+    Night Watchman:     {cost: 3, types: [Night]}
+    Secret Cave:        {cost: 3, types: [Action, Duration],
+      related cards: [Magic Lamp, Wish]}
+    # cost 4
+    Bard:               {cost: 4, types: [Action, Fate]}
+    Blessed Village:    {cost: 4, types: [Action, Fate]}
+    Cemetery:           {cost: 4, types: [Victory],
+      related cards: [Haunted Mirror, Ghost]}
+    Conclave:           {cost: 4, types: [Action]}
+    Devil's Workshop:   {cost: 4, types: [Night],
+      related cards: [Imp]}
+    Exorcist:           {cost: 4, types: [Night],
+      related cards: &Spirits [Will-o'-Wisp, Imp, Ghost]}
+    Necromancer:        {cost: 4, types: [Action],
+      related cards: &Zombies [Zombie Apprentice, Zombie Mason, Zombie Spy]}
+    Shepherd:           {cost: 4, types: [Action],
+      related cards: [Pasture]}
+    Skulk:              {cost: 4, types: [Action, Attack, Doom]}
+    # cost 5
+    Cobbler:            {cost: 5, types: [Night, Duration]}
+    Crypt:              {cost: 5, types: [Night, Duration]}
+    Cursed Village:     {cost: 5, types: [Action, Doom]}
+    Den of Sin:         {cost: 5, types: [Night, Duration]}
+    Idol:               {cost: 5, types: [Treasure, Attack, Fate]}
+    Pooka:              {cost: 5, types: [Action],
+      related cards: [Cursed Gold]}
+    Sacred Grove:       {cost: 5, types: [Action, Fate]}
+    Tormentor:          {cost: 5, types: [Action, Attack, Doom],
+      related cards: [Imp]}
+    Tragic Hero:        {cost: 5, types: [Action]}
+    Vampire:            {cost: 5, types: [Night, Attack, Doom],
+      related cards: [Bat]}
+    Werewolf:           {cost: 5, types: [Action, Night, Attack, Doom]}
+    # cost 6
+    Raider:             {cost: 6, types: [Night, Duration, Attack]}
 
-non-supply:
-  #
-  Haunted Mirror:     {cost: 0, types: [Treasure, Heirloom]}
-  Magic Lamp:         {cost: 0, types: [Treasure, Heirloom]}
-  Goat:               {cost: 2, types: [Treasure, Heirloom]}
-  Pasture:            {cost: 2, types: [Treasure, Victory, Heirloom]}
-  Pouch:              {cost: 2, types: [Treasure, Heirloom]}
-  Cursed Gold:        {cost: 4, types: [Treasure, Heirloom]}
-  Lucky Coin:         {cost: 4, types: [Treasure, Heirloom]}
-  #
-  Will-o'-Wisp:       {cost: 0, cost mark: '*', types: [Action, Spirit]}
-  Wish:               {cost: 0, cost mark: '*', types: [Action]}
-  Bat:                {cost: 2, cost mark: '*', types: [Night]}
-  Imp:                {cost: 2, cost mark: '*', types: [Action, Spirit]}
-  Zombie Apprentice:  {cost: 3, types: [Action, Zombie]}
-  Zombie Mason:       {cost: 3, types: [Action, Zombie]}
-  Zombie Spy:         {cost: 3, types: [Action, Zombie]}
-  Ghost:              {cost: 4, cost mark: '*', types: [Night, Duration, Spirit]}
+  non-supply:
+    #
+    Haunted Mirror:     {cost: 0, types: [Treasure, Heirloom]}
+    Magic Lamp:         {cost: 0, types: [Treasure, Heirloom]}
+    Goat:               {cost: 2, types: [Treasure, Heirloom]}
+    Pasture:            {cost: 2, types: [Treasure, Victory, Heirloom]}
+    Pouch:              {cost: 2, types: [Treasure, Heirloom]}
+    Cursed Gold:        {cost: 4, types: [Treasure, Heirloom]}
+    Lucky Coin:         {cost: 4, types: [Treasure, Heirloom]}
+    #
+    Will-o'-Wisp:       {cost: 0, cost mark: '*', types: [Action, Spirit]}
+    Wish:               {cost: 0, cost mark: '*', types: [Action]}
+    Bat:                {cost: 2, cost mark: '*', types: [Night]}
+    Imp:                {cost: 2, cost mark: '*', types: [Action, Spirit]}
+    Zombie Apprentice:  {cost: 3, types: [Action, Zombie]}
+    Zombie Mason:       {cost: 3, types: [Action, Zombie]}
+    Zombie Spy:         {cost: 3, types: [Action, Zombie]}
+    Ghost:              {cost: 4, cost mark: '*', types: [Night, Duration, Spirit]}
 
-boons:
-  The Earth's Gift:     {}
-  The Field's Gift:     {}
-  The Flame's Gift:     {}
-  The Forest's Gift:    {}
-  The Moon's Gift:      {}
-  The Mountain's Gift:  {}
-  The River's Gift:     {}
-  The Sea's Gift:       {}
-  The Sky's Gift:       {}
-  The Sun's Gift:       {}
-  The Swamp's Gift:     {}
-  The Wind's Gift:      {}
+#
+effect:
+  boon:
+    The Earth's Gift:     {}
+    The Field's Gift:     {}
+    The Flame's Gift:     {}
+    The Forest's Gift:    {}
+    The Moon's Gift:      {}
+    The Mountain's Gift:  {}
+    The River's Gift:     {}
+    The Sea's Gift:       {}
+    The Sky's Gift:       {}
+    The Sun's Gift:       {}
+    The Swamp's Gift:     {}
+    The Wind's Gift:      {}
 
-hexes:
-  Bad Omens:            {}
-  Delusion:             {}
-  Envy:                 {}
-  Famine:               {}
-  Fear:                 {}
-  Greed:                {}
-  Haunting:             {}
-  Locusts:              {}
-  Misery:               {}
-  Plague:               {}
-  Poverty:              {}
-  War:                  {}
+  hex:
+    Bad Omens:            {}
+    Delusion:             {}
+    Envy:                 {}
+    Famine:               {}
+    Fear:                 {}
+    Greed:                {}
+    Haunting:             {}
+    Locusts:              {}
+    Misery:               {}
+    Plague:               {}
+    Poverty:              {}
+    War:                  {}
 
-states:
-  Lost in the Woods:    {}
-  Deluded:              {}
-  Envious:              {}
-  Miserable:            {}
-  Twice Miserable:      {}
+  state:
+    Lost in the Woods:    {}
+    Deluded:              {}
+    Envious:              {}
+    Miserable:            {}
+    Twice Miserable:      {}

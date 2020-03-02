@@ -1,87 +1,90 @@
 ex: Adventures
 
-randomizers:
-  # cost 2
-  Coin of the Realm:  {cost: 2, types: [Treasure, Reserve]}
-  Page:               {cost: 2, types: [Action, Traveller],
-    related cards: [
-      Treasure Hunter, Warrior, Hero, Champion
-    ]}
-  Peasant:            {cost: 2, types: [Action, Traveller],
-    related cards: [
-      Soldier, Fugitive, Disciple, Teacher
-    ]}
-  Ratcatcher:         {cost: 2, types: [Action, Reserve]}
-  Raze:               {cost: 2, types: [Action]}
-  # cost 3
-  Amulet:             {cost: 3, types: [Action, Duration]}
-  Caravan Guard:      {cost: 3, types: [Action, Reaction, Duration]}
-  Dungeon:            {cost: 3, types: [Action, Duration]}
-  Gear:               {cost: 3, types: [Action, Duration]}
-  Guide:              {cost: 3, types: [Action, Reserve]}
-  # cost 4
-  Duplicate:          {cost: 4, types: [Action, Reserve]}
-  Magpie:             {cost: 4, types: [Action]}
-  Messenger:          {cost: 4, types: [Action]}
-  Miser:              {cost: 4, types: [Action]}
-  Port:               {cost: 4, types: [Action]}
-  Ranger:             {cost: 4, types: [Action]}
-  Transmogrify:       {cost: 4, types: [Action, Reserve]}
-  # cost 5
-  Artificer:          {cost: 5, types: [Action]}
-  Bridge Troll:       {cost: 5, types: [Action, Attack, Duration]}
-  Distant Lands:      {cost: 5, types: [Action, Victory, Reserve]}
-  Giant:              {cost: 5, types: [Action, Attack]}
-  Haunted Woods:      {cost: 5, types: [Action, Attack, Duration]}
-  Lost City:          {cost: 5, types: [Action]}
-  Relic:              {cost: 5, types: [Attack, Treasure]}
-  Royal Carriage:     {cost: 5, types: [Action, Reserve]}
-  Storyteller:        {cost: 5, types: [Action]}
-  Swamp Hag:          {cost: 5, types: [Action, Attack, Duration]}
-  Treasure Trove:     {cost: 5, types: [Treasure]}
-  Wine Merchant:      {cost: 5, types: [Action, Reserve]}
-  # cost 6
-  Hireling:           {cost: 6, types: [Action, Duration]}
+card:
+  randomizer:
+    # cost 2
+    Coin of the Realm:  {cost: 2, types: [Treasure, Reserve]}
+    Page:               {cost: 2, types: [Action, Traveller],
+      related cards: [
+        Treasure Hunter, Warrior, Hero, Champion
+      ]}
+    Peasant:            {cost: 2, types: [Action, Traveller],
+      related cards: [
+        Soldier, Fugitive, Disciple, Teacher
+      ]}
+    Ratcatcher:         {cost: 2, types: [Action, Reserve]}
+    Raze:               {cost: 2, types: [Action]}
+    # cost 3
+    Amulet:             {cost: 3, types: [Action, Duration]}
+    Caravan Guard:      {cost: 3, types: [Action, Reaction, Duration]}
+    Dungeon:            {cost: 3, types: [Action, Duration]}
+    Gear:               {cost: 3, types: [Action, Duration]}
+    Guide:              {cost: 3, types: [Action, Reserve]}
+    # cost 4
+    Duplicate:          {cost: 4, types: [Action, Reserve]}
+    Magpie:             {cost: 4, types: [Action]}
+    Messenger:          {cost: 4, types: [Action]}
+    Miser:              {cost: 4, types: [Action]}
+    Port:               {cost: 4, types: [Action]}
+    Ranger:             {cost: 4, types: [Action]}
+    Transmogrify:       {cost: 4, types: [Action, Reserve]}
+    # cost 5
+    Artificer:          {cost: 5, types: [Action]}
+    Bridge Troll:       {cost: 5, types: [Action, Attack, Duration]}
+    Distant Lands:      {cost: 5, types: [Action, Victory, Reserve]}
+    Giant:              {cost: 5, types: [Action, Attack]}
+    Haunted Woods:      {cost: 5, types: [Action, Attack, Duration]}
+    Lost City:          {cost: 5, types: [Action]}
+    Relic:              {cost: 5, types: [Attack, Treasure]}
+    Royal Carriage:     {cost: 5, types: [Action, Reserve]}
+    Storyteller:        {cost: 5, types: [Action]}
+    Swamp Hag:          {cost: 5, types: [Action, Attack, Duration]}
+    Treasure Trove:     {cost: 5, types: [Treasure]}
+    Wine Merchant:      {cost: 5, types: [Action, Reserve]}
+    # cost 6
+    Hireling:           {cost: 6, types: [Action, Duration]}
 
-non-supply:
-  #
-  Treasure Hunter:    {cost: 3, cost mark: '*', types: [Action, Traveller]}
-  Warrior:            {cost: 4, cost mark: '*', types: [Action, Attack, Traveller]}
-  Hero:               {cost: 5, cost mark: '*', types: [Action, Traveller]}
-  Champion:           {cost: 6, cost mark: '*', types: [Action, Duration]}
-  #
-  Soldier:            {cost: 3, cost mark: '*', types: [Action, Attack, Traveller]}
-  Fugitive:           {cost: 4, cost mark: '*', types: [Action, Traveller]}
-  Disciple:           {cost: 5, cost mark: '*', types: [Action, Traveller]}
-  Teacher:            {cost: 6, cost mark: '*', types: [Action, Reserve]}
+  non-supply:
+    #
+    Treasure Hunter:    {cost: 3, cost mark: '*', types: [Action, Traveller]}
+    Warrior:            {cost: 4, cost mark: '*', types: [Action, Attack, Traveller]}
+    Hero:               {cost: 5, cost mark: '*', types: [Action, Traveller]}
+    Champion:           {cost: 6, cost mark: '*', types: [Action, Duration]}
+    #
+    Soldier:            {cost: 3, cost mark: '*', types: [Action, Attack, Traveller]}
+    Fugitive:           {cost: 4, cost mark: '*', types: [Action, Traveller]}
+    Disciple:           {cost: 5, cost mark: '*', types: [Action, Traveller]}
+    Teacher:            {cost: 6, cost mark: '*', types: [Action, Reserve]}
 
-events:
-  # cost 0
-  Alms:               {cost: 0}
-  Borrow:             {cost: 0}
-  Quest:              {cost: 0}
-  # cost 1
-  Save:               {cost: 1}
-  # cost 2
-  Scouting Party:     {cost: 2}
-  Travelling Fair:    {cost: 2}
-  # cost 3
-  Bonfire:            {cost: 3}
-  Expedition:         {cost: 3}
-  Ferry:              {cost: 3}
-  Plan:               {cost: 3}
-  # cost 4
-  Mission:            {cost: 4}
-  Pilgrimage:         {cost: 4}
-  # cost 5
-  Ball:               {cost: 5}
-  Raid:               {cost: 5}
-  Seaway:             {cost: 5}
-  Trade:              {cost: 5}
-  # cost 6
-  Lost Arts:          {cost: 6}
-  Training:           {cost: 6}
-  # cost 7
-  Inheritance:        {cost: 7}
-  # cost 8
-  Pathfinding:        {cost: 8}
+#
+effect:
+  event:
+    # cost 0
+    Alms:               {cost: 0}
+    Borrow:             {cost: 0}
+    Quest:              {cost: 0}
+    # cost 1
+    Save:               {cost: 1}
+    # cost 2
+    Scouting Party:     {cost: 2}
+    Travelling Fair:    {cost: 2}
+    # cost 3
+    Bonfire:            {cost: 3}
+    Expedition:         {cost: 3}
+    Ferry:              {cost: 3}
+    Plan:               {cost: 3}
+    # cost 4
+    Mission:            {cost: 4}
+    Pilgrimage:         {cost: 4}
+    # cost 5
+    Ball:               {cost: 5}
+    Raid:               {cost: 5}
+    Seaway:             {cost: 5}
+    Trade:              {cost: 5}
+    # cost 6
+    Lost Arts:          {cost: 6}
+    Training:           {cost: 6}
+    # cost 7
+    Inheritance:        {cost: 7}
+    # cost 8
+    Pathfinding:        {cost: 8}

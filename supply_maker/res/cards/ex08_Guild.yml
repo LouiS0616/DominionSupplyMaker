@@ -1,20 +1,21 @@
 ex: Guilds
 
-randomizers:
-  # cost 2
-  Candlestick Maker:  {cost: 2, types: [Action]}
-  Stonemason:         {cost: 2, cost mark: '+', types: [Action]}
-  # cost 3
-  Doctor:             {cost: 3, cost mark: '+', types: [Action]}
-  Masterpiece:        {cost: 3, cost mark: '+', types: [Treasure]}
-  # cost 4
-  Advisor:            {cost: 4, types: [Action]}
-  Plaza:              {cost: 4, types: [Action]}
-  Taxman:             {cost: 4, types: [Action, Attack]}
-  Herald:             {cost: 4, cost mark: '+', types: [Action]}
-  # cost 5
-  Baker:              {cost: 5, types: [Action]}
-  Butcher:            {cost: 5, types: [Action]}
-  Journeyman:         {cost: 5, types: [Action]}
-  Merchant Guild:     {cost: 5, types: [Action]}
-  Soothsayer:         {cost: 5, types: [Action, Attack]}
+card:
+  randomizer:
+    # cost 2
+    Candlestick Maker:  {cost: 2, types: [Action]}
+    Stonemason:         {cost: 2, cost mark: '+', types: [Action]}
+    # cost 3
+    Doctor:             {cost: 3, cost mark: '+', types: [Action]}
+    Masterpiece:        {cost: 3, cost mark: '+', types: [Treasure]}
+    # cost 4
+    Advisor:            {cost: 4, types: [Action]}
+    Plaza:              {cost: 4, types: [Action]}
+    Taxman:             {cost: 4, types: [Action, Attack]}
+    Herald:             {cost: 4, cost mark: '+', types: [Action]}
+    # cost 5
+    Baker:              {cost: 5, types: [Action]}
+    Butcher:            {cost: 5, types: [Action]}
+    Journeyman:         {cost: 5, types: [Action]}
+    Merchant Guild:     {cost: 5, types: [Action]}
+    Soothsayer:         {cost: 5, types: [Action, Attack]}

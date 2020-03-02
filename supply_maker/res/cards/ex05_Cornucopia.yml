@@ -1,31 +1,32 @@
 ex: Cornucopia
 
-randomizers:
-  # cost 2
-  Hamlet:           {cost: 2, types: [Action]}
-  # cost 3
-  Fortune Teller:   {cost: 3, types: [Action, Attack]}
-  Menagerie:        {cost: 3, types: [Action]}
-  # cost 4
-  Farming Village:  {cost: 4, types: [Action]}
-  Horse Traders:    {cost: 4, types: [Action, Reaction]}
-  Remake:           {cost: 4, types: [Action]}
-  Tournament:       {cost: 4, types: [Action],
-    related cards: [
-      Bag of Gold, Diadem, Followers, Princess, Trusty Steed
-    ]}
-  Young Witch:      {cost: 4, types: [Action, Attack]}
-  # cost 5
-  Harvest:          {cost: 5, types: [Action]}
-  Horn of Plenty:   {cost: 5, types: [Treasure]}
-  Hunting Party:    {cost: 5, types: [Action]}
-  Jester:           {cost: 5, types: [Action, Attack]}
-  # cost 6
-  Fairgrounds:      {cost: 6, types: [Victory]}
+card:
+  randomizer:
+    # cost 2
+    Hamlet:           {cost: 2, types: [Action]}
+    # cost 3
+    Fortune Teller:   {cost: 3, types: [Action, Attack]}
+    Menagerie:        {cost: 3, types: [Action]}
+    # cost 4
+    Farming Village:  {cost: 4, types: [Action]}
+    Horse Traders:    {cost: 4, types: [Action, Reaction]}
+    Remake:           {cost: 4, types: [Action]}
+    Tournament:       {cost: 4, types: [Action],
+      related cards: [
+        Bag of Gold, Diadem, Followers, Princess, Trusty Steed
+      ]}
+    Young Witch:      {cost: 4, types: [Action, Attack]}
+    # cost 5
+    Harvest:          {cost: 5, types: [Action]}
+    Horn of Plenty:   {cost: 5, types: [Treasure]}
+    Hunting Party:    {cost: 5, types: [Action]}
+    Jester:           {cost: 5, types: [Action, Attack]}
+    # cost 6
+    Fairgrounds:      {cost: 6, types: [Victory]}
 
-non-supply:
-  Bag of Gold:      {cost: 0, cost mark: '*', types: [Action, Prize]}
-  Diadem:           {cost: 0, cost mark: '*', types: [Treasure, Prize]}
-  Followers:        {cost: 0, cost mark: '*', types: [Action, Attack, Prize]}
-  Princess:         {cost: 0, cost mark: '*', types: [Action, Prize]}
-  Trusty Steed:     {cost: 0, cost mark: '*', types: [Action, Prize]}
+  non-supply:
+    Bag of Gold:      {cost: 0, cost mark: '*', types: [Action, Prize]}
+    Diadem:           {cost: 0, cost mark: '*', types: [Treasure, Prize]}
+    Followers:        {cost: 0, cost mark: '*', types: [Action, Attack, Prize]}
+    Princess:         {cost: 0, cost mark: '*', types: [Action, Prize]}
+    Trusty Steed:     {cost: 0, cost mark: '*', types: [Action, Prize]}

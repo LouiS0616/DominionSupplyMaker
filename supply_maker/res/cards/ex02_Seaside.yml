@@ -1,33 +1,34 @@
 ex: Seaside
 
-randomizers:
-  # cost 2
-  Embargo:          {cost: 2, types: [Action]}
-  Haven:            {cost: 2, types: [Action, Duration]}
-  Lighthouse:       {cost: 2, types: [Action, Duration]}
-  Native Village:   {cost: 2, types: [Action]}
-  Pearl Diver:      {cost: 2, types: [Action]}
-  # cost 3
-  Ambassador:       {cost: 3, types: [Action, Attack]}
-  Fishing Village:  {cost: 3, types: [Action, Duration]}
-  Lookout:          {cost: 3, types: [Action]}
-  Smugglers:        {cost: 3, types: [Action]}
-  Warehouse:        {cost: 3, types: [Action]}
-  # cost 4
-  Caravan:          {cost: 4, types: [Action, Duration]}
-  Cutpurse:         {cost: 4, types: [Action, Attack]}
-  Island:           {cost: 4, types: [Action, Victory]}
-  Navigator:        {cost: 4, types: [Action]}
-  Pirate Ship:      {cost: 4, types: [Action, Attack]}
-  Salvager:         {cost: 4, types: [Action]}
-  Sea Hag:          {cost: 4, types: [Action, Attack]}
-  Treasure Map:     {cost: 4, types: [Action]}
-  # cost 5
-  Bazaar:           {cost: 5, types: [Action]}
-  Explorer:         {cost: 5, types: [Action]}
-  Ghost Ship:       {cost: 5, types: [Action, Attack]}
-  Merchant Ship:    {cost: 5, types: [Action, Duration]}
-  Outpost:          {cost: 5, types: [Action, Duration]}
-  Tactician:        {cost: 5, types: [Action, Duration]}
-  Treasury:         {cost: 5, types: [Action]}
-  Wharf:            {cost: 5, types: [Action, Duration]}
+card:
+  randomizer:
+    # cost 2
+    Embargo:          {cost: 2, types: [Action]}
+    Haven:            {cost: 2, types: [Action, Duration]}
+    Lighthouse:       {cost: 2, types: [Action, Duration]}
+    Native Village:   {cost: 2, types: [Action]}
+    Pearl Diver:      {cost: 2, types: [Action]}
+    # cost 3
+    Ambassador:       {cost: 3, types: [Action, Attack]}
+    Fishing Village:  {cost: 3, types: [Action, Duration]}
+    Lookout:          {cost: 3, types: [Action]}
+    Smugglers:        {cost: 3, types: [Action]}
+    Warehouse:        {cost: 3, types: [Action]}
+    # cost 4
+    Caravan:          {cost: 4, types: [Action, Duration]}
+    Cutpurse:         {cost: 4, types: [Action, Attack]}
+    Island:           {cost: 4, types: [Action, Victory]}
+    Navigator:        {cost: 4, types: [Action]}
+    Pirate Ship:      {cost: 4, types: [Action, Attack]}
+    Salvager:         {cost: 4, types: [Action]}
+    Sea Hag:          {cost: 4, types: [Action, Attack]}
+    Treasure Map:     {cost: 4, types: [Action]}
+    # cost 5
+    Bazaar:           {cost: 5, types: [Action]}
+    Explorer:         {cost: 5, types: [Action]}
+    Ghost Ship:       {cost: 5, types: [Action, Attack]}
+    Merchant Ship:    {cost: 5, types: [Action, Duration]}
+    Outpost:          {cost: 5, types: [Action, Duration]}
+    Tactician:        {cost: 5, types: [Action, Duration]}
+    Treasury:         {cost: 5, types: [Action]}
+    Wharf:            {cost: 5, types: [Action, Duration]}

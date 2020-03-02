@@ -1,38 +1,39 @@
 ex: Prosperity
 
-basic supply:
-  Platinum:         {cost:  9, types: [Treasure]}
-  Colony:           {cost: 11, types: [Victory]}
+card:
+  basic supply:
+    Platinum:         {cost:  9, types: [Treasure]}
+    Colony:           {cost: 11, types: [Victory]}
 
-randomizers:
-  # cost 3
-  Loan:             {cost: 3, types: [Treasure]}
-  Trade Route:      {cost: 3, types: [Action]}
-  Watchtower:       {cost: 3, types: [Action, Reaction]}
-  # cost 4
-  Bishop:           {cost: 4, types: [Action]}
-  Monument:         {cost: 4, types: [Action]}
-  Quarry:           {cost: 4, types: [Treasure]}
-  Talisman:         {cost: 4, types: [Treasure]}
-  Worker's Village: {cost: 4, types: [Action]}
-  # cost 5
-  City:             {cost: 5, types: [Action]}
-  Contraband:       {cost: 5, types: [Treasure]}
-  Counting House:   {cost: 5, types: [Action]}
-  Mint:             {cost: 5, types: [Action]}
-  Mountebank:       {cost: 5, types: [Action, Attack]}
-  Rabble:           {cost: 5, types: [Action, Attack]}
-  Royal Seal:       {cost: 5, types: [Treasure]}
-  Vault:            {cost: 5, types: [Action]}
-  Venture:          {cost: 5, types: [Treasure]}
-  # cost 6
-  Goons:            {cost: 6, types: [Action, Attack]}
-  Grand Market:     {cost: 6, cost mark: '*', types: [Action]}
-  Hoard:            {cost: 6, types: [Treasure]}
-  # cost 7
-  Bank:             {cost: 7, types: [Treasure]}
-  Expand:           {cost: 7, types: [Action]}
-  Forge:            {cost: 7, types: [Action]}
-  King's Court:     {cost: 7, types: [Action]}
-  # cost 8
-  Peddler:          {cost: 8, cost mark: '*', types: [Action]}
+  randomizer:
+    # cost 3
+    Loan:             {cost: 3, types: [Treasure]}
+    Trade Route:      {cost: 3, types: [Action]}
+    Watchtower:       {cost: 3, types: [Action, Reaction]}
+    # cost 4
+    Bishop:           {cost: 4, types: [Action]}
+    Monument:         {cost: 4, types: [Action]}
+    Quarry:           {cost: 4, types: [Treasure]}
+    Talisman:         {cost: 4, types: [Treasure]}
+    Worker's Village: {cost: 4, types: [Action]}
+    # cost 5
+    City:             {cost: 5, types: [Action]}
+    Contraband:       {cost: 5, types: [Treasure]}
+    Counting House:   {cost: 5, types: [Action]}
+    Mint:             {cost: 5, types: [Action]}
+    Mountebank:       {cost: 5, types: [Action, Attack]}
+    Rabble:           {cost: 5, types: [Action, Attack]}
+    Royal Seal:       {cost: 5, types: [Treasure]}
+    Vault:            {cost: 5, types: [Action]}
+    Venture:          {cost: 5, types: [Treasure]}
+    # cost 6
+    Goons:            {cost: 6, types: [Action, Attack]}
+    Grand Market:     {cost: 6, cost mark: '*', types: [Action]}
+    Hoard:            {cost: 6, types: [Treasure]}
+    # cost 7
+    Bank:             {cost: 7, types: [Treasure]}
+    Expand:           {cost: 7, types: [Action]}
+    Forge:            {cost: 7, types: [Action]}
+    King's Court:     {cost: 7, types: [Action]}
+    # cost 8
+    Peddler:          {cost: 8, cost mark: '*', types: [Action]}

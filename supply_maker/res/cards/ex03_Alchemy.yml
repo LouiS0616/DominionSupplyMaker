@@ -1,24 +1,25 @@
 ex: Alchemy
 
-basic supply:
-  Potion:       {cost: 4, types: [Treasure]}
+card:
+  basic supply:
+    Potion:       {cost: 4, types: [Treasure]}
 
-randomizers:
-  # cost no potion
-  Herbalist:    {cost: 2, types: [Action]}
-  Apprentice:   {cost: 5, types: [Action]}
-  # cost 0+P
-  Transmute:    {cost: 0, need potion: True, types: [Action]}
-  Vineyard:     {cost: 0, need potion: True, types: [Victory]}
-  # cost 2+P
-  Apothecary:   {cost: 2, need potion: True, types: [Action]}
-  Scrying Pool: {cost: 2, need potion: True, types: [Action, Attack]}
-  University:   {cost: 2, need potion: True, types: [Action]}
-  # cost 3+P
-  Alchemist:    {cost: 3, need potion: True, types: [Action]}
-  Familiar:     {cost: 3, need potion: True, types: [Action, Attack]}
-  Philosopher's Stone:
-                {cost: 3, need potion: True, types: [Treasure]}
-  # cost more
-  Golem:        {cost: 4, need potion: True, types: [Action]}
-  Possession:   {cost: 6, need potion: True, types: [Action]}
+  randomizer:
+    # cost no potion
+    Herbalist:    {cost: 2, types: [Action]}
+    Apprentice:   {cost: 5, types: [Action]}
+    # cost 0+P
+    Transmute:    {cost: 0, need potion: True, types: [Action]}
+    Vineyard:     {cost: 0, need potion: True, types: [Victory]}
+    # cost 2+P
+    Apothecary:   {cost: 2, need potion: True, types: [Action]}
+    Scrying Pool: {cost: 2, need potion: True, types: [Action, Attack]}
+    University:   {cost: 2, need potion: True, types: [Action]}
+    # cost 3+P
+    Alchemist:    {cost: 3, need potion: True, types: [Action]}
+    Familiar:     {cost: 3, need potion: True, types: [Action, Attack]}
+    Philosopher's Stone:
+                  {cost: 3, need potion: True, types: [Treasure]}
+    # cost more
+    Golem:        {cost: 4, need potion: True, types: [Action]}
+    Possession:   {cost: 6, need potion: True, types: [Action]}

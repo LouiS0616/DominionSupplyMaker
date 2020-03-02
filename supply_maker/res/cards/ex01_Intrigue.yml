@@ -1,40 +1,41 @@
 ex: Intrigue
 
-randomizers:
-  # cost 2
-  Courtyard:      {cost: 2, types: [Action]}
-  Lurker:         {cost: 2, types: [Action], edition: 2nd}
-  Pawn:           {cost: 2, types: [Action]}
-  Secret Chamber: {cost: 2, types: [Action, Reaction], edition: 1st}
-  # cost 3
-  Great Hall:     {cost: 3, types: [Action, Victory], edition: 1st}
-  Masquerade:     {cost: 3, types: [Action]}
-  Shanty Town:    {cost: 3, types: [Action]}
-  Steward:        {cost: 3, types: [Action]}
-  Swindler:       {cost: 3, types: [Action, Attack]}
-  Wishing Well:   {cost: 3, types: [Action]}
-  # cost 4
-  Baron:          {cost: 4, types: [Action]}
-  Bridge:         {cost: 4, types: [Action]}
-  Conspirator:    {cost: 4, types: [Action]}
-  Coppersmith:    {cost: 4, types: [Action], edition: 1st}
-  Diplomat:       {cost: 4, types: [Action, Reaction], edition: 2nd}
-  Ironworks:      {cost: 4, types: [Action]}
-  Mill:           {cost: 4, types: [Action, Victory], edition: 2nd}
-  Mining Village: {cost: 4, types: [Action]}
-  Scout:          {cost: 4, types: [Action], edition: 1st}
-  Secret Passage: {cost: 4, types: [Action], edition: 2nd}
-  # cost 5
-  Courtier:       {cost: 5, types: [Action], edition: 2nd}
-  Duke:           {cost: 5, types: [Victory]}
-  Minion:         {cost: 5, types: [Action, Attack]}
-  Patrol:         {cost: 5, types: [Action], edition: 2nd}
-  Replace:        {cost: 5, types: [Action, Attack], edition: 2nd}
-  Saboteur:       {cost: 5, types: [Action, Attack], edition: 1st}
-  Torturer:       {cost: 5, types: [Action, Attack]}
-  Trading Post:   {cost: 5, types: [Action]}
-  Tribute:        {cost: 5, types: [Action], edition: 1st}
-  Upgrade:        {cost: 5, types: [Action]}
-  # cost 6
-  Harem:          {cost: 6, types: [Treasure, Victory]}
-  Nobles:         {cost: 6, types: [Action, Victory]}
+card:
+  randomizer:
+    # cost 2
+    Courtyard:      {cost: 2, types: [Action]}
+    Lurker:         {cost: 2, types: [Action], edition: 2nd}
+    Pawn:           {cost: 2, types: [Action]}
+    Secret Chamber: {cost: 2, types: [Action, Reaction], edition: 1st}
+    # cost 3
+    Great Hall:     {cost: 3, types: [Action, Victory], edition: 1st}
+    Masquerade:     {cost: 3, types: [Action]}
+    Shanty Town:    {cost: 3, types: [Action]}
+    Steward:        {cost: 3, types: [Action]}
+    Swindler:       {cost: 3, types: [Action, Attack]}
+    Wishing Well:   {cost: 3, types: [Action]}
+    # cost 4
+    Baron:          {cost: 4, types: [Action]}
+    Bridge:         {cost: 4, types: [Action]}
+    Conspirator:    {cost: 4, types: [Action]}
+    Coppersmith:    {cost: 4, types: [Action], edition: 1st}
+    Diplomat:       {cost: 4, types: [Action, Reaction], edition: 2nd}
+    Ironworks:      {cost: 4, types: [Action]}
+    Mill:           {cost: 4, types: [Action, Victory], edition: 2nd}
+    Mining Village: {cost: 4, types: [Action]}
+    Scout:          {cost: 4, types: [Action], edition: 1st}
+    Secret Passage: {cost: 4, types: [Action], edition: 2nd}
+    # cost 5
+    Courtier:       {cost: 5, types: [Action], edition: 2nd}
+    Duke:           {cost: 5, types: [Victory]}
+    Minion:         {cost: 5, types: [Action, Attack]}
+    Patrol:         {cost: 5, types: [Action], edition: 2nd}
+    Replace:        {cost: 5, types: [Action, Attack], edition: 2nd}
+    Saboteur:       {cost: 5, types: [Action, Attack], edition: 1st}
+    Torturer:       {cost: 5, types: [Action, Attack]}
+    Trading Post:   {cost: 5, types: [Action]}
+    Tribute:        {cost: 5, types: [Action], edition: 1st}
+    Upgrade:        {cost: 5, types: [Action]}
+    # cost 6
+    Harem:          {cost: 6, types: [Treasure, Victory]}
+    Nobles:         {cost: 6, types: [Action, Victory]}

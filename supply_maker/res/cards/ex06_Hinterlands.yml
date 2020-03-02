@@ -1,34 +1,35 @@
 ex: Hinterlands
 
-randomizers:
-  # cost 2
-  Crossroads:         {cost: 2, types: [Action]}
-  Duchess:            {cost: 2, types: [Action]}
-  Fool's Gold:        {cost: 2, types: [Reaction, Treasure]}
-  # cost 3
-  Develop:            {cost: 3, types: [Action]}
-  Oasis:              {cost: 3, types: [Action]}
-  Oracle:             {cost: 3, types: [Action, Attack]}
-  Scheme:             {cost: 3, types: [Action]}
-  Tunnel:             {cost: 3, types: [Reaction, Victory]}
-  # cost 4
-  Jack of All Trades: {cost: 4, types: [Action]}
-  Noble Brigand:      {cost: 4, types: [Action, Attack]}
-  Nomad Camp:         {cost: 4, types: [Action]}
-  Silk Road:          {cost: 4, types: [Victory]}
-  Spice Merchant:     {cost: 4, types: [Action]}
-  Trader:             {cost: 4, types: [Action, Reaction]}
-  # cost 5
-  Cache:              {cost: 5, types: [Treasure]}
-  Cartographer:       {cost: 5, types: [Action]}
-  Embassy:            {cost: 5, types: [Action]}
-  Haggler:            {cost: 5, types: [Action]}
-  Highway:            {cost: 5, types: [Action]}
-  Ill-Gotten Gains:   {cost: 5, types: [Treasure]}
-  Inn:                {cost: 5, types: [Action]}
-  Mandarin:           {cost: 5, types: [Action]}
-  Margrave:           {cost: 5, types: [Action, Attack]}
-  Stables:            {cost: 5, types: [Action]}
-  # cost 6
-  Border Village:     {cost: 6, types: [Action]}
-  Farmland:           {cost: 6, types: [Victory]}
+card:
+  randomizer:
+    # cost 2
+    Crossroads:         {cost: 2, types: [Action]}
+    Duchess:            {cost: 2, types: [Action]}
+    Fool's Gold:        {cost: 2, types: [Reaction, Treasure]}
+    # cost 3
+    Develop:            {cost: 3, types: [Action]}
+    Oasis:              {cost: 3, types: [Action]}
+    Oracle:             {cost: 3, types: [Action, Attack]}
+    Scheme:             {cost: 3, types: [Action]}
+    Tunnel:             {cost: 3, types: [Reaction, Victory]}
+    # cost 4
+    Jack of All Trades: {cost: 4, types: [Action]}
+    Noble Brigand:      {cost: 4, types: [Action, Attack]}
+    Nomad Camp:         {cost: 4, types: [Action]}
+    Silk Road:          {cost: 4, types: [Victory]}
+    Spice Merchant:     {cost: 4, types: [Action]}
+    Trader:             {cost: 4, types: [Action, Reaction]}
+    # cost 5
+    Cache:              {cost: 5, types: [Treasure]}
+    Cartographer:       {cost: 5, types: [Action]}
+    Embassy:            {cost: 5, types: [Action]}
+    Haggler:            {cost: 5, types: [Action]}
+    Highway:            {cost: 5, types: [Action]}
+    Ill-Gotten Gains:   {cost: 5, types: [Treasure]}
+    Inn:                {cost: 5, types: [Action]}
+    Mandarin:           {cost: 5, types: [Action]}
+    Margrave:           {cost: 5, types: [Action, Attack]}
+    Stables:            {cost: 5, types: [Action]}
+    # cost 6
+    Border Village:     {cost: 6, types: [Action]}
+    Farmland:           {cost: 6, types: [Victory]}
