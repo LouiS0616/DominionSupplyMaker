@@ -19,7 +19,8 @@ def _parse_card(ex, name, attr, randomizer) -> Card:
         },
         randomizer=randomizer,
         pile_cards=attr.get('pile cards', [name]),
-        related_cards=attr.get('related cards', [])
+        related_cards=attr.get('related cards', []),
+        related_effects=attr.get('related effects', [])
     )
 
 

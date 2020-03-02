@@ -16,7 +16,7 @@ card:
     Changeling:         {cost: 3, types: [Night]}
     Fool:               {cost: 3, types: [Action, Fate],
       related cards: [Lucky Coin],
-      related states: [Lost in the Woods]}
+      related effects: [Lost in the Woods]}
     Ghost Town:         {cost: 3, types: [Night, Duration]}
     Leprechaun:         {cost: 3, types: [Action, Doom],
       related cards: [Wish]}

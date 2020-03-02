@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, TYPE_CHECKING
 
 from ..attr.card_name import CardName as EffectName
 from ..attr.cost import Cost, Costless, CostType
@@ -44,6 +44,14 @@ class Effect(metaclass=_EffectMeta):
         return cls._create(
             ex, edition, typ, name, Costless()
         )
+
+    # noinspection PyProtectedMember
+    @classmethod
+    def load(cls, name: 'EffectName'):
+        if name._raw_name not in cls._cache:
+            raise ValueError(f"cannot load card; {name._raw_name}")
+
+        return cls._cache[name._raw_name]
 
     #
     def __getattr__(self, item):

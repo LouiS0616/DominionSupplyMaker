@@ -31,6 +31,7 @@ class _CardImpl:
 
     pile_cards: List['CardName']
     related_cards: List['CardName']
+    related_effects: List['CardName']
 
 
 #
@@ -58,7 +59,7 @@ class Card(metaclass=_CardMeta):
     @classmethod
     def create(cls,
                ex: str, edition: str, name: str, cost_coin: int, need_potion: bool, debt: int,
-               randomizer: bool, pile_cards: List[str], related_cards: List[str],
+               randomizer: bool, pile_cards: List[str], related_cards: List[str], related_effects: List[str],
                cost_mark='',
                is_action=False, is_attack=False, is_reaction=False, is_duration=False, is_command=False,
                is_treasure=False, is_victory=False, **kwargs) -> 'Card':
@@ -67,8 +68,9 @@ class Card(metaclass=_CardMeta):
             return cls._cache[name]
 
         #
-        assert all(k.startswith('is_') for k in kwargs)
-        assert all(isinstance(v, bool) for v in kwargs.values())
+        assert all(
+            k.startswith('is_') and isinstance(v, bool) for k, v in kwargs.items()
+        )
         additional_types = [
             typ[3:]     # is_xxx
             for typ, tf in kwargs.items() if tf
@@ -80,7 +82,8 @@ class Card(metaclass=_CardMeta):
             Cost(cost_coin, need_potion, debt, cost_mark),
             is_action, is_attack, is_reaction, is_duration, is_command,
             is_treasure, is_victory,
-            additional_types, randomizer, [*map(CardName, pile_cards)], [*map(CardName, related_cards)]
+            additional_types, randomizer,
+            [*map(CardName, pile_cards)], [*map(CardName, related_cards)], [*map(CardName, related_effects)]
         )
         cls._cache[name] = Card(impl)
         return cls._cache[name]
