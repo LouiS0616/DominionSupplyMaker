@@ -1,0 +1,72 @@
+ex: Renaissance
+
+card:
+  randomizer:
+    # cost 2
+    Border Guard:     {cost: 2, types: [Action],
+      related effects: [Lantern, Horn]}
+    Ducat:            {cost: 2, types: [Treasure]}
+    Lackeys:          {cost: 2, types: [Action]}
+    # cost 3
+    Acting Troupe:    {cost: 3, types: [Action]}
+    Cargo Ship:       {cost: 3, types: [Action, Duration]}
+    Experiment:       {cost: 3, types: [Action]}
+    Improve:          {cost: 3, types: [Action]}
+    # cost 4
+    Flag Bearer:      {cost: 4, types: [Action],
+      related effects: [Flag]}
+    Hideout:          {cost: 4, types: [Action]}
+    Inventor:         {cost: 4, types: [Action]}
+    Mountain Village: {cost: 4, types: [Action]}
+    Patron:           {cost: 4, types: [Action, Reaction]}
+    Priest:           {cost: 4, types: [Action]}
+    Research:         {cost: 4, types: [Action, Duration]}
+    Silk Merchant:    {cost: 4, types: [Action]}
+    # cost 5
+    Old Witch:        {cost: 5, types: [Action, Attack]}
+    Recruiter:        {cost: 5, types: [Action]}
+    Scepter:          {cost: 5, types: [Treasure]}
+    Scholar:          {cost: 5, types: [Action]}
+    Sculptor:         {cost: 5, types: [Action]}
+    Seer:             {cost: 5, types: [Action]}
+    Spices:           {cost: 5, types: [Treasure]}
+    Swashbuckler:     {cost: 5, types: [Action],
+      related effects: [Treasure Chest]}
+    Treasurer:        {cost: 5, types: [Action],
+      related effects: [Key]}
+    Villain:          {cost: 5, types: [Action, Attack]}
+
+#
+effect:
+  artifact:
+    Flag:             {}
+    Horn:             {}
+    Key:              {}
+    Lantern:          {}
+    Treasure Chest:   {}
+
+  project:
+    # cost 3
+    Cathedral:        {cost: 3}
+    City Gate:        {cost: 3}
+    Pageant:          {cost: 3}
+    Sewers:           {cost: 3}
+    Star Chart:       {cost: 3}
+    # cost 4
+    Exploration:      {cost: 4}
+    Fair:             {cost: 4}
+    Silos:            {cost: 4}
+    Sinister Plot:    {cost: 4}
+    # cost 5
+    Academy:          {cost: 5}
+    Capitalism:       {cost: 5}
+    Fleet:            {cost: 5}
+    Guildhall:        {cost: 5}
+    Piazza:           {cost: 5}
+    Road Network:     {cost: 5}
+    # cost 6 or more
+    Barracks:         {cost: 6}
+    Crop Rotation:    {cost: 6}
+    Innovation:       {cost: 6}
+    Canal:            {cost: 7}
+    Citadel:          {cost: 8}

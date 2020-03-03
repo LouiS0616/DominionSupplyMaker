@@ -29,6 +29,7 @@ _effect_create = {
     'boon':     _parse_effect_costless,
     'hex':      _parse_effect_costless,
     'state':    _parse_effect_costless,
+    'artifact': _parse_effect_costless,
 }
 
 

@@ -15,6 +15,7 @@ class Expansion(Translatable):
         assert raw_name in {
             'Dominion', 'Intrigue', 'Seaside', 'Alchemy', 'Prosperity', 'Cornucopia',
             'Hinterlands', 'DarkAges', 'Guilds', 'Adventures', 'Empires', 'Nocturne',
+            'Renaissance',
         }, f'Unknown expansion; "{raw_name}".'
 
         super().__init__(raw_name)
